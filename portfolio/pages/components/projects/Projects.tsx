@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./projects.module.css";
-import { text } from "stream/consumers";
 
 type Project = {
   name: string;
