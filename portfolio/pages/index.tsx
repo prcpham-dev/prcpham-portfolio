@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 const Header = dynamic(() => import("./components/header/Header"), { ssr: false });
 const Experience = dynamic(() => import("./components/experience/Experience"), { ssr: false });
 const Projects = dynamic(() => import("./components/projects/Projects"), { ssr: false });
-const Skills = dynamic(() => import("./components/skills/Skills"), { ssr: false });
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +11,6 @@ const Home: NextPage = () => {
       <Header />
       <Experience />
       <Projects />
-      <Skills />
     </main>
   );
 };
