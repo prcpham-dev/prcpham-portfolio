@@ -113,7 +113,7 @@
 .avatarCard {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding: 1rem;
 }
 
@@ -128,7 +128,24 @@
 
 .avatarMeta {
     margin-top: 1rem;
-    text-align: center;
+    text-align: flex-start;
+}
+
+.avatarMeta h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #e4e7ec;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 2px 6px rgba(0, 255, 170, 0.4);
+}
+
+.avatarMeta p {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #cbd5e1;  /* soft light gray */
+  text-shadow: 0 0 6px rgba(0, 255, 170, 0.4);
+  margin-top: 0.25rem;
 }
 
 .margin {
@@ -146,6 +163,5 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
-    padding: 6px 12px; 
+    padding: 6px 5px; 
 }
