@@ -1,88 +1,267 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./projects.module.css";
 
-const projects = [
+
+type Project = {
+  name: string;
+  tech: string;
+  image: string;
+  link?: string;
+  details: string;
+};
+
+
+const projects: Project[] = [
   {
     name: "ChatDocument",
     tech: "FastAPI, LangChain, Redis, Celery, React.js, Bootstrap, Docker, Nginx",
-    details: [
-      "Developed a Retrieval-Augmented Generation (RAG) app enabling users to upload and analyze PDFs with contextual AI chat.",
-      "Integrated Google Gemini Pro (2M tokens) with LangChain for embeddings, semantic search, and long-context reasoning.",
-      "Built a scalable backend with FastAPI, offloading heavy tasks asynchronously using Redis and Celery.",
-      "Designed a responsive frontend in React.js and Bootstrap for file upload, chat interaction, and insights display.",
-      "Deployed on a VPS with Docker, Nginx, and SSL certificates, securing API keys via environment management.",
-    ],
+    image: "",
+    link: "https://github.com/trungnguyen21/ChatDocument",
+    details: `Developed a Retrieval-Augmented Generation (RAG) app enabling users 
+              to upload and analyze PDFs with contextual AI chat. Integrated Google Gemini Pro (2M tokens) 
+              with LangChain for embeddings, semantic search, and long-context reasoning. Built a scalable 
+              backend with FastAPI, offloading heavy tasks asynchronously using Redis and Celery. Designed 
+              a responsive frontend in React.js and Bootstrap for file upload, chat interaction, and 
+              insights display. Deployed on a VPS with Docker, Nginx, and SSL certificates, securing 
+              API keys via environment management.`,
   },
   {
     name: "InstaSave",
     tech: "Chrome Extension, JavaScript, MutationObserver",
-    details: [
-      "Created a browser extension that injects a “Save” button into Instagram posts and stories for quick media downloads.",
-      "Used DOM manipulation and MutationObserver to dynamically detect and modify Instagram’s interface.",
-      "Delivered lightweight functionality to open or save images and videos directly from the browser.",
-    ],
+    image: "",
+    link: "https://github.com/prcpham-dev/InstaSave",
+    details: `Created a browser extension that injects a “Save” button into Instagram posts and stories 
+              for quick media downloads. Used DOM manipulation and MutationObserver to dynamically detect 
+              and modify Instagram’s interface. Delivered lightweight functionality to open or save images 
+              and videos directly from the browser.`,
   },
   {
     name: "Shufa Character Downloader",
     tech: "Selenium, asyncio, Tkinter, ChromeDriver",
-    details: [
-      "Built a desktop application with a Tkinter-based UI to automate downloading of Chinese calligraphy images.",
-      "Supported search by author, phrase, or style with configurable batch size, wait time, and image count.",
-      "Automated scraping with Selenium WebDriver to fetch and filter results for the selected calligrapher.",
-      "Leveraged asyncio to run multiple download tasks concurrently without blocking the UI.",
-      "Organized images into a structured local directory and displayed progress and logs in the UI.",
-    ],
+    image: "",
+    link: "https://github.com/prcpham-dev/Shufa-Character-Downloader",
+    details: `Built a desktop application with a Tkinter-based UI to automate downloading 
+              of Chinese calligraphy images. Supported search by author, phrase, or style with 
+              configurable batch size, wait time, and image count. Automated scraping with Selenium 
+              WebDriver to fetch and filter results for the selected calligrapher. Leveraged asyncio 
+              to run multiple download tasks concurrently without blocking the UI. Organized images 
+              into a structured local directory and displayed progress and logs in the UI.`,
   },
   {
     name: "Endless Runner",
     tech: "HTML5 Canvas, JavaScript, LocalStorage",
-    details: [
-      "Built an endless runner game where a ghost character flips gravity to dodge pillars, inspired by Flappy Bird.",
-      "Implemented physics with gravity inversion, collision detection, and difficulty scaling using vanilla JavaScript.",
-      "Designed game loop with requestAnimationFrame for smooth rendering on HTML5 Canvas.",
-      "Added HUD with score, high score persistence via localStorage, and interactive pause/restart controls.",
-      "Deployed on GitHub Pages for browser play: ",
-      <a href="https://prcpham-dev.github.io/Endless-Runner/" target="_blank" rel="noopener noreferrer">Endless Runner</a>,
-    ],
+    image: "",
+    link: "https://prcpham-dev.github.io/Endless-Runner/",
+    details: `Built an endless runner game where a ghost character flips gravity 
+              to dodge pillars, inspired by Flappy Bird. Implemented physics with gravity 
+              inversion, collision detection, and difficulty scaling using vanilla JavaScript. 
+              Designed game loop with requestAnimationFrame for smooth rendering on HTML5 Canvas. 
+              Added HUD with score, high score persistence via localStorage, and interactive 
+              pause/restart controls. Deployed on GitHub Pages for browser play.`,
   },
   {
     name: "SpeedCube",
     tech: "React.js, Three.js, Tailwind CSS",
-    details: [
-      "Built an interactive 3D Rubik’s Cube simulator with real-time rendering in a React web app.",
-      "Implemented a precision timer, customizable keybinds, and state control (shuffle, reset).",
-      "Designed a modern, responsive UI with Tailwind CSS for smooth cross-device use.",
-    ],
+    image: "",
+    link: "https://github.com/prcpham-dev/SpeedCube",
+    details: `Built an interactive 3D Rubik’s Cube simulator with real-time rendering in a React web app. 
+              Implemented a precision timer, customizable keybinds, and state control (shuffle, reset). 
+              Designed a modern, responsive UI with Tailwind CSS for smooth cross-device use.`,
   },
   {
     name: "YoutubeShorts_ClipMixer",
     tech: "OpenAI API, AssemblyAI, Tkinter, MoviePy",
-    details: [
-      "Built a GUI-based tool to automate YouTube Shorts creation from user-provided or AI-generated scripts.",
-      "Integrated APIs for narration, transcription, and captions to streamline video production.",
-      "Assembled and edited clips with MoviePy and FFmpeg, adding background music and rendering final output.",
-      "Provided a Tkinter interface to manage script input, API keys, and video preview/editing.",
-    ],
+    image: "",
+    link: "https://github.com/prcpham-dev/YoutubeShorts-ClipMixer",
+    details: `Built a GUI-based tool to automate YouTube Shorts creation from user-provided or 
+              AI-generated scripts. Integrated APIs for narration, transcription, and captions to streamline 
+              video production. Assembled and edited clips with MoviePy and FFmpeg, adding background music 
+              and rendering final output. Provided a Tkinter interface to manage script input, API keys, 
+              and video preview/editing.`,
+  },
+  {
+    name: "Mimic",
+    tech: "Python, Pygame",
+    image: "",
+    link: "https://github.com/prcpham-dev/Mimic",
+    details: `Developed a pixel-art RPG where players complete daily tasks, build routines, explore rooms, 
+              and interact with NPCs. Implemented a modular architecture with core systems (player, NPCs, 
+              tasks, background) and JSON-based data storage. Added interactable system for tasks, NPC dialogue, 
+              and Undertale-style combat without complex animations. Built room transitions, obstacles, 
+              inventory holding/swapping, and a countdown timer tied to daily cycles.`,
+  },
+  {
+    name: "ASCII Art Generator",
+    tech: "Java, Swing",
+    image: "",
+    link: "https://github.com/prcpham-dev/ASCII_artGenerator",
+    details: `Built a Java Swing app that converts text and images into ASCII art representations. Implemented 
+              pluggable Translator interface with TextTranslator and ImageTranslator. Created a custom ASCII 
+              font table for letters, numbers, and symbols. Packaged as a runnable JAR with automated build 
+              script.`,
+  },
+  {
+    name: "NextUp",
+    tech: "Swift, SwiftUI, MVVM, Clean Architecture",
+    image: "",
+    link: "https://github.com/prcpham-dev/Todo-iOSApp",
+    details: `Developed a to-do list iOS app with SwiftUI following Clean Architecture and the MVVM pattern. 
+              Implemented task management (create, edit, delete, toggle) with local persistence via UserDefaults. 
+              Designed a custom UI with light/dark mode support, animations, and color themes. Enhanced date 
+              navigation with week swipe, date selection, and extensions for time handling. Added user-friendly 
+              alerts, validations, and a built-in How-To guide.`,
   },
 ];
 
-const Projects: React.FC = () => (
-  <section className={styles.projectsSection}>
-    <h2 className={styles.projectsTitle}>Projects</h2>
-    {projects.map((proj, idx) => (
-      <div key={idx} className={styles.projectsBlock}>
-        <div className={`flex flex-wrap items-baseline ${styles.projectsRow}`}>
-          <span className={styles.projectsName}>{proj.name}</span>
-          <span className={styles.projectsTech}>{proj.tech}</span>
+function normalize(text: string) {
+  return text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join(" ");
+}
+
+const slug = (s: string) => s.toLowerCase().replace(/\s+/g, "-");
+
+const Projects: React.FC = () => {
+  const [current, setCurrent] = useState<Project | null>(null);
+  const [input, setInput] = useState("");
+  const [error, setError] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (projects.length > 0) {
+      setCurrent(projects[0]);
+    }
+  }, []);
+
+  const runCommand = (raw: string) => {
+    const trimmed = raw.trim();
+    if (!trimmed) return;
+
+    if (trimmed.startsWith("cd")) {
+      const arg = trimmed.replace(/^cd\s+/, "").trim();
+      if (!arg) return;
+
+      const proj = projects.find(
+        (p) => p.name.toLowerCase() === arg.toLowerCase() || slug(p.name) === arg.toLowerCase()
+      );
+
+      if (proj) {
+        setCurrent(proj);
+        setError("");
+      } else {
+        setError(`cd: no such project "${arg}"`);
+      }
+    }
+  };
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    runCommand(input);
+    setInput("");
+  };
+
+  return (
+    <section className={styles.section} aria-labelledby="projects-heading">
+      <h2 id="projects-heading" className={styles.title}>Projects</h2>
+
+      <div className={styles.terminal} onClick={() => inputRef.current?.focus()}>
+        <div className={styles.header} role="presentation">
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+          <div className={styles.headerTitle}>
+            prcpham-dev@portfolio — {current ? `/projects/${slug(current.name)}` : "/projects"}
+          </div>
         </div>
-        <ul className={styles.projectsList}>
-          {proj.details.map((detail, i) => (
-            <li key={i} className={styles.projectsDetail}>{detail}</li>
-          ))}
-        </ul>
+
+        <div className={styles.viewport}>
+          {/* always show ls */}
+          <div className={styles.block}>
+            <div className={styles.lineIn}>projects$ ls</div>
+            {projects.map((p) => (
+              <button
+                key={p.name}
+                className={styles.lineBtn}
+                onClick={() => runCommand(`cd ${p.name}`)}
+              >
+                {p.name}
+              </button>
+            ))}
+          </div>
+
+          {/* current project details */}
+          {current && (
+            <div className={styles.block}>
+              <div className={styles.lineIn}>cd /projects/{slug(current.name)}</div>
+
+              {current.image && (
+                <div className={styles.lineOut}>
+                  <img
+                    src={current.image}
+                    alt={current.name}
+                    className={styles.termImage}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
+
+              <div className={styles.lineOut}>
+                <span className={styles.label}>name:</span> {current.name}
+              </div>
+
+              <div className={styles.lineOut}>
+                <span className={styles.label}>tech:</span>{" "}
+                {current.tech.split(",").map((t) => (
+                  <span key={t} className={styles.tag}>
+                    #{t.trim().replace(/\s+/g, "-")}
+                  </span>
+                ))}
+              </div>
+
+              <div className={`${styles.lineOut} ${styles.details}`}>
+                {normalize(current.details)}
+              </div>
+
+              {current.link && (
+                <div className={styles.lineOut}>
+                  <a
+                    className={styles.link}
+                    href={current.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    open → {current.link}
+                  </a>
+                </div>
+              )}
+            </div>
+          )}
+
+          {error && (
+            <div className={styles.block}>
+              <div className={styles.lineOut}>
+                <span className={styles.label}>error:</span> {error}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <form className={styles.prompt} onSubmit={onSubmit}>
+          <span className={styles.promptLabel}>projects$</span>
+          <input
+            ref={inputRef}
+            className={styles.input}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="cd project-name"
+          />
+        </form>
       </div>
-    ))}
-  </section>
-);
+    </section>
+  );
+};
 
 export default Projects;
