@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./projects.module.css";
+import { text } from "stream/consumers";
 
 type Project = {
   name: string;
@@ -34,7 +35,7 @@ const projects: Project[] = [
               and videos directly from the browser.`,
   },
   {
-    name: "Shufa Character Downloader",
+    name: "Shufa_Character_Downloader",
     tech: "Selenium, asyncio, Tkinter, ChromeDriver",
     image: "",
     link: "https://github.com/prcpham-dev/Shufa-Character-Downloader",
@@ -46,7 +47,7 @@ const projects: Project[] = [
               into a structured local directory and displayed progress and logs in the UI.`,
   },
   {
-    name: "Endless Runner",
+    name: "Endless_Runner",
     tech: "HTML5 Canvas, JavaScript, LocalStorage",
     image: "",
     link: "https://prcpham-dev.github.io/Endless-Runner/",
@@ -89,7 +90,7 @@ const projects: Project[] = [
               inventory holding/swapping, and a countdown timer tied to daily cycles.`,
   },
   {
-    name: "ASCII Art Generator",
+    name: "ASCII_ArtGenerator",
     tech: "Java, Swing",
     image: "",
     link: "https://github.com/prcpham-dev/ASCII_artGenerator",
@@ -111,39 +112,23 @@ const projects: Project[] = [
   },
 ];
 
-function normalize(text: string) {
-  return text
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .join(" ");
-}
-
-const slug = (s: string) => s.toLowerCase().replace(/\s+/g, "-");
+const normalize = (text: string) => text.split("\n").map(s => s.trim()).filter(Boolean).join(" ");
 
 const Projects: React.FC = () => {
   const [current, setCurrent] = useState<Project>(projects[0]);
   const [input, setInput] = useState("");
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState("");
   const [hasInteracted, setHasInteracted] = useState(false);
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const nameLineRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // when project changes due to a user action → scroll the "name:" line to top
+  // when project changes due to a user action, scroll the "name:" line to top
   useEffect(() => {
     if (!hasInteracted) return;
-    const v = viewportRef.current;
-    const t = nameLineRef.current;
-    if (!v || !t) return;
-
-    requestAnimationFrame(() => {
-      const vRect = v.getBoundingClientRect();
-      const tRect = t.getBoundingClientRect();
-      const targetTop = v.scrollTop + (tRect.top - vRect.top);
-      v.scrollTo({ top: targetTop, behavior: "smooth" });
-    });
+    nameLineRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setHasInteracted(false);
   }, [current, hasInteracted]);
 
   const runCommand = (raw: string) => {
@@ -155,9 +140,7 @@ const Projects: React.FC = () => {
       const arg = trimmed.replace(/^cd\s+/, "").trim();
       if (!arg) return;
 
-      const proj =
-        projects.find((p) => p.name.toLowerCase() === arg.toLowerCase()) ||
-        projects.find((p) => slug(p.name) === arg.toLowerCase());
+      const proj = projects.find(p => p.name.toLowerCase() === arg.toLowerCase());
 
       if (proj) {
         setCurrent(proj);
@@ -184,7 +167,7 @@ const Projects: React.FC = () => {
           <span className={styles.dot} />
           <span className={styles.dot} />
           <div className={styles.headerTitle}>
-            prcpham-dev@portfolio — /{slug(current.name)}
+            prcpham-dev@portfolio — /{(current.name)}
           </div>
         </div>
 
@@ -205,7 +188,7 @@ const Projects: React.FC = () => {
 
           {/* current project details */}
           <div className={styles.block}>
-            <div className={styles.lineIn}>cd /projects/{slug(current.name)}</div>
+            <div className={styles.lineIn}>cd /projects/{(current.name)}</div>
 
             {current.image && (
               <div className={styles.lineOut}>

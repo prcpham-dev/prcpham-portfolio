@@ -32,24 +32,24 @@
 
   height: 75vh;
   width: min(80vw, 1100px);
-  margin-inline: auto; /* fixed typo */
+  margin-inline: auto;
 }
 
 .header {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.8rem 0.9rem; /* centered dots */
+  padding: 0.8rem 0.9rem;
   background: linear-gradient(180deg, rgba(255,255,255,.04), transparent);
   border-bottom: 1px solid var(--border);
 }
 
 .dot {
   width: 12px;
-  aspect-ratio: 1 / 1;     /* always square */
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   display: inline-block;
-  flex: 0 0 12px;          /* lock flex basis */
+  flex: 0 0 12px;
 }
 .dot:nth-child(1) { background: #ff5f56; }
 .dot:nth-child(2) { background: #ffbd2e; }
@@ -186,7 +186,7 @@
   border: 1px solid var(--border);
   padding: .55rem .7rem;
   border-radius: 8px;
-  width: 100%;
+  width: 90%;
   transition: border-color .2s ease;
 }
 .input::placeholder {
@@ -204,5 +204,5 @@
 /* ---------- responsive tweaks ---------- */
 @media (max-width: 480px) {
   .header { padding: 0.9rem 1rem; }
-  .dot { width: 8px; flex-basis: 11px; }
+  .dot { width: 9px; flex-basis: 9px; }
 }
