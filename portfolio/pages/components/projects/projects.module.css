@@ -32,22 +32,24 @@
 
   height: 75vh;
   width: min(80vw, 1100px);
-  margin-inline: autro;
+  margin-inline: auto; /* fixed typo */
 }
 
 .header {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.6rem 0.75rem;
+  padding: 0.8rem 0.9rem; /* centered dots */
   background: linear-gradient(180deg, rgba(255,255,255,.04), transparent);
   border-bottom: 1px solid var(--border);
 }
 
 .dot {
   width: 12px;
-  height: 12px;
+  aspect-ratio: 1 / 1;     /* always square */
   border-radius: 50%;
+  display: inline-block;
+  flex: 0 0 12px;          /* lock flex basis */
 }
 .dot:nth-child(1) { background: #ff5f56; }
 .dot:nth-child(2) { background: #ffbd2e; }
@@ -62,13 +64,22 @@
 
 .viewport {
   position: relative;
-  padding: .9rem .9rem 0 .9rem;
+  padding: .9rem 1.25rem 1.25rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   line-height: 1.6;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  min-width: 0;
 
   min-height: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
+
+  /* make room for overlay scrollbars */
+  scrollbar-gutter: stable;
+  padding-right: calc(1.25rem + env(safe-area-inset-right));
 
   scrollbar-width: thin;
   scrollbar-color: rgba(156,163,175,.45) transparent;
@@ -78,11 +89,9 @@
   width: 10px;
   height: 10px;
 }
-
 .viewport::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .viewport::-webkit-scrollbar-thumb {
   background-color: rgba(156,163,175,.45);
   border-radius: 999px;
@@ -91,12 +100,10 @@
   transition: background-color .2s ease, opacity .2s ease;
   opacity: .9;
 }
-
 .viewport:hover::-webkit-scrollbar-thumb {
   background-color: rgba(156,163,175,.75);
   opacity: 1;
 }
-
 .viewport::-webkit-scrollbar-corner {
   background: transparent;
 }
@@ -182,11 +189,9 @@
   width: 100%;
   transition: border-color .2s ease;
 }
-
 .input::placeholder {
   color: #7b8799;
 }
-
 .input:focus {
   outline: none;
   border-color: var(--accent);
@@ -195,3 +200,9 @@
 
 .link { color: var(--accent-3); text-decoration: none; }
 .link:hover { text-decoration: underline; }
+
+/* ---------- responsive tweaks ---------- */
+@media (max-width: 480px) {
+  .header { padding: 0.9rem 1rem; }
+  .dot { width: 8px; flex-basis: 11px; }
+}

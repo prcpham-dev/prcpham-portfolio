@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./projects.module.css";
 
-
 type Project = {
   name: string;
   tech: string;
@@ -9,7 +8,6 @@ type Project = {
   link?: string;
   details: string;
 };
-
 
 const projects: Project[] = [
   {
@@ -124,28 +122,42 @@ function normalize(text: string) {
 const slug = (s: string) => s.toLowerCase().replace(/\s+/g, "-");
 
 const Projects: React.FC = () => {
-  const [current, setCurrent] = useState<Project | null>(null);
+  const [current, setCurrent] = useState<Project>(projects[0]);
   const [input, setInput] = useState("");
   const [error, setError] = useState<string>("");
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const nameLineRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // when project changes due to a user action → scroll the "name:" line to top
   useEffect(() => {
-    if (projects.length > 0) {
-      setCurrent(projects[0]);
-    }
-  }, []);
+    if (!hasInteracted) return;
+    const v = viewportRef.current;
+    const t = nameLineRef.current;
+    if (!v || !t) return;
+
+    requestAnimationFrame(() => {
+      const vRect = v.getBoundingClientRect();
+      const tRect = t.getBoundingClientRect();
+      const targetTop = v.scrollTop + (tRect.top - vRect.top);
+      v.scrollTo({ top: targetTop, behavior: "smooth" });
+    });
+  }, [current, hasInteracted]);
 
   const runCommand = (raw: string) => {
     const trimmed = raw.trim();
     if (!trimmed) return;
 
     if (trimmed.startsWith("cd")) {
+      setHasInteracted(true);
       const arg = trimmed.replace(/^cd\s+/, "").trim();
       if (!arg) return;
 
-      const proj = projects.find(
-        (p) => p.name.toLowerCase() === arg.toLowerCase() || slug(p.name) === arg.toLowerCase()
-      );
+      const proj =
+        projects.find((p) => p.name.toLowerCase() === arg.toLowerCase()) ||
+        projects.find((p) => slug(p.name) === arg.toLowerCase());
 
       if (proj) {
         setCurrent(proj);
@@ -172,11 +184,11 @@ const Projects: React.FC = () => {
           <span className={styles.dot} />
           <span className={styles.dot} />
           <div className={styles.headerTitle}>
-            prcpham-dev@portfolio — {current ? `/projects/${slug(current.name)}` : "/projects"}
+            prcpham-dev@portfolio — /{slug(current.name)}
           </div>
         </div>
 
-        <div className={styles.viewport}>
+        <div className={styles.viewport} ref={viewportRef}>
           {/* always show ls */}
           <div className={styles.block}>
             <div className={styles.lineIn}>projects$ ls</div>
@@ -192,54 +204,54 @@ const Projects: React.FC = () => {
           </div>
 
           {/* current project details */}
-          {current && (
-            <div className={styles.block}>
-              <div className={styles.lineIn}>cd /projects/{slug(current.name)}</div>
+          <div className={styles.block}>
+            <div className={styles.lineIn}>cd /projects/{slug(current.name)}</div>
 
-              {current.image && (
-                <div className={styles.lineOut}>
-                  <img
-                    src={current.image}
-                    alt={current.name}
-                    className={styles.termImage}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              )}
-
+            {current.image && (
               <div className={styles.lineOut}>
-                <span className={styles.label}>name:</span> {current.name}
+                <img
+                  src={current.image}
+                  alt={current.name}
+                  className={styles.termImage}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
+            )}
 
-              <div className={styles.lineOut}>
-                <span className={styles.label}>tech:</span>{" "}
-                {current.tech.split(",").map((t) => (
-                  <span key={t} className={styles.tag}>
-                    #{t.trim().replace(/\s+/g, "-")}
-                  </span>
-                ))}
-              </div>
-
-              <div className={`${styles.lineOut} ${styles.details}`}>
-                {normalize(current.details)}
-              </div>
-
-              {current.link && (
-                <div className={styles.lineOut}>
-                  <a
-                    className={styles.link}
-                    href={current.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    open → {current.link}
-                  </a>
-                </div>
-              )}
+            {/* target line to pin at top after user action */}
+            <div className={styles.lineOut} ref={nameLineRef}>
+              <span className={styles.label}>name:</span> {current.name}
             </div>
-          )}
 
+            <div className={styles.lineOut}>
+              <span className={styles.label}>tech:</span>{" "}
+              {current.tech.split(",").map((t) => (
+                <span key={t} className={styles.tag}>
+                  #{t.trim().replace(/\s+/g, "-")}
+                </span>
+              ))}
+            </div>
+
+            <div className={`${styles.lineOut} ${styles.details}`}>
+              {normalize(current.details)}
+            </div>
+
+            {current.link && (
+              <div className={styles.lineOut}>
+                <a
+                  className={styles.link}
+                  href={current.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  open → {current.link}
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* error at very bottom */}
           {error && (
             <div className={styles.block}>
               <div className={styles.lineOut}>
