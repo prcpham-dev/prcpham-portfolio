@@ -158,7 +158,7 @@ const Projects: React.FC = () => {
 
   return (
     <section className={styles.section} aria-labelledby="projects-heading">
-      <h2 id="projects-heading" className={styles.title}>Projects</h2>
+      <div id="projects-heading" className={styles.title}>Projects</div>
 
       <div className={styles.terminal} onClick={() => inputRef.current?.focus()}>
         <div className={styles.header} role="presentation">
@@ -187,7 +187,7 @@ const Projects: React.FC = () => {
 
           {/* current project details */}
           <div className={styles.block}>
-            <div className={styles.lineIn}>cd /projects/{(current.name)}</div>
+            <div className={styles.lineIn}>cd /{(current.name)}</div>
 
             {current.image && (
               <div className={styles.lineOut}>

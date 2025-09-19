@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Endless Runner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111" />
+    <link rel="stylesheet" href="/Endless-run/styles.css" />
+  </head>
+  <body>
+    <main class="wrap" id="app">
+      <section class="stage" aria-label="Game stage">
+        <div class="canvas-wrap">
+          <canvas
+            id="game"
+            width="1050"
+            height="350"
+            aria-label="Endless runner game canvas"
+            role="img"
+          ></canvas>
+        </div>
+        <div class="hud" aria-label="Game controls">
+          <p class="help" id="help-text">
+            Flip: <kbd>Space</kbd> or <kbd>Click</kbd> · Pause: <kbd>P</kbd> · Restart: <kbd>R</kbd> ·
+            Space also restarts on crash
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/Endless-run/src/utils.js"></script>
+    <script src="/Endless-run/src/hud.js"></script>
+    <script src="/Endless-run/src/ghost.js"></script>
+    <script src="/Endless-run/src/pillars.js"></script>
+    <script src="/Endless-run/src/game.js" defer></script>
+  </body>
+</html>

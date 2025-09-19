@@ -31,7 +31,7 @@ const experiences = [
 
 const Experience: React.FC = () => (
   <section className={styles.experienceSection}>
-    <h2 className={styles.experienceTitle}>Experience</h2>
+    <div className={styles.title}>Experience</div>
     {experiences.map((exp, idx) => (
       <div key={idx} className={styles.experienceBlock}>
         <div className={`flex flex-wrap items-baseline ${styles.experienceRow}`}>
