@@ -89,11 +89,11 @@ const About: React.FC = () => {
           </pre>
         </div>
         <iframe
-          src="/Endless-run/index.html"
+          src="/GhostRun/index.html"
           width="100%"
           height="100%"
           style={{ border: "none", display: "block", overflow: "hidden" }}
-          title="Endless Runner Game"
+          title="GhostRun Game"
         />
       </div>
     </section>

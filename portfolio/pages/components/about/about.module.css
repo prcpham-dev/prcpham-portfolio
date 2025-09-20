@@ -47,6 +47,7 @@
     color: #e4e7ec;
 }
 
+
 .infoCard {
     margin-top: 20px;
     display: flex;
@@ -114,7 +115,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .avatarImg {
@@ -154,7 +155,7 @@
 }
 
 .aboutTitle {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: #6ee7b7;
     text-shadow: 0 0 8px #34d399, 0 0 12px rgba(94, 234, 212, 0.5);
