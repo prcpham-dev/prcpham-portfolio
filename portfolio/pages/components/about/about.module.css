@@ -47,9 +47,9 @@
     color: #e4e7ec;
 }
 
-
 .infoCard {
     margin-top: 20px;
+    margin-bottom:20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -65,8 +65,8 @@
     border-radius: 6px;
     transition: transform 0.2s ease, background 0.2s ease, padding 0.2s ease;
     transform-origin: center;
-
     margin-right: 1rem;
+    width: 20vw;
 }
 .rowText,
 .link {
@@ -118,6 +118,13 @@
     padding: 0.5rem;
 }
 
+@media (max-width: 1024px) {
+    .avatarCard {
+        align-items: center;
+        text-align: center; 
+    }
+}
+
 .avatarImg {
     width: 14rem;
     height: 14rem;
@@ -149,9 +156,9 @@
   margin-top: 0.25rem;
 }
 
-.margin {
+.aboutWrapper {
     width: 80%;
-    margin-top: 10vh;
+    margin-top: 12vh;
 }
 
 .aboutTitle {

@@ -7,7 +7,7 @@ const Projects = dynamic(() => import("./components/projects/Projects"), { ssr: 
 
 const Home: NextPage = () => {
   return (
-    <main className="flex flex-col min-h-screen items-center justify-start bg-gray-50 text-gray-900 px-4 py-8">
+    <main className="flex flex-col items-center w-full">
       <About />
       <Experience />
       <Projects />

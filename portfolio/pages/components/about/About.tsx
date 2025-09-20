@@ -3,8 +3,8 @@ import styles from "./about.module.css";
 
 const About: React.FC = () => {
   return (
-    <section className={`grid grid-cols-12 ${styles.margin}`}>
-      <div className="col-span-4">
+    <section className={`grid grid-cols-12 ${styles.aboutWrapper}`}>
+      <div className="col-span-12 lg:col-span-4">
         <div className={styles.avatarCard}>
           <img
             src="" 
@@ -65,7 +65,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-8">
+      <div className="col-span-12 lg:col-span-8">
         <div className={styles.codeCard}>
           <div className={styles.cardHeader}>
             <span className={styles.fileLabel}>prcpham-dev / README.md</span>
