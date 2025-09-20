@@ -43,7 +43,10 @@ const Experience: React.FC = () => {
 
   return (
     <section aria-labelledby="exp-title">
-      <h2 id="exp-title" className={styles.title}>Experience</h2>
+      <h2 id="exp-title" className={styles.title}>
+        <span className={styles.titleText}>Experience</span>
+        <img src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" />
+      </h2>
 
       {reversed.map((exp, idx) => {
         const isOpen = openIndex === idx;

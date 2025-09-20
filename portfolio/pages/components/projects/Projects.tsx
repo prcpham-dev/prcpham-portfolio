@@ -158,7 +158,10 @@ const Projects: React.FC = () => {
 
   return (
     <section className={styles.section} aria-labelledby="projects-heading">
-      <div id="projects-heading" className={styles.title}>Projects</div>
+      <div id="projects-heading" className={styles.title}>
+        <img src="/Items/LittleGhost.gif" className={styles.littleGhostImg} alt="Little Ghost" />
+        <span className={styles.titleText}>Projects</span>
+      </div>
 
       <div className={styles.terminal} onClick={() => inputRef.current?.focus()}>
         <div className={styles.header} role="presentation">
