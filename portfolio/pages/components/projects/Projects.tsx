@@ -46,10 +46,10 @@ const projects: Project[] = [
               into a structured local directory and displayed progress and logs in the UI.`,
   },
   {
-    name: "Endless_Runner",
+    name: "GhosrRun",
     tech: "HTML5 Canvas, JavaScript, LocalStorage",
     image: "",
-    link: "https://prcpham-dev.github.io/Endless-Runner/",
+    link: "https://prcpham-dev.github.io/GhostRun/",
     details: `Built an endless runner game where a ghost character flips gravity 
               to dodge pillars, inspired by Flappy Bird. Implemented physics with gravity 
               inversion, collision detection, and difficulty scaling using vanilla JavaScript. 
