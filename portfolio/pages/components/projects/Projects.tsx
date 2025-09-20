@@ -46,7 +46,7 @@ const projects: Project[] = [
               into a structured local directory and displayed progress and logs in the UI.`,
   },
   {
-    name: "GhosrRun",
+    name: "GhostRun",
     tech: "HTML5 Canvas, JavaScript, LocalStorage",
     image: "",
     link: "https://prcpham-dev.github.io/GhostRun/",
