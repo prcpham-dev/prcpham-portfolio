@@ -1,7 +1,7 @@
 .footer {
   background: linear-gradient(180deg, #0f1620, #0a1310);
   color: #6ee7b7;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   text-align: center;
   font-size: 1rem;
   border-top: 1px solid #1e293b;
@@ -17,6 +17,7 @@
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   animation: gradientShift 6s ease infinite;
   text-shadow: 0 0 10px rgba(94, 234, 212, 0.6);
 }
@@ -31,7 +32,7 @@
   position: relative;
   color: #6ee7b7;
   text-decoration: none;
-  margin: 0 0.5rem;
+  margin: 0 0.75rem;
   font-weight: 600;
   transition: color 0.2s;
 }
@@ -57,4 +58,15 @@
 .footer a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.icon {
+  color: #6ee7b7;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease, color 0.2s;
+}
+
+.icon:hover {
+  color: #3b82f6;
+  transform: scale(1.2);
 }
