@@ -1,7 +1,7 @@
 @import "tailwindcss";
 html, body, #__next {
   height: 100%;
-  scroll-padding-top: 10vh;
+  scroll-padding-top: 2vh;
   scroll-behavior: smooth;
 }
 
