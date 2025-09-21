@@ -3,7 +3,7 @@
   align-items: flex-end;
   justify-content: center;
   gap: 0.5em;
-  margin-top: 25vh;
+  margin-top: 30vh;
   margin-bottom: clamp(2rem, 2vw, 3rem);
   text-align: center;
   font-weight: 900;
@@ -12,8 +12,14 @@
   color: #6ee7b7;
   text-shadow: 0 0 8px #34d399, 0 0 14px rgba(94,234,212,0.5);
   animation: ledPulse 1.8s infinite alternate ease-in-out;
-  margin-right: -0.5em;
 }
+
+@media (max-width: 875px) {
+  .title {
+    margin-top: 5vh;
+  }
+}
+
 .titleText {
   display: block;
   position: static;
@@ -25,6 +31,7 @@
   object-fit: contain;
   filter: drop-shadow(0 0 12px #ffd700) drop-shadow(0 0 24px #ff9800);
   margin-left: -0.4em;
+  margin-right: -1em;
   margin-bottom: -0.3em;
 }
 @media (max-width: 600px) {
@@ -60,6 +67,13 @@
   overflow: hidden;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
+
+@media (max-width: 1024px) {
+  .experienceBlock {
+    width: 90%;
+  }
+}
+
 .experienceBlock:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.35);

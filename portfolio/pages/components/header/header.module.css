@@ -1,0 +1,91 @@
+.header {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.1);
+  pointer-events: auto;
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+  background: linear-gradient(90deg, #6ee7b7, #89CFF0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: 24px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(90deg, #6ee7b7, #89CFF0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.2s ease;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #6ee7b7, #89CFF0);
+  box-shadow: 0 0 6px #6ee7b7, 0 0 10px #89CFF0;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  width: 100%;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  text-shadow: 
+    0 0 8px #00ffcc, 
+    0 0 12px #66ccff;
+  outline: none;
+}
+
+.navLink:active {
+  transform: scale(0.95);
+  background: linear-gradient(90deg, #ffd700, #ffcc33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .header {
+    display: none;
+  }
+}

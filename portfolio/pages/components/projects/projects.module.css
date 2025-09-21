@@ -1,7 +1,7 @@
 .section {
   padding: clamp(1rem, 2vw, 2rem);
   display: block;
-  margin-bottom: 10vh;
+  margin-bottom: 2vh;
 }
 
 .title {

@@ -90,9 +90,7 @@ const About: React.FC = () => {
         </div>
         <iframe
           src="/GhostRun/index.html"
-          width="100%"
-          height="100%"
-          style={{ border: "none", display: "block", overflow: "hidden" }}
+          className={styles.gameFrame}
           title="GhostRun Game"
         />
       </div>
