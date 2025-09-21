@@ -1,27 +1,39 @@
 .footer {
   background: linear-gradient(180deg, #0f1620, #0a1310);
   color: #6ee7b7;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   text-align: center;
   font-size: 1rem;
   border-top: 1px solid #1e293b;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
-  width: 100%; 
+  width: 100%;
+  position: relative;
 }
 
 .footerText {
   font-weight: 700;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  text-shadow: 0 0 8px #34d399, 0 0 12px rgba(94, 234, 212, 0.5);
-  animation: ledPulse 1.8s infinite alternate ease-in-out;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  background: linear-gradient(90deg, #6ee7b7, #06b6d4, #3b82f6);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease infinite;
+  text-shadow: 0 0 10px rgba(94, 234, 212, 0.6);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .footer a {
+  position: relative;
   color: #6ee7b7;
   text-decoration: none;
-  margin: 0 0.75rem;
-  transition: color 0.2s, text-shadow 0.2s;
+  margin: 0 0.5rem;
   font-weight: 600;
+  transition: color 0.2s;
 }
 
 .footer a:hover {
@@ -29,23 +41,20 @@
   text-shadow: 0 0 6px #3b82f6, 0 0 12px #60a5fa;
 }
 
-@keyframes ledPulse {
-  0% {
-    opacity: 1;
-    text-shadow: 
-      0 0 6px rgba(126, 248, 195, 0.7),
-      0 0 12px rgba(94, 234, 212, 0.5);
-  }
-  50% {
-    opacity: 0.85;
-    text-shadow: 
-      0 0 4px rgba(126, 248, 195, 0.6),
-      0 0 8px rgba(94, 234, 212, 0.4);
-  }
-  100% {
-    opacity: 1;
-    text-shadow: 
-      0 0 8px rgba(126, 248, 195, 0.8),
-      0 0 16px rgba(94, 234, 212, 0.6);
-  }
+.footer a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #6ee7b7;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.footer a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
