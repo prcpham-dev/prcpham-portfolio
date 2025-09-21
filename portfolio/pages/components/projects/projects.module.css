@@ -1,7 +1,8 @@
 .section {
-  padding: clamp(1rem, 2vw, 2rem);
-  display: block;
-  margin-bottom: 2vh;
+    padding: clamp(1rem, 2vw, 2rem);
+    display: block;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
 }
 
 .title {
@@ -10,7 +11,6 @@
     justify-content: center;
     gap: 0.5em;
     position: relative;
-    margin-top: 5vh;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     text-align: center;
@@ -120,8 +120,6 @@
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-
-    /* make room for overlay scrollbars */
     scrollbar-gutter: stable;
     padding-right: calc(1.25rem + env(safe-area-inset-right));
 
@@ -237,7 +235,6 @@
 .link { color: var(--accent-3); text-decoration: none; }
 .link:hover { text-decoration: underline; }
 
-/* ---------- responsive tweaks ---------- */
 @media (max-width: 480px) {
     .header { padding: 0.9rem 1rem; }
     .dot { width: 9px; flex-basis: 9px; }

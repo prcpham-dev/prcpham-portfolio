@@ -42,7 +42,7 @@ const Experience: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section id="experience" aria-labelledby="experience">
+    <section id="experience" aria-labelledby="experience" className={styles.section}>
       <h2 id="experience" className={styles.title}>
         <span className={styles.titleText}>Experience</span>
         <img src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" />

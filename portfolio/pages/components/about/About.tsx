@@ -1,23 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./about.module.css";
 
 const About: React.FC = () => {
+  const images = [
+    "/ProfilePics/01.jpeg",
+    "/ProfilePics/02.jpeg",
+    "/ProfilePics/03.jpeg",
+    "/ProfilePics/04.jpeg",
+    "/ProfilePics/05.jpeg"
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // rotate profile pictures
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // check screen width
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className={`grid grid-cols-12 ${styles.aboutWrapper}`}>
+      {/* Avatar + Info Card */}
       <div className="col-span-12 lg:col-span-4">
         <div className={styles.avatarCard}>
           <img
-            src="" 
-            alt="Phong Pham (Percy)"
+            src={images[currentIndex]}
             className={styles.avatarImg}
-            loading="lazy"
+            alt="Profile"
           />
           <div className={styles.avatarMeta}>
             <h1>Phong Pham (Percy)</h1>
             <p>prcpham-dev</p>
           </div>
         </div>
-        
+
         <div className={styles.infoCard}>
           <div className={styles.aboutTitle}>About Me:</div>
           <div className={styles.row}>
@@ -50,7 +77,7 @@ const About: React.FC = () => {
               rel="noopener noreferrer"
               className={styles.link}
             >
-              Github: @prcpham-dev
+              GitHub: @prcpham-dev
             </a>
           </div>
           <div className={styles.row}>
@@ -65,29 +92,39 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Code Card + Game */}
       <div className="col-span-12 lg:col-span-8">
         <div className={styles.codeCard}>
           <div className={styles.cardHeader}>
             <span className={styles.fileLabel}>prcpham-dev / README.md</span>
           </div>
           <pre className={styles.code}>
-{`
-💬 About Me:
+{isMobile ? (
+`💬 About Me:
+🛌 Born to sleep  
+💻 Forced to work 
+
+      ᕙ(  •̀ ᗜ •́  )ᕗ
+`
+) : (
+`💬 About Me:
 🛌 Born to sleep  
 💻 Forced to work  
 🔁 Surviving with
-            
+
             while (alive) {
-                  eatSomething();     // 🍣 Sushi, 🥩 anything edible...
-                  writeCode();        // Bugs. Debugs. More bugs.
-                  sleep();            // 😴 Maybe 7+ hours.
+                  eatSomething();              // 🍣 Sushi, 🥩 anything edible...
+                  writeCode();                 // Bugs. Debugs. More bugs.
+                  sleep();                     // 😴 Maybe 7+ hours.
                   if (isWeekend) {
-                        haveALife();         // 🌤️ Go outside...
+                        haveALife();           // 🌤️ Go outside...
                   }
-            }
-`}
+            }`
+)}
           </pre>
         </div>
+
         <iframe
           src="/GhostRun/index.html"
           className={styles.gameFrame}

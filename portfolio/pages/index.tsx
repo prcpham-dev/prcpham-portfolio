@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
 const About = dynamic(() => import("./components/about/About"), { ssr: false });
+const Intro = dynamic(() => import("./components/Intro/Intro"), { ssr: false });
 const Experience = dynamic(() => import("./components/experience/Experience"), { ssr: false });
 const Projects = dynamic(() => import("./components/projects/Projects"), { ssr: false });
 
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
       <Header />
       <main className="flex flex-col items-center w-full">
         <About />
+        <Intro />
         <Experience />
         <Projects />
       </main>

@@ -18,7 +18,6 @@
     overflow: hidden;
     box-shadow: 0 16px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
     color: #e4e7ec;
-
     margin: 0 auto;
 }
 
@@ -49,10 +48,18 @@
 
 .infoCard {
     margin-top: 20px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    width: 24vw;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #6ee7b7;
+    box-shadow: 0 0 10px #34d399,
+                0 0 18px rgba(94,234,212,0.5);
+    background: rgba(0,0,0,0.15);
 }
 
 .row {
@@ -62,11 +69,11 @@
     gap: 4px;
     padding: 6px 5px;
     border-radius: 6px;
-    transition: transform 0.2s ease, background 0.2s ease, padding 0.2s ease;
     transform-origin: center;
     margin-right: 1rem;
     width: 20vw;
 }
+
 .rowText,
 .link {
     color: #e5e7eb;
@@ -95,14 +102,6 @@
     border-radius: 4px;
 }
 
-.row:hover {
-  background: rgba(74, 222, 128, 0.12);
-  border-radius: 6px;
-  padding: 6px 12px;
-  transform: scale(1.02);
-  box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
-}
-
 .subText {
     font-size: 0.85rem;
     color: #9ca3af;
@@ -125,9 +124,9 @@
     .row {
         width: 95%;
     }
-
     .infoCard {
         margin-left: 3vw;
+        width: 95%;
     }
 }
 
@@ -138,7 +137,7 @@
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-    margin-bottom: 1.5vh;
+    margin-bottom: 2vh;
 }
 
 .avatarMeta {
@@ -156,11 +155,11 @@
 }
 
 .avatarMeta p {
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: #cbd5e1;
-  text-shadow: 0 0 6px rgba(0, 255, 170, 0.4);
-  margin-top: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #cbd5e1;
+    text-shadow: 0 0 6px rgba(0, 255, 170, 0.4);
+    margin-top: 0.25rem;
 }
 
 .aboutWrapper {
@@ -182,16 +181,15 @@
 }
 
 .gameFrame {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-  overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    overflow: hidden;
 }
 
 @media (max-width: 875px) {
-  .gameFrame {
-    display: none;
-  }
+    .gameFrame {
+        display: none;
+    }
 }
-
