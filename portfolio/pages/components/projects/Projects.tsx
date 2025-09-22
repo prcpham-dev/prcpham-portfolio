@@ -13,7 +13,7 @@ const projects: Project[] = [
   {
     name: "ChatDocument",
     tech: "FastAPI, LangChain, Redis, Celery, React.js, Bootstrap, Docker, Nginx",
-    image: "projects/chatDocument.png",
+    image: "Projects/chatDocument.png",
     link: "https://github.com/trungnguyen21/ChatDocument",
     details: `Developed a Retrieval-Augmented Generation (RAG) app enabling users 
               to upload and analyze PDFs with contextual AI chat. Integrated Google Gemini Pro (2M tokens) 
@@ -26,7 +26,7 @@ const projects: Project[] = [
   {
     name: "InstaSave",
     tech: "Chrome Extension, JavaScript, MutationObserver",
-    image: "projects/InstaSave.png",
+    image: "Projects/InstaSave.png",
     link: "https://github.com/prcpham-dev/InstaSave",
     details: `Created a browser extension that injects a “Save” button at the top-right corner into Instagram 
               posts and stories for quick media downloads. Used DOM manipulation and MutationObserver to 
@@ -36,7 +36,7 @@ const projects: Project[] = [
   {
     name: "Shufa_Character_Downloader",
     tech: "Selenium, asyncio, Tkinter, ChromeDriver",
-    image: "projects/ShufaDownloader.png",
+    image: "Projects/ShufaDownloader.png",
     link: "https://github.com/prcpham-dev/Shufa-Character-Downloader",
     details: `Built a desktop application with a Tkinter-based UI to automate downloading 
               of Chinese calligraphy images. Supported search by author, phrase, or style with 
@@ -48,7 +48,7 @@ const projects: Project[] = [
   {
     name: "GhostRun",
     tech: "HTML5 Canvas, JavaScript, LocalStorage",
-    image: "projects/GhostRun.gif",
+    image: "Projects/GhostRun.gif",
     link: "https://prcpham-dev.github.io/GhostRun/",
     details: `Built an endless runner game where a ghost character flips gravity 
               to dodge pillars, inspired by Flappy Bird. Implemented physics with gravity 
@@ -60,7 +60,7 @@ const projects: Project[] = [
   {
     name: "SpeedCube",
     tech: "React.js, Three.js, Tailwind CSS",
-    image: "projects/SpeedCube.gif",
+    image: "Projects/SpeedCube.gif",
     link: "https://github.com/prcpham-dev/SpeedCube",
     details: `Built an interactive 3D Rubik’s Cube simulator with real-time rendering in a React web app. 
               Implemented a precision timer, customizable keybinds, and state control (shuffle, reset). 
@@ -69,7 +69,7 @@ const projects: Project[] = [
   {
     name: "YoutubeShorts_ClipMixer",
     tech: "OpenAI API, AssemblyAI, Tkinter, MoviePy",
-    image: "projects/clipMixer.png",
+    image: "Projects/clipMixer.png",
     link: "https://github.com/prcpham-dev/YoutubeShorts-ClipMixer",
     details: `Built a GUI-based tool to automate YouTube Shorts creation from user-provided or 
               AI-generated scripts. Integrated APIs for narration, transcription, and captions to streamline 
@@ -80,7 +80,7 @@ const projects: Project[] = [
   {
     name: "Mimic",
     tech: "Python, Pygame",
-    image: "projects/Mimic.gif",
+    image: "Projects/Mimic.gif",
     link: "https://github.com/prcpham-dev/Mimic",
     details: `Developed a pixel-art RPG where players complete daily tasks, build routines, explore rooms, 
               and interact with NPCs. Implemented a modular architecture with core systems (player, NPCs, 
@@ -91,7 +91,7 @@ const projects: Project[] = [
   {
     name: "ASCII_ArtGenerator",
     tech: "Java, Swing",
-    image: "projects/ASCII_artGenerator.png",
+    image: "Projects/ASCII_artGenerator.png",
     link: "https://github.com/prcpham-dev/ASCII_artGenerator",
     details: `Built a Java Swing app that converts text and images into ASCII art representations. Implemented 
               pluggable Translator interface with TextTranslator and ImageTranslator. Created a custom ASCII 
@@ -101,7 +101,7 @@ const projects: Project[] = [
   {
     name: "NextUp",
     tech: "Swift, SwiftUI, MVVM, Clean Architecture",
-    image: "projects/NextUp.png",
+    image: "Projects/NextUp.png",
     link: "https://github.com/prcpham-dev/Todo-iOSApp",
     details: `Developed a to-do list iOS app with SwiftUI following Clean Architecture and the MVVM pattern. 
               Implemented task management (create, edit, delete, toggle) with local persistence via UserDefaults. 
