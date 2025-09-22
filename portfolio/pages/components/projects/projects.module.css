@@ -108,7 +108,7 @@
 
 .viewport {
     position: relative;
-    padding: .9rem 1.25rem 1.25rem;
+    padding: .9rem 1.25rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     line-height: 1.6;
     white-space: normal;
@@ -231,6 +231,23 @@
     box-shadow: 0 0 6px rgba(74, 222, 128, .3);
 }
 
+.termImage {
+    display: block;
+    margin: 5px auto 8px 2vw;
+    max-width: 80%;
+    max-height: 35vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+
+@media (max-width: 1024px) {
+    .termImage {
+        margin: 5px auto 8px auto;
+    }
+}
 
 .link { color: var(--accent-3); text-decoration: none; }
 .link:hover { text-decoration: underline; }
