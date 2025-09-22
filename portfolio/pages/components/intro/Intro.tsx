@@ -6,7 +6,7 @@ const Intro: React.FC = () => (
     <div className={styles.title}>Intro</div>
     <h2 className={styles.heading}>Hi, I’m Pham.</h2>
     <p className={styles.paragraph}>
-      Blah blah blah. we write something later.
+      Blah blah blah. I will write something later.
     </p>
   </section>
 );
