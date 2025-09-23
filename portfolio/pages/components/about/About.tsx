@@ -52,7 +52,7 @@ const About: React.FC = () => {
               University of British Columbia
             </span>
             <span className={styles.subText}>
-              Computer Science · 3rd Year
+              {/* Computer Science · 4th Year */}
             </span>
           </div>
           <div className={styles.row}>

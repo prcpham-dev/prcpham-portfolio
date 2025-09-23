@@ -7,7 +7,7 @@
     align-items: flex-end;
     justify-content: center;
     gap: 0.5em;
-    margin-bottom: clamp(2rem, 2vw, 3rem);
+    margin: 0 auto 1.5rem auto;
     text-align: center;
     font-weight: 900;
     font-size: clamp(1.6rem, 4.2vw, 3.25rem);
@@ -16,39 +16,16 @@
     text-shadow: 0 0 8px #34d399, 0 0 14px rgba(94,234,212,0.5);
     animation: ledPulse 1.8s infinite alternate ease-in-out;
 }
+@media (min-width:1025px) {
+    .experienceWrapper {
+        margin-left:5%;
+        margin-right:5%;
+    }
+}
 
 .titleText {
     display: block;
     position: static;
-}
-
-.quackyImg {
-    position: static;
-    width: 1.5em;
-    height: 1.5em;
-    object-fit: contain;
-    filter: drop-shadow(0 0 12px #ffd700) drop-shadow(0 0 24px #ff9800);
-    margin-left: -0.4em;
-    margin-right: -1em;
-    margin-bottom: -0.3em;
-}
-
-@media (max-width: 600px) {
-  .quackyImg {
-    right: 6.75em;
-  }
-}
-
-.glowQuacky {
-    filter: drop-shadow(0 0 10px #ffd700) drop-shadow(0 0 20px #ff9800);
-    transition: filter 0.3s;
-}
-
-.quackyRight {
-    position: absolute;
-    left: 50.5%;
-    transform: translateX(160%);
-    height: 1.5em;
 }
 
 @keyframes ledPulse {
@@ -268,5 +245,79 @@
         position: absolute;
         top: 0.5rem;
         right: 0.5rem;
+    }
+}
+
+.quackyImg {
+    position: static;
+    width: 1.5em;
+    height: 1.5em;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px #ffd700) drop-shadow(0 0 24px #ff9800);
+    margin-left: -0.4em;
+    margin-right: -1em;
+    margin-bottom: -0.3em;
+}
+
+@media (max-width: 600px) {
+  .quackyImg {
+    right: 6.75em;
+  }
+}
+
+.glowQuacky {
+    filter: drop-shadow(0 0 10px #ffd700) drop-shadow(0 0 20px #ff9800);
+    transition: filter 0.3s;
+}
+
+.quackyRight {
+    position: absolute;
+    left: 50.5%;
+    transform: translateX(160%);
+    height: 1.5em;
+}
+
+.sandBag {
+    position: static;
+    object-fit: contain;
+    width: 90%;
+    height: auto;
+    max-width: 260px;
+    padding-left: 2vw;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.8))
+            drop-shadow(0 0 16px rgba(255,255,255,0.6));
+    margin: 2vh 0 2vh 2vh;
+    animation: ledPulse 1.8s infinite alternate ease-in-out;
+}
+
+.dog {
+    position: static;
+    object-fit: contain;
+    width: 40%;
+    height: auto;
+    max-width: 135px; 
+    padding-top: 2vh;
+    filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.95))
+            drop-shadow(0 0 20px rgba(0, 191, 255, 0.75))
+            drop-shadow(0 0 32px rgba(0, 140, 255, 0.6));
+    animation: ledPulse 1.8s infinite alternate ease-in-out;
+}
+
+
+@media (max-width: 1024px) {
+    .imageSetUp {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sandBag {
+        margin: 1vh auto 2vh 0;
+        width: 50%;
+    }
+
+    .dog {
+        width: 20%;
+        margin: 1vh 5vh 2vh auto;
+        padding-top: 0;
     }
 }

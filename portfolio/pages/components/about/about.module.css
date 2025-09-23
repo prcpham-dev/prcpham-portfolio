@@ -1,4 +1,5 @@
-.accentTitle {
+.accentTitle,
+.aboutTitle {
     font-weight: 800;
     color: #6ee7b7;
     text-shadow: 0 0 8px #34d399, 0 0 12px rgba(94, 234, 212, 0.5);
@@ -46,100 +47,11 @@
     color: #e4e7ec;
 }
 
-.infoCard {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 21.5vw;
-    padding: 12px;
-    border-radius: 8px;
-    border: 2px solid #6ee7b7;
-    box-shadow: 0 0 10px #34d399, 0 0 18px rgba(94,234,212,0.5);
-    background: rgba(0,0,0,0.15);
-}
-
-.row {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    padding: 6px 5px;
-    border-radius: 6px;
-    transform-origin: center;
-    margin-right: 1rem;
-    width: 20vw;
-    transition: all 0.25s ease;
-    cursor: pointer;
-}
-
-.row:hover {
-    background: rgba(110, 231, 183, 0.08);
-    transform: scale(1.02);
-    box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
-}
-
-.row:hover .link {
-    color: #86efac;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-
-.rowText,
-.link {
-    color: #e5e7eb;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    flex: 1 1 auto;
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.link {
-    text-decoration: none;
-}
-
-.link:hover {
-    color: #86efac;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-
-.link:focus-visible {
-    outline: 2px solid #6ee7b7;
-    outline-offset: 2px;
-    border-radius: 4px;
-}
-
-.subText {
-    font-size: 0.85rem;
-    color: #9ca3af;
-    margin-top: 0.25rem;
-    margin-left: 0;
-}
-
 .avatarCard {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0.5rem;
-}
-
-@media (max-width: 1024px) {
-    .avatarCard {
-        align-items: center;
-        text-align: center; 
-    }
-    .row {
-        width: 95%;
-    }
-    .infoCard {
-        margin-left: 3vw;
-        width: 95%;
-    }
 }
 
 .avatarImg {
@@ -154,7 +66,7 @@
 
 .avatarMeta {
     margin-top: 1rem;
-    text-align: flex-start;
+    text-align: start;
 }
 
 .avatarMeta h1 {
@@ -174,21 +86,76 @@
     margin-top: 0.25rem;
 }
 
-.aboutWrapper {
-    width: 80%;
-    margin-top: 12vh;
+
+.infoCard {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 70%;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #6ee7b7;
+    background: rgba(15, 22, 32, 0.6);
+    box-shadow: 0 0 12px rgba(94, 234, 212, 0.35), inset 0 0 8px rgba(110, 231, 183, 0.08);
 }
 
 .aboutTitle {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #6ee7b7;
-    text-shadow: 0 0 8px #34d399, 0 0 12px rgba(94, 234, 212, 0.5);
-    animation: ledPulse 1.8s infinite alternate ease-in-out;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 6px #34d399, 0 0 10px rgba(94, 234, 212, 0.5);
+}
+
+.row {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 6px 5px; 
+    gap: 3px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.row:hover {
+    background: rgba(110, 231, 183, 0.08);
+    transform: translateX(4px);
+    box-shadow: 0 0 6px rgba(94, 234, 212, 0.35);
+}
+
+.rowText {
+    font-size: 0.95rem;
+    color: #e5e7eb;
+}
+
+.subText {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.link {
+    color: #e5e7eb;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.link:hover {
+    color: #86efac;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.link:focus-visible {
+    outline: 2px solid #6ee7b7;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.aboutWrapper {
+    width: 80%;
+    margin-top: 12vh;
 }
 
 .gameFrame {
@@ -202,5 +169,20 @@
 @media (max-width: 875px) {
     .gameFrame {
         display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .avatarCard {
+        align-items: center;
+        text-align: center;
+    }
+    .infoCard {
+        width: 95%;
+        padding: 1rem;
+        margin: 15px auto 20px auto;
+    }
+    .row {
+        width: 95%;
     }
 }

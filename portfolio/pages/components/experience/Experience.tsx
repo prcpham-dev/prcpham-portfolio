@@ -37,7 +37,6 @@ const experiences: Experience[] = [
 ];
 
 const Experience: React.FC = () => {
-  // Reverse display order but preserve original data order
   const reversed = [...experiences].reverse();
   const [openIndex, setOpenIndex] = useState<number>(0);
 
@@ -47,65 +46,74 @@ const Experience: React.FC = () => {
         <span className={styles.titleText}>Experience</span>
         <img src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" />
       </h2>
+      <div className={`grid grid-cols-12 ${styles.experienceWrapper}`}>
+        <div className="col-span-12 lg:col-span-3">
+          <div className={styles.imageSetUp}>
+            <img src="/Items/Dog.png" className={styles.dog}/>
+            <img src="/Items/Sandbag.png" className={styles.sandBag}/>
+          </div>
+        </div>
+        <div className="col-span-12 lg:col-span-9">
+          {reversed.map((exp, idx) => {
+            const isOpen = openIndex === idx;
 
-      {reversed.map((exp, idx) => {
-        const isOpen = openIndex === idx;
+            return (
+              <article
+                key={idx}
+                className={`${styles.experienceBlock} ${isOpen ? styles.open : ""}`}
+              >
+                <button
+                  className={styles.experienceHeader}
+                  aria-expanded={isOpen}
+                  aria-controls={`exp-panel-${idx}`}
+                  onClick={() => setOpenIndex(isOpen ? -1 : idx)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setOpenIndex(isOpen ? -1 : idx);
+                    }
+                  }}
+                >
+                  <span className={styles.roleBlock}>
+                    <span className={styles.roleText}>{exp.title}</span>
+                    <span className={styles.companyDateRow}>
+                      <span className={styles.dot} aria-hidden="true"></span>
+                      <span className={styles.company}>{exp.company}</span>
+                      <time className={styles.date}>{exp.date}</time>
+                    </span>
+                  </span>
+                  <span className={styles.chevron} aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ display: "block" }}>
+                      <polyline points="7,5 15,11 7,17" stroke="#6ee7b7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </button>
 
-        return (
-          <article
-            key={idx}
-            className={`${styles.experienceBlock} ${isOpen ? styles.open : ""}`}
-          >
-            <button
-              className={styles.experienceHeader}
-              aria-expanded={isOpen}
-              aria-controls={`exp-panel-${idx}`}
-              onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setOpenIndex(isOpen ? -1 : idx);
-                }
-              }}
-            >
-              <span className={styles.roleBlock}>
-                <span className={styles.roleText}>{exp.title}</span>
-                <span className={styles.companyDateRow}>
-                  <span className={styles.dot} aria-hidden="true"></span>
-                  <span className={styles.company}>{exp.company}</span>
-                  <time className={styles.date}>{exp.date}</time>
-                </span>
-              </span>
-              <span className={styles.chevron} aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ display: "block" }}>
-                  <polyline points="7,5 15,11 7,17" stroke="#6ee7b7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-            </button>
-
-            {/* Collapsible details */}
-            <div
-              id={`exp-panel-${idx}`}
-              className={styles.panel}
-              role="region"
-              aria-label={`${exp.title} details`}
-            >
-              <ul className={styles.detailList}>
-                {exp.details.map((d, i) => {
-                  const html = d.replace(/\*\*(.+?)\*\*/g, `<span class="${styles.highlight}">$1</span>`);
-                  return (
-                    <li
-                      key={i}
-                      className={styles.detailItem}
-                      dangerouslySetInnerHTML={{ __html: html }}
-                    />
-                  );
-                })}
-              </ul>
-            </div>
-          </article>
-        );
-      })}
+                {/* Collapsible details */}
+                <div
+                  id={`exp-panel-${idx}`}
+                  className={styles.panel}
+                  role="region"
+                  aria-label={`${exp.title} details`}
+                >
+                  <ul className={styles.detailList}>
+                    {exp.details.map((d, i) => {
+                      const html = d.replace(/\*\*(.+?)\*\*/g, `<span class="${styles.highlight}">$1</span>`);
+                      return (
+                        <li
+                          key={i}
+                          className={styles.detailItem}
+                          dangerouslySetInnerHTML={{ __html: html }}
+                        />
+                      );
+                    })}
+                  </ul>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 };
