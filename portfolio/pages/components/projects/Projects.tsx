@@ -163,98 +163,106 @@ const Projects: React.FC = () => {
         <span className={styles.titleText}>Projects</span>
       </div>
 
-      <div className={styles.terminal} onClick={() => inputRef.current?.focus()}>
-        <div className={styles.header} role="presentation">
-          <span className={styles.dot} />
-          <span className={styles.dot} />
-          <span className={styles.dot} />
-          <div className={styles.headerTitle}>
-            prcpham-dev@portfolio — /{(current.name)}
+      <div className={`grid grid-cols-12`}>
+        <div className="col-span-12 lg:col-span-9">
+          <div className={styles.terminal} onClick={() => inputRef.current?.focus()}>
+            <div className={styles.header} role="presentation">
+              <span className={styles.dot} />
+              <span className={styles.dot} />
+              <span className={styles.dot} />
+              <div className={styles.headerTitle}>
+                prcpham-dev@portfolio — /{(current.name)}
+              </div>
+            </div>
+
+            <div className={styles.viewport} ref={viewportRef}>
+              <div className={styles.block}>
+                <div className={styles.lineIn}>projects$ ls</div>
+                {projects.map((p) => (
+                  <button
+                    key={p.name}
+                    className={styles.lineBtn}
+                    onClick={() => runCommand(`cd ${p.name}`)}
+                  >
+                    {p.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* current project details */}
+              <div className={styles.block}>
+                <div className={styles.lineIn}>cd /{(current.name)}</div>
+                {/* target line to pin at top after user action */}
+                <div className={styles.lineOut} ref={nameLineRef}>
+                  <span className={styles.label}>name:</span> {current.name}
+                </div>
+
+                <div className={styles.lineOut}>
+                  <span className={styles.label}>tech:</span>{" "}
+                  {current.tech.split(",").map((t) => (
+                    <span key={t} className={styles.tag}>
+                      #{t.trim().replace(/\s+/g, "-")}
+                    </span>
+                  ))}
+                </div>
+
+                {current.image && (
+                  <div className={styles.lineOut}>
+                    <img
+                      src={current.image}
+                      alt={current.name}
+                      className={styles.termImage}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                )}
+
+                <div className={`${styles.lineOut} ${styles.details}`}>
+                  {normalize(current.details)}
+                </div>
+
+                {current.link && (
+                  <div className={styles.lineOut}>
+                    <a
+                      className={styles.link}
+                      href={current.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      open → {current.link}
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              {/* error at very bottom */}
+              {error && (
+                <div className={styles.block}>
+                  <div className={styles.lineOut}>
+                    <span className={styles.label}>error:</span> {error}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <form className={styles.prompt} onSubmit={onSubmit}>
+              <span className={styles.promptLabel}>projects$</span>
+              <input
+                ref={inputRef}
+                className={styles.input}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="cd project-name"
+              />
+            </form>
           </div>
         </div>
 
-        <div className={styles.viewport} ref={viewportRef}>
-          <div className={styles.block}>
-            <div className={styles.lineIn}>projects$ ls</div>
-            {projects.map((p) => (
-              <button
-                key={p.name}
-                className={styles.lineBtn}
-                onClick={() => runCommand(`cd ${p.name}`)}
-              >
-                {p.name}
-              </button>
-            ))}
-          </div>
-
-          {/* current project details */}
-          <div className={styles.block}>
-            <div className={styles.lineIn}>cd /{(current.name)}</div>
-            {/* target line to pin at top after user action */}
-            <div className={styles.lineOut} ref={nameLineRef}>
-              <span className={styles.label}>name:</span> {current.name}
-            </div>
-
-            <div className={styles.lineOut}>
-              <span className={styles.label}>tech:</span>{" "}
-              {current.tech.split(",").map((t) => (
-                <span key={t} className={styles.tag}>
-                  #{t.trim().replace(/\s+/g, "-")}
-                </span>
-              ))}
-            </div>
-
-            {current.image && (
-              <div className={styles.lineOut}>
-                <img
-                  src={current.image}
-                  alt={current.name}
-                  className={styles.termImage}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            )}
-
-            <div className={`${styles.lineOut} ${styles.details}`}>
-              {normalize(current.details)}
-            </div>
-
-            {current.link && (
-              <div className={styles.lineOut}>
-                <a
-                  className={styles.link}
-                  href={current.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  open → {current.link}
-                </a>
-              </div>
-            )}
-          </div>
-
-          {/* error at very bottom */}
-          {error && (
-            <div className={styles.block}>
-              <div className={styles.lineOut}>
-                <span className={styles.label}>error:</span> {error}
-              </div>
-            </div>
-          )}
+        <div className="col-span-12 lg:col-span-3">
+          <img src="/Items/No_face.png" className={styles.noFace}/>
         </div>
-
-        <form className={styles.prompt} onSubmit={onSubmit}>
-          <span className={styles.promptLabel}>projects$</span>
-          <input
-            ref={inputRef}
-            className={styles.input}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="cd project-name"
-          />
-        </form>
-      </div>
+      </div> 
     </section>
   );
 };

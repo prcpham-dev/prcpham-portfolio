@@ -4,7 +4,12 @@ import styles from "./Header.module.css";
 const Header: React.FC = () => (
   <header className={styles.header}>
     <div className={styles.container}>
-      <span className={styles.brand}>@prcpham-dev</span>
+      <span 
+        className={styles.brand}
+        onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+      >
+        @prcpham-dev
+        </span>
       <nav className={styles.nav}>
         <a href="#experience" className={styles.navLink}>Experience</a>
         <a href="#projects" className={styles.navLink}>Projects</a>

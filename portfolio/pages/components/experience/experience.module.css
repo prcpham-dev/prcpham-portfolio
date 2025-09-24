@@ -284,9 +284,11 @@
     height: auto;
     max-width: 260px;
     padding-left: 2vw;
-    filter: drop-shadow(0 0 8px rgba(255,255,255,0.8))
-            drop-shadow(0 0 16px rgba(255,255,255,0.6));
     margin: 2vh 0 2vh 2vh;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 220, 0.8))
+            drop-shadow(0 0 16px rgba(0, 200, 200, 0.6))
+            drop-shadow(0 0 24px rgba(0, 160, 180, 0.5))
+            drop-shadow(0 0 40px rgba(0, 120, 160, 0.4));
     animation: ledPulse 1.8s infinite alternate ease-in-out;
 }
 
