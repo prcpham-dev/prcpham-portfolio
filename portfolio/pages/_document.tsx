@@ -7,7 +7,7 @@ export default function Document() {
         <link
           rel="icon"
           type="image/png"
-          href="/GhostRun/assets/LittleGhost/frame_2.png"
+          href="/favicon.png"
         />
       </Head>
       <body>

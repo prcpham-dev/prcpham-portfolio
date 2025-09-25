@@ -1,15 +1,20 @@
 (() => {
+    console.log("GhostRun game.js loaded");
     const canvas = document.getElementById("game");
     if (!canvas) {
         console.error("Canvas #game not found");
         return;
     }
+    console.log("Canvas found");
     const ctx = canvas.getContext("2d");
     ctx.imageSmoothingEnabled = false;
 
     HUD.init(canvas, ctx);
+    console.log("HUD initialized");
     Ghost.init(canvas, ctx);
+    console.log("Ghost initialized");
     Pillars.init(canvas, ctx);
+    console.log("Pillars initialized");
 
 
     // Constants
@@ -46,10 +51,10 @@
     let nextScoreThreshold = 50;
 
     // Sound
-    const passSound = new Audio("assets/Sounds/50.wav");
+    const passSound = new Audio("GhostRun/assets/Sounds/50.wav");
     passSound.volume = 0.5;
 
-    const flipSound = new Audio("assets/Sounds/flip.wav");
+    const flipSound = new Audio("GhostRun/assets/Sounds/flip.wav");
     flipSound.volume = 0.25;
 
     const state = {
@@ -233,5 +238,6 @@
         else flipGravity();
     });
 
+    console.log("Starting game loop");
     requestAnimationFrame(loop);
 })();

@@ -128,7 +128,7 @@ const About: React.FC = () => {
         </div>
 
         <iframe
-          src="/GhostRun/index.html"
+          src="GhostRun/index.html"
           className={styles.gameFrame}
           title="GhostRun Game"
         />

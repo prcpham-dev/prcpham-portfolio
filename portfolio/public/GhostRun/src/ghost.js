@@ -19,7 +19,7 @@ const Ghost = {
         this.ghostReady = false;
         for (let i = 0; i < this.TOTAL_FRAMES; i++) {
             const img = new Image();
-            img.src = `assets/LittleGhost/frame_${i}.png`;
+            img.src = `GhostRun/assets/LittleGhost/frame_${i}.png`;
             img.onload = () => {
                 this.loadedCount++;
                 if (this.loadedCount === this.TOTAL_FRAMES) this.ghostReady = true;
