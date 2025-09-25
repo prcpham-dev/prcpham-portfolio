@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import styles from "./experience.module.css";
 
 type Experience = {
@@ -44,13 +45,13 @@ const Experience: React.FC = () => {
     <section id="experience" aria-labelledby="experience" className={styles.section}>
       <h2 id="experience" className={styles.title}>
         <span className={styles.titleText}>Experience</span>
-        <img src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" />
+        <Image src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" priority />
       </h2>
       <div className={`grid grid-cols-12 ${styles.experienceWrapper}`}>
         <div className="col-span-12 lg:col-span-3">
           <div className={styles.imageSetUp}>
-            <img src="/Items/Dog.png" className={styles.dog}/>
-            <img src="/Items/Sandbag.png" className={styles.sandBag}/>
+            <Image src="/Items/Dog.png" className={styles.dog} alt="Dog" />
+            <Image src="/Items/Sandbag.png" className={styles.sandBag} alt="Sandbag" />
           </div>
         </div>
         <div className="col-span-12 lg:col-span-9">

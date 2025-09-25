@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./about.module.css";
 
 const About: React.FC = () => {
@@ -34,10 +35,11 @@ const About: React.FC = () => {
       {/* Avatar + Info Card */}
       <div className="col-span-12 lg:col-span-4">
         <div className={styles.avatarCard}>
-          <img
+          <Image
             src={images[currentIndex]}
             className={styles.avatarImg}
             alt="Profile"
+            priority
           />
           <div className={styles.avatarMeta}>
             <h1>Phong Pham (Percy)</h1>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import styles from "./projects.module.css";
 
 type Project = {
@@ -159,7 +160,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className={styles.section} aria-labelledby="projects">
       <div id="projects" className={styles.title}>
-        <img src="/Items/LittleGhost.gif" className={styles.littleGhostImg} alt="Little Ghost" />
+        <Image src="/Items/LittleGhost.gif" className={styles.littleGhostImg} alt="Little Ghost" priority />
         <span className={styles.titleText}>Projects</span>
       </div>
 
@@ -211,8 +212,8 @@ const Projects: React.FC = () => {
 
                 {current.image && (
                   <div className={styles.lineOut}>
-                    <img
-                      src={current.image}
+                    <Image
+                      src={`/${current.image}`}
                       alt={current.name}
                       className={styles.termImage}
                       loading="lazy"
@@ -263,7 +264,7 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="col-span-12 lg:col-span-3">
-          <img src="/Items/No_face.png" className={styles.noFace}/>
+          <Image src="/Items/No_face.png" className={styles.noFace} alt="No Face" />
         </div>
       </div> 
     </section>
