@@ -14,11 +14,7 @@
     align-items: center;
     gap: 20px;
     padding: 12px 28px;
-    background: linear-gradient(
-      180deg,
-      rgba(15, 22, 32, 0.8),
-      rgba(10, 19, 16, 0.8)
-    );
+    background: rgba(15, 22, 32, 0.2);
     border-radius: 40px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(2px) saturate(140%);
@@ -30,7 +26,7 @@
 .brand {
     font-weight: bold;
     font-size: 1.3rem;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4, #3b82f6);
+    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -47,8 +43,8 @@
     left: 0;
     height: 3px;
     width: 0%;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4, #3b82f6);
-    box-shadow: 0 0 6px #6ee7b7, 0 0 10px #3b82f6;
+    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
+    box-shadow: 0 0 6px #6ee7b7, 0 0 10px #06b6d4;
     border-radius: 2px;
     transition: width 0.3s ease;
 }
@@ -62,13 +58,13 @@
 .brand:focus-visible {
     text-shadow: 
         0 0 8px #00ffcc, 
-        0 0 12px #3399ff;
+        0 0 12px #33e0ff;
     outline: none;
 }
 
 .brand:active {
     transform: scale(0.95);
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4, #3b82f6);
+    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -84,7 +80,7 @@
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4, #3b82f6);
+    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -98,11 +94,11 @@
     left: 0;
     height: 3px;
     width: 0%;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4, #3b82f6);
-    box-shadow: 0 0 6px #6ee7b7, 0 0 10px #3b82f6;
+    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
+    box-shadow: 0 0 6px #6ee7b7, 0 0 10px #06b6d4;
     border-radius: 2px;
     transition: width 0.3s ease;
-  }
+}
 
 .navLink:hover::after,
 .navLink:focus-visible::after {
@@ -113,20 +109,104 @@
 .navLink:focus-visible {
     text-shadow: 
         0 0 8px #00ffcc, 
-        0 0 12px #3399ff;
+        0 0 12px #33e0ff;
     outline: none;
 }
 
 .navLink:active {
     transform: scale(0.95);
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4, #3b82f6);
+    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.burgerLine {
+    width: 1.8rem;
+    height: 0.2rem;
+    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
 @media (max-width: 768px) {
-    .header {
-        display: none;
-    }
+  /* Container: smaller padding */
+  .container {
+    padding: 0.6rem 1rem;
+    gap: 1rem; /* global spacing inside container */
+  }
+
+  /* Brand: push burger to far right */
+  .brand {
+    font-size: 1.1rem;
+    margin-right: auto; /* 👈 pushes burger away */
+  }
+
+  /* Burger: slightly smaller but spaced out */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 1100;
+    margin-left: 2rem; /* 👈 adds more gap between brand and burger */
+  }
+
+  .burgerLine {
+    width: 1.5rem;
+    height: 0.18rem;
+    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Hide nav initially */
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(15, 22, 32, 0.95);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 0.8rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10%);
+    transition: all 0.3s ease;
+  }
+
+  /* Show when burger clicked */
+  .showNav {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    margin-top: 0.8rem;
+    border: 1.2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px) saturate(160%);
+    -webkit-backdrop-filter: blur(6px) saturate(160%);
+  }
+
+  /* Nav links */
+  .navLink {
+    font-size: 1rem;
+    width: 100%;
+  }
 }

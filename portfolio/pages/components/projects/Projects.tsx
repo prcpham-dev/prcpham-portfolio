@@ -182,7 +182,10 @@ const Projects: React.FC = () => {
                   <button
                     key={p.name}
                     className={styles.lineBtn}
-                    onClick={() => runCommand(`cd ${p.name}`)}
+                    onClick={e => {
+                      e.stopPropagation();
+                      runCommand(`cd ${p.name}`);
+                    }}
                   >
                     {p.name}
                   </button>
