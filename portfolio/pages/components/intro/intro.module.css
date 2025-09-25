@@ -4,7 +4,7 @@
 
 @media (max-width: 1024px) {
     .section {
-        margin: 12vh 6% 0 6%;
+        margin: 15vh 6% 0 6%;
     }
 }
 
@@ -16,7 +16,7 @@
     margin-bottom: clamp(2rem, 2vw, 3rem);
     text-align: center;
     font-weight: 900;
-    font-size: clamp(1.6rem, 4.2vw, 3.25rem);
+    font-size: 3rem;
     line-height: 1.1;
     color: #6ee7b7;
     text-shadow: 0 0 8px #34d399, 0 0 14px rgba(94,234,212,0.5);

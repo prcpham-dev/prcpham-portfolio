@@ -9,7 +9,7 @@ const HUD = {
         this.ctx = ctx;
         if (!this.bgImg) {
             this.bgImg = new Image();
-            this.bgImg.src = "GhostRun/assets/background.png";
+            this.bgImg.src = "assets/background.png";
             this.bgImg.onload = () => { this.bgLoaded = true; };
         }
     },
