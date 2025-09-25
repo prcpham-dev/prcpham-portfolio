@@ -45,13 +45,13 @@ const Experience: React.FC = () => {
     <section id="experience" aria-labelledby="experience" className={styles.section}>
       <h2 id="experience" className={styles.title}>
         <span className={styles.titleText}>Experience</span>
-        <Image src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" priority />
+        <Image src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" priority width={224} height={224} />
       </h2>
       <div className={`grid grid-cols-12 ${styles.experienceWrapper}`}>
         <div className="col-span-12 lg:col-span-3">
           <div className={styles.imageSetUp}>
-            <Image src="/Items/Dog.png" className={styles.dog} alt="Dog" />
-            <Image src="/Items/Sandbag.png" className={styles.sandBag} alt="Sandbag" />
+            <Image src="/Items/Dog.png" className={styles.dog} alt="Dog" width={224} height={224} />
+            <Image src="/Items/Sandbag.png" className={styles.sandBag} alt="Sandbag" width={224} height={224} />
           </div>
         </div>
         <div className="col-span-12 lg:col-span-9">

@@ -25,8 +25,8 @@ const Intro: React.FC = () => (
 
       <div className="col-span-12 lg:col-span-4">
         <div className={styles.imageSetUp}>
-          <Image src="/Items/Teddy.png" className={styles.teddy} alt="Teddy" />
-          <Image src="/Items/turnip_head.png" className={styles.turnip_head} alt="Turnip Head" />
+          <Image src="/Items/Teddy.png" className={styles.teddy} alt="Teddy" width={64} height={90} />
+          <Image src="/Items/turnip_head.png" className={styles.turnip_head} alt="Turnip Head" width={229} height={343} />
         </div>
       </div>
     </div>

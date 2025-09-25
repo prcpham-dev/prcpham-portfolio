@@ -40,6 +40,8 @@ const About: React.FC = () => {
             className={styles.avatarImg}
             alt="Profile"
             priority
+            width={224}
+            height={224}
           />
           <div className={styles.avatarMeta}>
             <h1>Phong Pham (Percy)</h1>
@@ -128,7 +130,7 @@ const About: React.FC = () => {
         </div>
 
         <iframe
-          src="GhostRun/index.html"
+          src="/GhostRun/index.html"
           className={styles.gameFrame}
           title="GhostRun Game"
         />

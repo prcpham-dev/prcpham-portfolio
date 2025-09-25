@@ -10,7 +10,7 @@
     margin: 0 auto 1.5rem auto;
     text-align: center;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
     line-height: 1.1;
     color: #6ee7b7;
     text-shadow: 0 0 8px #34d399, 0 0 14px rgba(94,234,212,0.5);
