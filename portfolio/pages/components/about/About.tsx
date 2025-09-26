@@ -5,10 +5,10 @@ import styles from "./about.module.css";
 const About: React.FC = () => {
   const images = [
     "/ProfilePics/01.jpeg",
-    "/ProfilePics/02.jpeg",
+    "/ProfilePics/02-v2.jpeg",
     "/ProfilePics/03.jpeg",
     "/ProfilePics/04.jpeg",
-    "/ProfilePics/05.jpeg",
+    "/ProfilePics/05-v2.jpeg",
     "/ProfilePics/06.jpeg"
   ];
 
