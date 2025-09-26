@@ -1,6 +1,6 @@
 # Portfolio ([prcpham.com](https://prcpham.com))
 
-This repository contains the source code and assets for Percy Pham's personal portfolio website, built with Next.js, React, and TypeScript.
+This repository contains the source code and assets for my personal portfolio website, built with Next.js, React, and TypeScript.
 
 ## Structure
 
