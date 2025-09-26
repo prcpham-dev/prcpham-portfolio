@@ -6,8 +6,8 @@ export default function Document() {
       <Head>
         <link
           rel="icon"
-          type="image/png"
-          href="/favicon.png"
+          type="image/x-icon"
+          href="/favicon.ico"
         />
       </Head>
       <body>
