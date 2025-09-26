@@ -56,8 +56,7 @@ const About: React.FC = () => {
             <span className={styles.rowText}>
               University of British Columbia
             </span>
-            <span className={styles.subText}>
-              {/* Computer Science · 4th Year */}
+            <span className={styles.subText}> (2022 - 2026)
             </span>
           </div>
           <div className={styles.row}>
@@ -110,7 +109,7 @@ const About: React.FC = () => {
 🛌 Born to sleep  
 💻 Forced to work 
 
-      ᕙ(  •̀ ᗜ •́  )ᕗ
+          (ദ്ദി˙ᗜ˙)
 `
 ) : (
 `💬 About Me:
