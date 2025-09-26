@@ -56,7 +56,7 @@ const About: React.FC = () => {
             <span className={styles.rowText}>
               University of British Columbia
             </span>
-            <span className={styles.subText}> (2022 - 2026)
+            <span className={styles.subText}> (2022 – 2026, Anticipated)
             </span>
           </div>
           <div className={styles.row}>
