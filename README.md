@@ -1,6 +1,6 @@
-# Percy Pham Portfolio
+# Portfolio ([prcpham.com](https://prcpham.com))
 
-This repository contains the source code and assets for Percy Pham's personal portfolio website ([prcpham.com](https://prcpham.com)), built with Next.js, React, and TypeScript.
+This repository contains the source code and assets for Percy Pham's personal portfolio website, built with Next.js, React, and TypeScript.
 
 ## Structure
 
@@ -19,7 +19,7 @@ prcpham-portfolio
 └── README.md            # Project documentation
 ```
 
-## Getting Started
+## Commands
 
 1. **Install dependencies:**
    ```
@@ -43,7 +43,5 @@ prcpham-portfolio
    ```
 
 ## Credits
-
 - Built by **Percy Pham** ([GitHub](https://github.com/prcpham-dev))
-
 - Drawings and artwork by **Tai**.
