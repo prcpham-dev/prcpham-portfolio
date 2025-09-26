@@ -8,7 +8,8 @@ const About: React.FC = () => {
     "/ProfilePics/02.jpeg",
     "/ProfilePics/03.jpeg",
     "/ProfilePics/04.jpeg",
-    "/ProfilePics/05.jpeg"
+    "/ProfilePics/05.jpeg",
+    "/ProfilePics/06.jpeg"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
