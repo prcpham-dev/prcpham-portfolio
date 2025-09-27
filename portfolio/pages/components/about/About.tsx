@@ -36,14 +36,32 @@ const About: React.FC = () => {
       {/* Avatar + Info Card */}
       <div className="col-span-12 lg:col-span-4">
         <div className={styles.avatarCard}>
-          <Image
-            src={images[currentIndex]}
-            className={styles.avatarImg}
-            alt="Profile"
-            priority
-            width={224}
-            height={224}
-          />
+          <div className={styles.avatarStack}>
+            {(() => {
+              const today = new Date();
+              if (today.getMonth() === 8 && today.getDate() === 27) {
+                return (
+                  <Image
+                    src="/Items/birthday_hat.png"
+                    className={styles.birthdayHat}
+                    alt="Birthday Hat"
+                    width={80}
+                    height={80}
+                    priority
+                  />
+                );
+              }
+              return null;
+            })()}
+            <Image
+              src={images[currentIndex]}
+              className={styles.avatarImg}
+              alt="Profile"
+              priority
+              width={224}
+              height={224}
+            />
+          </div>
           <div className={styles.avatarMeta}>
             <h1>Phong Pham (Percy)</h1>
             <p>prcpham-dev</p>
@@ -51,7 +69,7 @@ const About: React.FC = () => {
         </div>
 
         <div className={styles.infoCard}>
-          <div className={styles.aboutTitle}>About Me:</div>
+          <div className={styles.aboutTitle}>Basic info:</div>
           <div className={styles.row}>
             <span className={styles.rowText}>
               University of British Columbia
@@ -105,14 +123,14 @@ const About: React.FC = () => {
           </div>
           <pre className={styles.code}>
 {isMobile ? (
-`💬 About Me:
+`💬 Quickstart:
 🛌 Born to sleep  
 💻 Forced to work 
 
           (ദ്ദി˙ᗜ˙)
 `
 ) : (
-`💬 About Me:
+`💬 Quick start: (ദ്ദി˙ᗜ˙)
 🛌 Born to sleep  
 💻 Forced to work  
 🔁 Surviving with
