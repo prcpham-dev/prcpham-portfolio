@@ -72,7 +72,6 @@
     filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.95))
         drop-shadow(0 0 20px rgba(255, 182, 193, 0.75))
         drop-shadow(0 0 32px rgba(255, 105, 180, 0.6));
-    animation: ledPulse 1.8s infinite alternate ease-in-out;
 }
 
 .turnip_head {
@@ -81,7 +80,6 @@
         drop-shadow(0 0 20px rgba(255, 0, 80, 0.75))
         drop-shadow(0 0 32px rgba(90, 0, 140, 0.6))
         drop-shadow(0 0 48px rgba(255, 0, 50, 0.5));
-    animation: ledPulse 1.8s infinite alternate ease-in-out;
 }
 
 @media (max-width: 1024px) {

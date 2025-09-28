@@ -125,7 +125,6 @@
     border-radius: 50%;
     background: #6ee7b7;
     box-shadow: 0 0 6px #34d399, 0 0 10px rgba(94,234,212,0.5);
-    animation: ledPulse 1.8s infinite alternate ease-in-out;
 }
 
 .companyDateRow {
@@ -289,7 +288,6 @@
             drop-shadow(0 0 16px rgba(0, 200, 200, 0.6))
             drop-shadow(0 0 24px rgba(0, 160, 180, 0.5))
             drop-shadow(0 0 40px rgba(0, 120, 160, 0.4));
-    animation: ledPulse 1.8s infinite alternate ease-in-out;
 }
 
 .dog {
@@ -302,7 +300,6 @@
     filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.95))
             drop-shadow(0 0 20px rgba(0, 191, 255, 0.75))
             drop-shadow(0 0 32px rgba(0, 140, 255, 0.6));
-    animation: ledPulse 1.8s infinite alternate ease-in-out;
 }
 
 
