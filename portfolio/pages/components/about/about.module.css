@@ -1,8 +1,7 @@
-.accentTitle,
 .aboutTitle {
     font-weight: 800;
     color: #6ee7b7;
-    text-shadow: 0 0 8px #34d399, 0 0 12px rgba(94, 234, 212, 0.5);
+    text-shadow: 0 0 8px #34d399, 0 0 12px rgba(94,234,212,0.5);
     animation: ledPulse 1.8s infinite alternate ease-in-out;
 }
 
