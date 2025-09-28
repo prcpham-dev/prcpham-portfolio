@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./about.module.css";
 
+const hats: { [key: string]: { src: string; alt: string } } = {
+  "9-27": { src: "/Items/birthday_hat.png", alt: "Birthday Hat" },
+};
+
+const images = [
+  "/ProfilePics/01.jpeg",
+  "/ProfilePics/02-v2.jpeg",
+  "/ProfilePics/03.jpeg",
+  "/ProfilePics/04.jpeg",
+  "/ProfilePics/05-v2.jpeg",
+  "/ProfilePics/06.jpeg"
+];
+
 const About: React.FC = () => {
-  const images = [
-    "/ProfilePics/01.jpeg",
-    "/ProfilePics/02-v2.jpeg",
-    "/ProfilePics/03.jpeg",
-    "/ProfilePics/04.jpeg",
-    "/ProfilePics/05-v2.jpeg",
-    "/ProfilePics/06.jpeg"
-  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -39,12 +44,14 @@ const About: React.FC = () => {
           <div className={styles.avatarStack}>
             {(() => {
               const today = new Date();
-              if (today.getMonth() === 8 && today.getDate() === 27) {
+              const key = `${today.getMonth() + 1}-${today.getDate()}`;
+              const hat = hats[key];
+              if (hat) {
                 return (
                   <Image
-                    src="/Items/birthday_hat.png"
+                    src={hat.src}
                     className={styles.birthdayHat}
-                    alt="Birthday Hat"
+                    alt={hat.alt}
                     width={80}
                     height={80}
                     priority
