@@ -9,7 +9,7 @@ const hats: { [key: string]: { src: string; alt: string } } = {
 const images = [
   "/ProfilePics/01.jpeg",
   "/ProfilePics/02-v2.jpeg",
-  "/ProfilePics/03.jpeg",
+  "/ProfilePics/03-v2.jpeg",
   "/ProfilePics/04.jpeg",
   "/ProfilePics/05-v2.jpeg",
   "/ProfilePics/06.jpeg"
