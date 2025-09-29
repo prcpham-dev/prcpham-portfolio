@@ -11,8 +11,7 @@ const images = [
   "/ProfilePics/02-v2.jpeg",
   "/ProfilePics/03-v2.jpeg",
   "/ProfilePics/04.jpeg",
-  "/ProfilePics/05-v2.jpeg",
-  "/ProfilePics/06.jpeg"
+  "/ProfilePics/05-v2.jpeg"
 ];
 
 const About: React.FC = () => {
