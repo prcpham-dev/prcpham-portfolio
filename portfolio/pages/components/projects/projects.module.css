@@ -33,27 +33,6 @@
     margin-bottom: 0.2em;
 }
 
-@keyframes ledPulse {
-    0% {
-        opacity: 1;
-        text-shadow: 
-        0 0 6px rgba(126, 248, 195, 0.7),
-        0 0 12px rgba(94, 234, 212, 0.5);
-    }
-    50% {
-        opacity: 0.85;
-        text-shadow: 
-        0 0 4px rgba(126, 248, 195, 0.6),
-        0 0 8px rgba(94, 234, 212, 0.4);
-    }
-    100% {
-        opacity: 1;
-        text-shadow: 
-        0 0 8px rgba(126, 248, 195, 0.8),
-        0 0 16px rgba(94, 234, 212, 0.6);
-    }
-}
-
 .terminal {
     --panel: #0f1620;
     --bg-bottom: #0a1310;

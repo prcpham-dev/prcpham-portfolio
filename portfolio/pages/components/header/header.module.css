@@ -11,68 +11,68 @@
 
 .container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.headerContainer {
+    display: flex;
     align-items: center;
     gap: 20px;
     padding: 12px 28px;
     background: rgba(15, 22, 32, 0.2);
     border-radius: 40px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px) saturate(140%);
-    -webkit-backdrop-filter: blur(2px) saturate(140%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     pointer-events: auto;
+    backdrop-filter: blur(2px) saturate(140%);
+    -webkit-backdrop-filter: blur(2px) saturate(140%);
 }
 
 .brand {
     font-weight: bold;
-    font-size: 1.3rem;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 1.2rem;
     margin-right: 75px;
     position: relative;
     cursor: pointer;
     transition: transform 0.2s ease;
+    color: #6ee7b7;
+    text-shadow: 0 0 10px rgba(94, 234, 212, 0.6);
 }
-
 .brand::after {
     content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
     height: 3px;
-    width: 0%;
+    width: 0;
     background: linear-gradient(90deg, #6ee7b7, #06b6d4);
     box-shadow: 0 0 6px #6ee7b7, 0 0 10px #06b6d4;
     border-radius: 2px;
     transition: width 0.3s ease;
 }
-
 .brand:hover::after,
 .brand:focus-visible::after {
     width: 100%;
 }
-
 .brand:hover,
 .brand:focus-visible {
-    text-shadow: 
-        0 0 8px #00ffcc, 
-        0 0 12px #33e0ff;
+    text-shadow: 0 0 8px #00ffcc, 0 0 12px #33e0ff;
     outline: none;
 }
-
 .brand:active {
     transform: scale(0.95);
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
-.nav {
+.navDesktop {
     display: flex;
     gap: 20px;
+}
+
+.navMobile {
+    display: none;
 }
 
 .navLink {
@@ -80,45 +80,33 @@
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     transition: transform 0.2s ease;
+    color: #6ee7b7;
+    text-shadow: 0 0 10px rgba(94, 234, 212, 0.6);
 }
-
 .navLink::after {
     content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
     height: 3px;
-    width: 0%;
+    width: 0;
     background: linear-gradient(90deg, #6ee7b7, #06b6d4);
     box-shadow: 0 0 6px #6ee7b7, 0 0 10px #06b6d4;
     border-radius: 2px;
     transition: width 0.3s ease;
 }
-
 .navLink:hover::after,
 .navLink:focus-visible::after {
     width: 100%;
 }
-
 .navLink:hover,
 .navLink:focus-visible {
-    text-shadow: 
-        0 0 8px #00ffcc, 
-        0 0 12px #33e0ff;
+    text-shadow: 0 0 8px #00ffcc, 0 0 12px #33e0ff;
     outline: none;
 }
-
 .navLink:active {
     transform: scale(0.95);
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .burger {
@@ -141,72 +129,64 @@
 }
 
 @media (max-width: 768px) {
-  /* Container: smaller padding */
-  .container {
-    padding: 0.6rem 1rem;
-    gap: 1rem; /* global spacing inside container */
-  }
+    .headerContainer {
+        padding: 0.6rem 1rem;
+        gap: 1rem;
+        position: relative;
+    }
 
-  /* Brand: push burger to far right */
-  .brand {
-    font-size: 1.1rem;
-    margin-right: auto; /* 👈 pushes burger away */
-  }
+    .brand {
+        font-size: 1.1rem;
+        margin-right: auto;
+    }
 
-  /* Burger: slightly smaller but spaced out */
-  .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.3rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 1100;
-    margin-left: 2rem; /* 👈 adds more gap between brand and burger */
-  }
+    .burger {
+        display: flex;
+        margin-left: 2rem;
+    }
 
-  .burgerLine {
-    width: 1.5rem;
-    height: 0.18rem;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
+    .burgerLine {
+        width: 1.5rem;
+        height: 0.18rem;
+    }
 
-  /* Hide nav initially */
-  .nav {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: rgba(15, 22, 32, 0.95);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 1.2rem;
-    border-radius: 0.8rem;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10%);
-    transition: all 0.3s ease;
-  }
+    .navDesktop {
+        display: none;
+    }
 
-  /* Show when burger clicked */
-  .showNav {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-    margin-top: 0.8rem;
-    border: 1.2px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(6px) saturate(160%);
-    -webkit-backdrop-filter: blur(6px) saturate(160%);
-  }
+    .navMobile {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        margin-left: 125px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+        padding: 1.2rem;
+        border-radius: 0.8rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10%);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 10;
+        min-width: 110px;
+    }
 
-  /* Nav links */
-  .navLink {
-    font-size: 1rem;
-    width: 100%;
-  }
+    .navMobile.showNav {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        margin-top: 0.8rem;
+        background: rgba(15, 22, 32, 0.25);
+        border-radius: 1rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(2px) saturate(140%);
+        -webkit-backdrop-filter: blur(2px) saturate(140%);
+    }
+
+    .navLink {
+        font-size: 1rem;
+        width: 100%;
+    }
 }

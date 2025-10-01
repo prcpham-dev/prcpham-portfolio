@@ -1,21 +1,14 @@
 (() => {
-    console.log("GhostRun game.js loaded");
     const canvas = document.getElementById("game");
     if (!canvas) {
-        console.error("Canvas #game not found");
         return;
     }
-    console.log("Canvas found");
     const ctx = canvas.getContext("2d");
     ctx.imageSmoothingEnabled = false;
 
     HUD.init(canvas, ctx);
-    console.log("HUD initialized");
     Ghost.init(canvas, ctx);
-    console.log("Ghost initialized");
     Pillars.init(canvas, ctx);
-    console.log("Pillars initialized");
-
 
     // Constants
     const W = canvas.width;
@@ -238,6 +231,5 @@
         else flipGravity();
     });
 
-    console.log("Starting game loop");
     requestAnimationFrame(loop);
 })();

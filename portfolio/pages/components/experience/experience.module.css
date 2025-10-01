@@ -28,12 +28,6 @@
     position: static;
 }
 
-@keyframes ledPulse {
-    0% { opacity: 1; text-shadow: 0 0 6px rgba(126,248,195,0.7), 0 0 12px rgba(94,234,212,0.5); }
-    50% { opacity: .9; text-shadow: 0 0 4px rgba(126,248,195,0.6), 0 0 8px rgba(94,234,212,0.4); }
-    100% { opacity: 1; text-shadow: 0 0 10px rgba(126,248,195,0.85), 0 0 18px rgba(94,234,212,0.65); }
-}
-
 .experienceBlock {
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border: 1px solid rgba(110,231,183,0.16);

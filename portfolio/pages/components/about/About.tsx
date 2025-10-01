@@ -49,7 +49,7 @@ const About: React.FC = () => {
                 return (
                   <Image
                     src={hat.src}
-                    className={styles.birthdayHat}
+                    className={styles.hatImg}
                     alt={hat.alt}
                     width={80}
                     height={80}
