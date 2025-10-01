@@ -15,7 +15,7 @@ const projects: Project[] = [
     name: "ChatDocument",
     tech: "FastAPI, LangChain, Redis, Celery, React.js, Bootstrap, Docker, Nginx",
     image: "Projects/chatDocument.png",
-    link: "https://github.com/trungnguyen21/ChatDocument",
+    link: "https://github.com/prcpham-dev/ChatDocument",
     details: `Developed a Retrieval-Augmented Generation (RAG) app enabling users 
               to upload and analyze PDFs with contextual AI chat. Integrated Google Gemini Pro (2M tokens) 
               with LangChain for embeddings, semantic search, and long-context reasoning. Built a scalable 
