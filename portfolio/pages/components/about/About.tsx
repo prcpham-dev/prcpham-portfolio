@@ -84,8 +84,9 @@ const About: React.FC = () => {
             </span>
           </div>
           <div className={styles.row}>
-            <a href="mailto:percypham279@gmail.com" className={styles.link}>
-              Email: percypham279@gmail.com
+            <a href="mailto:&#112;&#101;&#114;&#99;&#121;&#112;&#104;&#97;&#109;&#50;&#55;&#57;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
+              className={styles.link}>
+              Email: &#112;&#101;&#114;&#99;&#121;&#112;&#104;&#97;&#109;&#50;&#55;&#57;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
             </a>
           </div>
           <div className={styles.row}>
