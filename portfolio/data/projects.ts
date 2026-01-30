@@ -1,7 +1,8 @@
 import type { ProjectItem } from "@/types/projects";
 
 export const projects: ProjectItem[] = [
-    {
+    {   
+        slug: "chatdocument",
         name: "ChatDocument",
         tech: "FastAPI, LangChain, Redis, Celery, React.js, Bootstrap, Docker, Nginx",
         image: "Projects/chatDocument_v2.png",
@@ -15,6 +16,7 @@ export const projects: ProjectItem[] = [
                 API keys via environment management.`,
     },
     {
+        slug: "instasave",
         name: "InstaSave",
         tech: "Chrome Extension, JavaScript, MutationObserver",
         image: "Projects/InstaSave.png",
@@ -25,6 +27,7 @@ export const projects: ProjectItem[] = [
                 open or save images and videos directly from the browser.`,
     },
     {
+        slug: "shufa_downloader",
         name: "Shufa_Character_Downloader",
         tech: "Selenium, asyncio, Tkinter, ChromeDriver",
         image: "Projects/ShufaDownloader.png",
@@ -37,6 +40,7 @@ export const projects: ProjectItem[] = [
                 into a structured local directory and displayed progress and logs in the UI.`,
     },
     {
+        slug: "ghostrun",
         name: "GhostRun",
         tech: "HTML5 Canvas, JavaScript, LocalStorage",
         image: "Projects/GhostRun.gif",
@@ -49,6 +53,7 @@ export const projects: ProjectItem[] = [
                 pause/restart controls. Deployed on GitHub Pages for browser play.`,
     },
     {
+        slug: "speedcube",
         name: "SpeedCube",
         tech: "React.js, Three.js, Tailwind CSS",
         image: "Projects/SpeedCube.gif",
@@ -58,6 +63,7 @@ export const projects: ProjectItem[] = [
                 Designed a modern, responsive UI with Tailwind CSS for smooth cross-device use. (Work in progress)`,
     },
     {
+        slug: "clipsmixer",
         name: "YoutubeShorts_ClipMixer",
         tech: "OpenAI API, AssemblyAI, Tkinter, MoviePy",
         image: "Projects/clipMixer.png",
@@ -69,6 +75,7 @@ export const projects: ProjectItem[] = [
                 and video preview/editing.`,
     },
     {
+        slug: "mimic",
         name: "Mimic",
         tech: "Python, Pygame",
         image: "Projects/Mimic.gif",
@@ -80,6 +87,7 @@ export const projects: ProjectItem[] = [
                 inventory holding/swapping, and a countdown timer tied to daily cycles.`,
     },
     {
+        slug: "ascii_artgenerator",
         name: "ASCII_ArtGenerator",
         tech: "Java, Swing",
         image: "Projects/ASCII_artGenerator.png",
@@ -90,6 +98,7 @@ export const projects: ProjectItem[] = [
                 script.`,
     },
     {
+        slug: "nextup",
         name: "NextUp",
         tech: "Swift, SwiftUI, MVVM, Clean Architecture",
         image: "Projects/NextUp.png",

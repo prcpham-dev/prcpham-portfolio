@@ -1,4 +1,5 @@
 export type ProjectItem = {
+    slug: string;
     name: string;
     tech: string;
     image: string;

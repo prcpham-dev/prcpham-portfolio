@@ -29,10 +29,10 @@ const Projects: React.FC = () => {
 
     if (trimmed.startsWith("cd")) {
       setHasInteracted(true);
-      const arg = trimmed.replace(/^cd\s+/, "").trim();
+      const arg = trimmed.replace(/^cd\s+/, "").trim().toLowerCase();
       if (!arg) return;
-
-      const proj = projects.find(p => p.name.toLowerCase() === arg.toLowerCase());
+      
+      const proj = projects.find(p => p.slug === arg);
 
       if (proj) {
         setCurrent(proj);
@@ -50,8 +50,8 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className={styles.section} aria-labelledby="projects">
-      <div id="projects" className={styles.title}>
+    <section id="projects" className={styles.section}>
+      <div className={styles.title}>
         <Image src="/Items/LittleGhost.gif" className={styles.littleGhostImg} alt="Little Ghost" priority width={224} height={224} />
         <span className={styles.titleText}>Projects</span>
       </div>
@@ -73,21 +73,21 @@ const Projects: React.FC = () => {
                 <div className={styles.lineIn}>projects$ ls</div>
                 {projects.map((p) => (
                   <button
-                    key={p.name}
+                    key={p.slug}
                     className={styles.lineBtn}
                     onClick={e => {
                       e.stopPropagation();
-                      runCommand(`cd ${p.name}`);
+                      runCommand(`cd ${p.slug}`);
                     }}
                   >
-                    {p.name}
+                    {p.slug}
                   </button>
                 ))}
               </div>
 
               {/* current project details */}
               <div className={styles.block}>
-                <div className={styles.lineIn}>cd /{(current.name)}</div>
+                <div className={styles.lineIn}>cd /{(current.slug)}</div>
                 {/* target line to pin at top after user action */}
                 <div className={styles.lineOut} ref={nameLineRef}>
                   <span className={styles.label}>name:</span> {current.name}

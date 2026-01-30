@@ -3,13 +3,21 @@ import Image from "next/image";
 import styles from "./experience.module.css";
 import { experiences } from "@/data/experiences";
 
+const renderHighlighted = (text: string, highlightClass: string) => {
+  const parts = text.split("**");
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <span key={i} className={highlightClass}>{part}</span>
+              : <React.Fragment key={i}>{part}</React.Fragment>
+  );
+};
+
 const Experience: React.FC = () => {
   const reversed = [...experiences].reverse();
-  const [openIndex, setOpenIndex] = useState<number>(0);
+  const [openSlug, setOpenSlug] = useState<string | null>(reversed[0]?.slug ?? null);
 
   return (
-    <section id="experience" aria-labelledby="experience" className={styles.section}>
-      <h2 id="experience" className={styles.title}>
+    <section id="experience" className={styles.section}>
+      <h2 className={styles.title}>
         <span className={styles.titleText}>Experience</span>
         <Image src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" priority width={224} height={224} />
       </h2>
@@ -21,25 +29,19 @@ const Experience: React.FC = () => {
           </div>
         </div>
         <div className="col-span-12 lg:col-span-9">
-          {reversed.map((exp, idx) => {
-            const isOpen = openIndex === idx;
+          {reversed.map((exp) => {
+            const isOpen = openSlug === exp.slug;
 
             return (
               <article
-                key={idx}
+                key={exp.slug}
                 className={`${styles.experienceBlock} ${isOpen ? styles.open : ""}`}
               >
                 <button
                   className={styles.experienceHeader}
                   aria-expanded={isOpen}
-                  aria-controls={`exp-panel-${idx}`}
-                  onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setOpenIndex(isOpen ? -1 : idx);
-                    }
-                  }}
+                  aria-controls={`exp-panel-${exp.slug}`}
+                  onClick={() => setOpenSlug(isOpen ? null : exp.slug)}
                 >
                   <span className={styles.roleBlock}>
                     <span className={styles.roleText}>{exp.title}</span>
@@ -58,22 +60,17 @@ const Experience: React.FC = () => {
 
                 {/* Collapsible details */}
                 <div
-                  id={`exp-panel-${idx}`}
+                  id={`exp-panel-${exp.slug}`}
                   className={styles.panel}
                   role="region"
                   aria-label={`${exp.title} details`}
                 >
                   <ul className={styles.detailList}>
-                    {exp.details.map((d, i) => {
-                      const html = d.replace(/\*\*(.+?)\*\*/g, `<span class="${styles.highlight}">$1</span>`);
-                      return (
-                        <li
-                          key={i}
-                          className={styles.detailItem}
-                          dangerouslySetInnerHTML={{ __html: html }}
-                        />
-                      );
-                    })}
+                    {exp.details.map((detail, detailIdx) => (
+                      <li key={detailIdx} className={styles.detailItem}>
+                        {renderHighlighted(detail, styles.highlightText)}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </article>

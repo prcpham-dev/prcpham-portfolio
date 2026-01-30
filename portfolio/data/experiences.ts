@@ -2,6 +2,7 @@ import type { ExperienceItem } from "@/types/experiences";
 
 export const experiences: ExperienceItem[] = [
     {
+        slug: "tvs-frontend-2023",
         title: "Software Engineer Intern (Frontend)",
         company: "Tinh Van Software",
         date: "Apr 2023 – Aug 2023",
@@ -13,6 +14,7 @@ export const experiences: ExperienceItem[] = [
         ],
     },
     {
+        slug: "tvs-fullstack-2024",
         title: "Software Engineer Intern (Full-Stack)",
         company: "Tinh Van Software",
         date: "Apr 2024 – Aug 2024",
