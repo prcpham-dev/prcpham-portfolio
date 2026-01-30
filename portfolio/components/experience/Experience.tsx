@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./experience.module.css";
 import { experiences } from "@/data/experiences";
+import { useRouter } from "next/router";
 
 const renderHighlighted = (text: string, highlightClass: string) => {
   const parts = text.split("**");
@@ -14,6 +15,19 @@ const renderHighlighted = (text: string, highlightClass: string) => {
 const Experience: React.FC = () => {
   const reversed = [...experiences].reverse();
   const [openSlug, setOpenSlug] = useState<string | null>(reversed[0]?.slug ?? null);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const q = router.query.exp;
+    if (typeof q !== "string") return;
+
+    const slug = q.toLowerCase();
+    const exp = experiences.find(e => e.slug === slug);
+    if (exp) setOpenSlug(exp.slug);
+  }, [router.isReady, router.query.exp]);
 
   return (
     <section id="experience" className={styles.section}>

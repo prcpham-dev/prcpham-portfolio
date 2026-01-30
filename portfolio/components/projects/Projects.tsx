@@ -3,6 +3,8 @@ import Image from "next/image";
 import styles from "./projects.module.css";
 import { projects } from "@/data/projects";
 import type { ProjectItem as Project } from "@/types/projects";
+import { useRouter } from "next/router";
+
 
 const normalize = (text: string) => text.split("\n").map(s => s.trim()).filter(Boolean).join(" ");
 
@@ -14,7 +16,19 @@ const Projects: React.FC = () => {
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const nameLineRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const q = router.query.project;
+    if (typeof q !== "string") return;
+
+    const slug = q.toLowerCase();
+    const proj = projects.find(p => p.slug === slug);
+    if (proj) setCurrent(proj);
+  }, [router.isReady, router.query.project]);
+    const inputRef = useRef<HTMLInputElement>(null);
 
   // when project changes due to a user action, scroll the "name:" line to top
   useEffect(() => {
