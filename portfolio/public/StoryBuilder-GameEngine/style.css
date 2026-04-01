@@ -1,0 +1,108 @@
+body {
+    background: #111;
+    color: #eee;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 0, 60, .45) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 0, 60, .45);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background-color .2s ease, opacity .2s ease;
+    opacity: .9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 0, 60, .75);
+    opacity: 1;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+#container {
+    margin: 2.5vh 1.5vw;
+    font-size: 0.95rem;
+    max-width: 45vw;
+}
+
+#text {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    transition: opacity 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+.option-link,
+.back-link {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.option-link {
+    color: #ff003c;
+}
+
+.back-link {
+    margin-top: 0.5em;
+    color: #aaa;
+}
+
+.option-link::after,
+.back-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.option-link:hover,
+.option-link:focus {
+    color: #ff4d79;
+}
+
+.back-link:hover,
+.back-link:focus {
+    color: #ccc;
+}
+
+.option-link:hover::after,
+.option-link:focus::after,
+.back-link:hover::after,
+.back-link:focus::after {
+    transform: scaleX(1);
+}
+
+@media (max-width: 980px) {
+    #container {
+        font-size: 1.5rem;
+        margin: 2.5vh 2vw;
+        max-width: 95vw;
+    }
+}
