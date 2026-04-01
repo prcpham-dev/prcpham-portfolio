@@ -101,8 +101,8 @@ body {
 
 @media (max-width: 980px) {
     #container {
-        font-size: 1.5rem;
-        margin: 2.5vh 2vw;
-        max-width: 95vw;
+        font-size: 1.35rem;
+        margin: 4vh 6vw;
+        max-width: 88vw;
     }
 }

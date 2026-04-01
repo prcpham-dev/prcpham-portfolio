@@ -12,9 +12,9 @@ const images = [
 
 // Scattered positions and parallax speeds
 const positions = [
-  { top: "10%", left: "8%", width: "clamp(100px, 14vw, 280px)", height: "clamp(130px, 18vw, 360px)", speed: 0.1 },
-  { top: "25%", right: "10%", width: "clamp(130px, 18vw, 340px)", height: "clamp(170px, 24vw, 440px)", speed: -0.15 },
-  { top: "45%", left: "12%", width: "clamp(110px, 15vw, 300px)", height: "clamp(140px, 20vw, 380px)", speed: -0.05 },
+  { top: "10%", left: "8%", width: "clamp(100px, 16vw, 420px)", height: "clamp(130px, 22vw, 560px)", speed: 0.1 },
+  { top: "25%", right: "10%", width: "clamp(130px, 20vw, 500px)", height: "clamp(170px, 28vw, 680px)", speed: -0.15 },
+  { top: "45%", left: "12%", width: "clamp(110px, 18vw, 450px)", height: "clamp(140px, 24vw, 600px)", speed: -0.05 },
 ];
 
 const ParallaxImage = ({ src, pos }: { src: string; pos: { top: string, left?: string, right?: string, width: number | string, height: number | string, speed: number } }) => {
