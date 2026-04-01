@@ -19,29 +19,7 @@ prcpham-portfolio
 └── README.md            # Project documentation
 ```
 
-## Commands
-
-1. **Install dependencies:**
-   ```
-   cd portfolio
-   npm install
-   ```
-
-2. **Run development server:**
-   ```
-   npm run dev
-   ```
-
-3. **Build static export:**
-   ```
-   npm run build && npm run export
-   ```
-
-4. **Serve static site:**
-   ```
-   npx serve@latest out
-   ```
-
 ## Credits
-- Built by **Percy Pham** ([GitHub](https://github.com/prcpham-dev))
+- Built by **([Percy Pham](https://github.com/prcpham-dev))** 
 - Drawings and artwork by **Tai**.
+- 3D Models by **([abhayexe](https://sketchfab.com/abhayexe))** and **([Thomas Nguyen](https://sketchfab.com/thomasnguyen))**

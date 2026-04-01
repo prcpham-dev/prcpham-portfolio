@@ -71,7 +71,7 @@ const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
       >
         <Suspense fallback={null}>
           <Stage
-            environment={activeModel === 'building' ? 'apartment' : 'city'}
+            environment="city"
             intensity={activeModel === 'building' ? 0.1 : 0.4}
             adjustCamera={config.adjustCamera}
             shadows={false}
@@ -92,7 +92,7 @@ const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
           maxPolarAngle={Math.PI / 2.4}
         />
       </Canvas>
-    </div>
+    </div >
   );
 };
 
