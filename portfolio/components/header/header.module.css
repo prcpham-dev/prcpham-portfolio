@@ -1,192 +1,78 @@
-.header {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 20px;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    pointer-events: none;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: relative;
-}
-
-.headerContainer {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 12px 28px;
-    background: rgba(15, 22, 32, 0.2);
-    border-radius: 40px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    pointer-events: auto;
-    backdrop-filter: blur(2px) saturate(140%);
-    -webkit-backdrop-filter: blur(2px) saturate(140%);
-}
+/* portfolio/components/header/header.module.css */
 
 .brand {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-right: 75px;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    color: #6ee7b7;
-    text-shadow: 0 0 10px rgba(94, 234, 212, 0.6);
-}
-.brand::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    height: 3px;
-    width: 0;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
-    box-shadow: 0 0 6px #6ee7b7, 0 0 10px #06b6d4;
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-.brand:hover::after,
-.brand:focus-visible::after {
-    width: 100%;
-}
-.brand:hover,
-.brand:focus-visible {
-    text-shadow: 0 0 8px #00ffcc, 0 0 12px #33e0ff;
-    outline: none;
-}
-.brand:active {
-    transform: scale(0.95);
-}
-
-.navDesktop {
-    display: flex;
-    gap: 20px;
-}
-
-.navMobile {
-    display: none;
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navLink {
-    position: relative;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-    color: #6ee7b7;
-    text-shadow: 0 0 10px rgba(94, 234, 212, 0.6);
-}
-.navLink::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    height: 3px;
-    width: 0;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
-    box-shadow: 0 0 6px #6ee7b7, 0 0 10px #06b6d4;
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-.navLink:hover::after,
-.navLink:focus-visible::after {
-    width: 100%;
-}
-.navLink:hover,
-.navLink:focus-visible {
-    text-shadow: 0 0 8px #00ffcc, 0 0 12px #33e0ff;
-    outline: none;
-}
-.navLink:active {
-    transform: scale(0.95);
+  position: relative;
+  display: inline-flex;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.burger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.35rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    pointer-events: auto;
+.textOverlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 0;
+  color: white;
+  transition: all 0.3s ease-out;
+  white-space: nowrap;
 }
 
-.burgerLine {
-    width: 1.8rem;
-    height: 0.2rem;
-    background: linear-gradient(90deg, #6ee7b7, #06b6d4);
-    border-radius: 2px;
-    transition: all 0.3s ease;
+.brandUnderline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: white;
+  transition: all 0.3s ease-out;
 }
 
-@media (max-width: 768px) {
-    .headerContainer {
-        padding: 0.6rem 1rem;
-        gap: 1rem;
-        position: relative;
-    }
+.navUnderline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: white;
+  transition: all 0.3s ease-out;
+}
 
-    .brand {
-        font-size: 1.1rem;
-        margin-right: auto;
-    }
+/* Hover and Focus animations */
+.brand:hover .textOverlay,
+.brand:focus-visible .textOverlay,
+.brand:focus .textOverlay,
+.navLink:hover .textOverlay,
+.navLink:focus-visible .textOverlay,
+.navLink:focus .textOverlay {
+  width: 100%;
+}
 
-    .burger {
-        display: flex;
-        margin-left: 2rem;
-    }
+.brand:hover .brandUnderline,
+.brand:focus-visible .brandUnderline,
+.brand:focus .brandUnderline {
+  width: 100%;
+}
 
-    .burgerLine {
-        width: 1.5rem;
-        height: 0.18rem;
-    }
+.navLink:hover .navUnderline,
+.navLink:focus-visible .navUnderline,
+.navLink:focus .navUnderline {
+  width: 100%;
+}
 
-    .navDesktop {
-        display: none;
-    }
-
-    .navMobile {
-        display: flex;
-        position: absolute;
-        top: 100%;
-        margin-left: 125px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.7rem;
-        padding: 1.2rem;
-        border-radius: 0.8rem;
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-10%);
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        z-index: 10;
-        min-width: 110px;
-    }
-
-    .navMobile.showNav {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-        margin-top: 0.8rem;
-        background: rgba(15, 22, 32, 0.25);
-        border-radius: 1rem;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(2px) saturate(140%);
-        -webkit-backdrop-filter: blur(2px) saturate(140%);
-    }
-
-    .navLink {
-        font-size: 1rem;
-        width: 100%;
-    }
+.brand:hover, .brand:focus-visible, .brand:focus,
+.navLink:hover, .navLink:focus-visible, .navLink:focus {
+  color: white;
+  outline: none;
+  transform: scale(1.1);
 }

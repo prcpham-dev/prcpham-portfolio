@@ -7,19 +7,25 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const images = [
   "/ProfilePics/01-v2.jpeg",
   "/ProfilePics/02.jpeg",
-  "/ProfilePics/04-v2.jpeg"
+  "/ProfilePics/04-v2.jpeg",
+  "/ProfilePics/03-v3.jpeg",
+  "/ProfilePics/05-v3.jpeg",
+  "/ProfilePics/06-v3.jpeg",
+  "/ProfilePics/07-v1.jpeg"
 ];
 
-// Scattered positions and parallax speeds
 const positions = [
-  { top: "10%", left: "8%", width: "clamp(100px, 16vw, 420px)", height: "clamp(130px, 22vw, 560px)", speed: 0.1 },
-  { top: "25%", right: "10%", width: "clamp(130px, 20vw, 500px)", height: "clamp(170px, 28vw, 680px)", speed: -0.15 },
-  { top: "45%", left: "12%", width: "clamp(110px, 18vw, 450px)", height: "clamp(140px, 24vw, 600px)", speed: -0.05 },
+  { top: "45%", left: "15%", width: "clamp(160px, 14vw, 240px)", height: "clamp(200px, 19vw, 320px)", speed: 0.1, displayClass: "hidden sm:block" },
+  { top: "15%", right: "7%", width: "clamp(160px, 15vw, 260px)", height: "clamp(210px, 22vw, 380px)", speed: -0.15, displayClass: "block" },
+  { top: "35%", left: "4%", width: "clamp(140px, 12vw, 220px)", height: "clamp(180px, 16vw, 290px)", speed: -0.05, displayClass: "block" },
+  { top: "12%", left: "6%", width: "clamp(130px, 12vw, 220px)", height: "clamp(130px, 12vw, 220px)", speed: 0.12, displayClass: "block" },
+  { top: "4%", left: "22%", width: "clamp(190px, 16vw, 280px)", height: "clamp(130px, 11vw, 190px)", speed: -0.1, displayClass: "hidden lg:block" },
+  { top: "42%", right: "26%", width: "clamp(210px, 18vw, 320px)", height: "clamp(130px, 11vw, 190px)", speed: -0.08, displayClass: "hidden lg:block" },
+  { top: "46%", right: "6%", width: "clamp(210px, 18vw, 320px)", height: "clamp(130px, 11vw, 190px)", speed: -0.08, displayClass: "hidden lg:block" },
 ];
 
-const ParallaxImage = ({ src, pos }: { src: string; pos: { top: string, left?: string, right?: string, width: number | string, height: number | string, speed: number } }) => {
+const ParallaxImage = ({ src, pos }: { src: string; pos: { top: string, left?: string, right?: string, width: string, height: string, speed: number, displayClass: string } }) => {
   const { scrollY } = useScroll();
-  // We use the absolute pixel scroll value to shift the Y position
   const y = useTransform(scrollY, [0, 3000], [0, pos.speed * 3000]);
 
   return (
@@ -37,7 +43,7 @@ const ParallaxImage = ({ src, pos }: { src: string; pos: { top: string, left?: s
       animate={{ opacity: 0.4, filter: 'blur(0px)' }}
       whileHover={{ opacity: 1, filter: 'contrast(1.2)' }}
       transition={{ duration: 1 }}
-      className="rounded-sm overflow-hidden shadow-[0_0_20px_rgba(0,240,255,0.15)] border border-[var(--color-brand-accent)]/30 mix-blend-luminosity hover:mix-blend-normal pointer-events-auto cursor-crosshair z-0"
+      className={`rounded-sm overflow-hidden shadow-[0_0_20px_rgba(0,240,255,0.15)] border border-[var(--color-brand-accent)]/30 mix-blend-luminosity hover:mix-blend-normal pointer-events-auto cursor-crosshair z-0 ${pos.displayClass}`}
     >
       <Image src={src} alt="Cyberpunk Aesthetic Scatter" fill className="object-cover" priority sizes="(max-width: 768px) 50vw, 25vw" />
 

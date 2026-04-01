@@ -1,0 +1,146 @@
+/* portfolio/components/games/games.module.css */
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 3.75rem;
+  }
+}
+
+.tabButton {
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.tabWrapper {
+  position: relative;
+  display: inline-flex;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .tabWrapper {
+    font-size: 1rem;
+  }
+}
+
+.tabTextOverlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 0;
+  color: var(--game-color);
+  transition: all 0.3s ease-out;
+  white-space: nowrap;
+}
+
+.tabUnderline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--game-color);
+  transition: all 0.3s ease-out;
+}
+
+.tabButton:hover .tabTextOverlay,
+.tabButton:focus-visible .tabTextOverlay,
+.tabButton[data-active="true"] .tabTextOverlay {
+  width: 100%;
+}
+
+.tabButton:hover .tabUnderline,
+.tabButton:focus-visible .tabUnderline,
+.tabButton[data-active="true"] .tabUnderline {
+  width: 100%;
+}
+
+.tabButton:hover .tabWrapper,
+.tabButton[data-active="true"] .tabWrapper {
+  color: var(--game-color);
+  text-shadow: 0 0 10px var(--game-color);
+  outline: none;
+}
+
+.showcaseContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 450px;
+  border: 1px solid var(--color-border);
+  border-radius: 0.125rem;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  transition: box-shadow 0.7s ease;
+  box-shadow: 0 0 30px var(--game-color-alpha);
+}
+
+@media (min-width: 768px) {
+  .showcaseContainer {
+    height: 600px;
+  }
+}
+
+.showcaseContainer:hover {
+  box-shadow: 0 0 80px rgba(0,0,0,0.8);
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  border: 1px solid var(--game-color);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.playOverlay:hover {
+  background-color: color-mix(in srgb, var(--color-bg) 60%, transparent);
+}
+
+.playIconWrapper {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background-color: var(--game-color);
+  box-shadow: 0 0 30px var(--game-color);
+  transition: transform 0.3s ease;
+}
+
+.playOverlay:hover .playIconWrapper {
+  transform: scale(1.1);
+}
+
+.playText {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--game-color);
+}
