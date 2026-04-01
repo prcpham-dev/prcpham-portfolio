@@ -35,9 +35,10 @@ body {
 }
 
 #container {
-    margin: 2.5vh 1.5vw;
-    font-size: 0.95rem;
-    max-width: 45vw;
+    margin: 0 auto;
+    padding: 4vh clamp(1.5rem, 6vw, 4rem);
+    max-width: 800px;
+    font-size: 1.1rem;
 }
 
 #text {
@@ -101,8 +102,6 @@ body {
 
 @media (max-width: 980px) {
     #container {
-        font-size: 1.35rem;
-        margin: 4vh 6vw;
-        max-width: 88vw;
+        font-size: 1.3rem;
     }
 }
