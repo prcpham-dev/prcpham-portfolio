@@ -251,8 +251,7 @@ var endings = {
     "restartArea": {
         "text": `It seems this path has come to an end. You have found 1 out 5 endings.<br>
                 Will you try again? {Yes...} <br><br>
-
-                {test}`,
+                `,
         "choices": [
             { "label": "Yes...", "next": "start" }
         ]

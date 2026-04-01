@@ -1,12 +1,32 @@
 'use client';
 
-import React, { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense, useEffect } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
 import { useFBX, OrbitControls, Stage } from '@react-three/drei';
 
 const FBXModel = ({ path, scale = 1 }: { path: string, scale?: number }) => {
   const fbx = useFBX(path);
   return <primitive object={fbx} scale={scale} />;
+};
+
+const ResponsiveCamera = () => {
+  const { camera, size } = useThree();
+  
+  useEffect(() => {
+    const cam = camera as any;
+    if (size.width > 1536) {
+      cam.zoom = 1.6;
+    } else if (size.width > 1024) {
+      cam.zoom = 1.35;
+    } else if (size.width > 768) {
+      cam.zoom = 1.15;
+    } else {
+      cam.zoom = 1;
+    }
+    cam.updateProjectionMatrix();
+  }, [size.width, camera]);
+
+  return null;
 };
 
 const Hero3DBackground: React.FC = () => {
@@ -18,6 +38,7 @@ const Hero3DBackground: React.FC = () => {
             <FBXModel path="/3D/nazo-no-eki-mystery-station/source/WTS_Mock.fbx" scale={0.008} />
           </Stage>
         </Suspense>
+        <ResponsiveCamera />
         <OrbitControls
           enableZoom={false}
           enablePan={false}
