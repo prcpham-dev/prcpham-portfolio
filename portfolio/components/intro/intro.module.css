@@ -18,9 +18,10 @@
     font-weight: 900;
     font-size: clamp(1.8rem, 5vw, 3rem);
     line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: #6ee7b7;
-    text-shadow: 0 0 8px #34d399, 0 0 14px rgba(94,234,212,0.5);
-    animation: ledPulse 1.8s infinite alternate ease-in-out;
+    text-shadow: 0 0 8px #34d399, 0 0 14px rgba(110, 231, 183, 0.5);
 }
 
 .introContent {

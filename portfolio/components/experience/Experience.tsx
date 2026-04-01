@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import styles from "./experience.module.css";
 import { experiences } from "@/data/experiences";
 import { useRouter } from "next/router";
@@ -31,10 +32,15 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experience" className={styles.section}>
-      <h2 className={styles.title}>
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={styles.title}
+      >
         <span className={styles.titleText}>Experience</span>
         <Image src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" priority width={224} height={224} />
-      </h2>
+      </motion.h2>
       <div className={`grid grid-cols-12 ${styles.experienceWrapper}`}>
         <div className="col-span-12 lg:col-span-3">
           <div className={styles.imageSetUp}>
@@ -42,7 +48,7 @@ const Experience: React.FC = () => {
             <Image src="/Items/Sandbag.png" className={styles.sandBag} alt="Sandbag" width={224} height={224} />
           </div>
         </div>
-        <div className="col-span-12 lg:col-span-9">
+        <div className={`col-span-12 lg:col-span-9 ${styles.experienceList}`}>
           {reversed.map((exp) => {
             const isOpen = openSlug === exp.slug;
 
@@ -67,7 +73,7 @@ const Experience: React.FC = () => {
                   </span>
                   <span className={styles.chevron} aria-hidden="true">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ display: "block" }}>
-                      <polyline points="7,5 15,11 7,17" stroke="#6ee7b7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                      <polyline points="7,5 15,11 7,17" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                 </button>

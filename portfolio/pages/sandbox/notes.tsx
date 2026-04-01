@@ -52,8 +52,8 @@ export default function NotesSandbox() {
       setNewTitle("");
       setNewContent("");
       await load();
-    } catch (e: any) {
-      setError(e.message || "Create failed");
+    } catch (e: unknown) {
+      setError((e as Error).message || "Create failed");
     }
   };
 
@@ -82,8 +82,8 @@ export default function NotesSandbox() {
 
       cancelEdit();
       await load();
-    } catch (e: any) {
-      setError(e.message || "Update failed");
+    } catch (e: unknown) {
+      setError((e as Error).message || "Update failed");
     }
   };
 
@@ -95,8 +95,8 @@ export default function NotesSandbox() {
       if (!json.ok) throw new Error(json.error || "Delete failed");
 
       await load();
-    } catch (e: any) {
-      setError(e.message || "Delete failed");
+    } catch (e: unknown) {
+      setError((e as Error).message || "Delete failed");
     }
   };
 
