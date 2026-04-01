@@ -33,7 +33,7 @@ const ResponsiveCamera = () => {
 const Hero3DBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 z-0 pointer-events-auto opacity-70">
-      <Canvas camera={{ position: [0, 1.5, 3], fov: 40, near: 0.1, far: 2000 }} dpr={[1, 2]} performance={{ min: 0.5 }}>
+      <Canvas style={{ touchAction: 'pan-y' }} camera={{ position: [0, 1.5, 3], fov: 40, near: 0.1, far: 2000 }} dpr={[1, 2]} performance={{ min: 0.5 }}>
         <Suspense fallback={null}>
           <Stage environment="city" intensity={0.4} adjustCamera={0.5} shadows={false}>
             <FBXModel path="/3D/nazo-no-eki-mystery-station/source/WTS_Mock.fbx" scale={0.008} />

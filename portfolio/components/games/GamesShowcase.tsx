@@ -54,7 +54,6 @@ const GamesShowcase: React.FC = () => {
               <div className={styles.tabWrapper}>
                 <span>{game.title}</span>
                 <span className={styles.tabTextOverlay} aria-hidden="true">{game.title}</span>
-                <span className={styles.tabUnderline}></span>
               </div>
             </button>
           ))}

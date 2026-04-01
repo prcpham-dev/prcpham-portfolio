@@ -17,6 +17,12 @@ const Hero: React.FC = () => {
       <Hero3DBackground />
       <ScatteredPictures />
 
+      {/* Touch-Scroll Safe Zones for Mobile (Pass touch directly to browser) */}
+      <div className="md:hidden absolute inset-y-0 left-0 w-24 z-30 pointer-events-auto" style={{ touchAction: 'pan-y' }} />
+      <div className="md:hidden absolute inset-y-0 right-0 w-24 z-30 pointer-events-auto" style={{ touchAction: 'pan-y' }} />
+      <div className="md:hidden absolute bottom-0 w-full h-48 z-30 pointer-events-auto" style={{ touchAction: 'pan-y' }} />
+      <div className="md:hidden absolute top-0 w-full h-32 z-30 pointer-events-auto" style={{ touchAction: 'pan-y' }} />
+
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}

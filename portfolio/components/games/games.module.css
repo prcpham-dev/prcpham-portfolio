@@ -20,6 +20,7 @@
   cursor: pointer;
   background: none;
   border: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tabWrapper {
@@ -29,8 +30,10 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-secondary);
-  transition: color 0.3s ease;
+  color: var(--game-color);
+  opacity: 1;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
@@ -50,32 +53,21 @@
   white-space: nowrap;
 }
 
-.tabUnderline {
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background-color: var(--game-color);
-  transition: all 0.3s ease-out;
+@media (hover: hover) {
+  .tabButton:hover .tabTextOverlay {
+    text-shadow: 0 0 10px var(--game-color);
+    width: 100%;
+  }
 }
 
-.tabButton:hover .tabTextOverlay,
 .tabButton:focus-visible .tabTextOverlay,
 .tabButton[data-active="true"] .tabTextOverlay {
-  width: 100%;
-}
-
-.tabButton:hover .tabUnderline,
-.tabButton:focus-visible .tabUnderline,
-.tabButton[data-active="true"] .tabUnderline {
-  width: 100%;
-}
-
-.tabButton:hover .tabWrapper,
-.tabButton[data-active="true"] .tabWrapper {
-  color: var(--game-color);
   text-shadow: 0 0 10px var(--game-color);
+  width: 100%;
+}
+
+.tabButton:focus-visible .tabWrapper,
+.tabButton[data-active="true"] .tabWrapper {
   outline: none;
 }
 
