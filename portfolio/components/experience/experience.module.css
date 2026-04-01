@@ -1,5 +1,8 @@
 .section {
-  margin-top: 5vh;
+    padding: clamp(1rem, 2vw, 3rem);
+    display: block;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
 }
 
 .title {
@@ -12,14 +15,16 @@
     font-weight: 900;
     font-size: clamp(1.8rem, 5vw, 3rem);
     line-height: 1.1;
-    color: #6ee7b7;
-    text-shadow: 0 0 8px #34d399, 0 0 14px rgba(94,234,212,0.5);
-    animation: ledPulse 1.8s infinite alternate ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-shadow: 0 0 8px #e5e7eb, 0 0 14px rgba(255, 255, 255, 0.5);
 }
+
 @media (min-width:1025px) {
     .experienceWrapper {
-        margin-left:5%;
-        margin-right:5%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 }
 
@@ -29,8 +34,8 @@
 }
 
 .experienceBlock {
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border: 1px solid rgba(110,231,183,0.16);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     margin: clamp(.6rem, 1.6vw, 1.25rem) auto;
     overflow: hidden;
@@ -44,14 +49,14 @@
 }
 
 .experienceBlock:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
-  border-color: rgba(110,231,183,0.28);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .open {
-    border-color: rgba(110,231,183,0.34);
-    box-shadow: 0 10px 34px rgba(0,0,0,0.38);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.38);
 }
 
 .experienceHeader {
@@ -117,8 +122,8 @@
     height: 8px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #6ee7b7;
-    box-shadow: 0 0 6px #34d399, 0 0 10px rgba(94,234,212,0.5);
+    background: #ffffff;
+    box-shadow: 0 0 6px #e5e7eb, 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .companyDateRow {
@@ -131,7 +136,7 @@
 
 .company {
     font-size: 1rem;
-    color: #6ee7b7;
+    color: #ffffff;
     font-weight: 600;
     margin-right: 0;
     white-space: nowrap;
@@ -148,7 +153,9 @@
     .companyDateRow {
         gap: 0.6em;
     }
-    .company, .date {
+
+    .company,
+    .date {
         font-size: 0.95rem;
     }
 }
@@ -170,7 +177,7 @@
 .chevron:focus-visible svg {
     transform: scale(1.25);
     transition: transform .25s;
-    filter: drop-shadow(0 0 8px #6ee7b7) drop-shadow(0 0 16px #34d399);
+    filter: drop-shadow(0 0 8px #ffffff) drop-shadow(0 0 16px #e5e7eb);
 }
 
 .open .chevron svg {
@@ -201,10 +208,12 @@
     line-height: 1.65;
 }
 
-.detailItem { margin: .4rem 0; }
+.detailItem {
+    margin: .4rem 0;
+}
 
 .highlight {
-    color: #6ee7b7;
+    color: #ffffff;
     font-weight: 600;
     background: transparent;
     border-radius: 4px;
@@ -212,22 +221,22 @@
 }
 
 @media (max-width: 560px) {
-    .roleBlock { 
-        grid-template-columns: 1fr; 
+    .roleBlock {
+        grid-template-columns: 1fr;
         gap: 0.75rem;
     }
 
-    .company { 
-        grid-column: 1 / -1; 
-        white-space: normal; 
+    .company {
+        grid-column: 1 / -1;
+        white-space: normal;
         font-size: 0.95rem;
     }
 
-    .date { 
-        grid-column: 1 / -1; 
-        justify-self: start; 
-        margin-top: 0.25rem; 
-        font-size: 0.9rem; 
+    .date {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-top: 0.25rem;
+        font-size: 0.9rem;
         color: #6b7280;
     }
 
@@ -253,9 +262,9 @@
 }
 
 @media (max-width: 600px) {
-  .quackyImg {
-    right: 6.75em;
-  }
+    .quackyImg {
+        right: 6.75em;
+    }
 }
 
 
@@ -267,10 +276,7 @@
     max-width: 260px;
     padding-left: 2vw;
     margin: 2vh 0 2vh 2vh;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 220, 0.8))
-            drop-shadow(0 0 16px rgba(0, 200, 200, 0.6))
-            drop-shadow(0 0 24px rgba(0, 160, 180, 0.5))
-            drop-shadow(0 0 40px rgba(0, 120, 160, 0.4));
+    filter: drop-shadow(0 0 8px rgba(0, 255, 220, 0.8)) drop-shadow(0 0 16px rgba(0, 200, 200, 0.6)) drop-shadow(0 0 24px rgba(0, 160, 180, 0.5)) drop-shadow(0 0 40px rgba(0, 120, 160, 0.4));
 }
 
 .dog {
@@ -278,11 +284,9 @@
     object-fit: contain;
     width: 40%;
     height: auto;
-    max-width: 135px; 
+    max-width: 135px;
     padding-top: 2vh;
-    filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.95))
-            drop-shadow(0 0 20px rgba(0, 191, 255, 0.75))
-            drop-shadow(0 0 32px rgba(0, 140, 255, 0.6));
+    filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.95)) drop-shadow(0 0 20px rgba(0, 191, 255, 0.75)) drop-shadow(0 0 32px rgba(0, 140, 255, 0.6));
 }
 
 

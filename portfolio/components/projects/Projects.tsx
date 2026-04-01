@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import styles from "./projects.module.css";
 import { projects } from "@/data/projects";
 import type { ProjectItem as Project } from "@/types/projects";
@@ -65,10 +66,15 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className={styles.section}>
-      <div className={styles.title}>
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={styles.title}
+      >
         <Image src="/Items/LittleGhost.gif" className={styles.littleGhostImg} alt="Little Ghost" priority width={224} height={224} />
         <span className={styles.titleText}>Projects</span>
-      </div>
+      </motion.h2>
 
       <div className={`grid grid-cols-12`}>
         <div className="col-span-12 lg:col-span-9">
