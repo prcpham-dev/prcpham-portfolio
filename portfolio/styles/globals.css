@@ -47,6 +47,6 @@ body,
 }
 
 ::selection {
-  background-color: var(--color-brand-secondary-accent);
+  background-color: var(--color-brand-accent-three);
   color: #fff;
 }
