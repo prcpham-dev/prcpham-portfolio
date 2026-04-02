@@ -1,0 +1,121 @@
+/* components/ui/loading.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #050505;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Glitch logo */
+.logo {
+  position: relative;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-brand-accent);
+}
+
+.logo::before,
+.logo::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background: #050505;
+}
+
+.logo::before {
+  color: #ff003c;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  animation: glitchTop 2.5s infinite;
+  left: 2px;
+}
+
+.logo::after {
+  color: #00f0ff;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  animation: glitchBottom 2.5s infinite;
+  left: -2px;
+}
+
+@keyframes glitchTop {
+  0%, 90%, 100% { transform: translate(0); opacity: 0; }
+  91%            { transform: translate(-3px, -1px); opacity: 1; }
+  93%            { transform: translate(3px, 1px); opacity: 1; }
+  95%            { transform: translate(0); opacity: 0; }
+}
+
+@keyframes glitchBottom {
+  0%, 88%, 100% { transform: translate(0); opacity: 0; }
+  89%           { transform: translate(3px, 1px); opacity: 1; }
+  92%           { transform: translate(-3px, -1px); opacity: 1; }
+  94%           { transform: translate(0); opacity: 0; }
+}
+
+/* Scanline */
+.scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+}
+
+/* Progress bar */
+.barWrap {
+  width: min(280px, 60vw);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: var(--color-brand-accent);
+  border-radius: 999px;
+  box-shadow: 0 0 10px var(--color-brand-accent);
+  animation: load 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes load {
+  0%   { width: 0%; }
+  40%  { width: 55%; }
+  70%  { width: 78%; }
+  90%  { width: 92%; }
+  100% { width: 100%; }
+}
+
+/* Status text */
+.status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-brand-accent);
+  opacity: 0.6;
+  animation: blink 1.2s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 0.2; }
+}

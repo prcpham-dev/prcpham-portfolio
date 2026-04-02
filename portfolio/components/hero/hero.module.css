@@ -105,6 +105,7 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 2rem;
+  position: relative;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
@@ -112,6 +113,52 @@
       var(--color-brand-accent),
       #fff,
       var(--color-brand-secondary-accent));
+}
+
+.title::before,
+.title::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: inherit;
+  color: transparent;
+  pointer-events: none;
+}
+
+.title::before {
+  color: #ff003c;
+  background-image: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+  animation: heroGlitchTop 4s infinite;
+  left: 3px;
+}
+
+.title::after {
+  color: #00f0ff;
+  background-image: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+  animation: heroGlitchBottom 4s infinite;
+  left: -3px;
+}
+
+@keyframes heroGlitchTop {
+  0%, 85%, 100% { transform: translate(0); opacity: 0; }
+  86%            { transform: translate(-4px, -2px); opacity: 0.8; }
+  88%            { transform: translate(4px, 2px); opacity: 0.8; }
+  90%            { transform: translate(0); opacity: 0; }
+}
+
+@keyframes heroGlitchBottom {
+  0%, 82%, 100% { transform: translate(0); opacity: 0; }
+  83%           { transform: translate(4px, 2px); opacity: 0.8; }
+  86%           { transform: translate(-4px, -2px); opacity: 0.8; }
+  88%           { transform: translate(0); opacity: 0; }
 }
 
 /* Switch Reality button */

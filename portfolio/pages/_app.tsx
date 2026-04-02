@@ -1,8 +1,13 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
+import LoadingScreen from "@/components/loading/LoadingScreen";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const isRobots = router.pathname === "/robots";
+
   useEffect(() => {
     console.log(
       "%cHELLO WORLD!!!!",
@@ -27,5 +32,13 @@ export default function App({ Component, pageProps }: AppProps) {
     );
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <LoadingScreen
+        label={isRobots ? "Loading Easter Egg..." : "Initializing System"}
+        duration={isRobots ? 3200 : 2200}
+      />
+      <Component {...pageProps} />
+    </>
+  );
 }

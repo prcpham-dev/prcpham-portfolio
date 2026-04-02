@@ -20,23 +20,16 @@ const Hero: React.FC = () => {
       <Hero3DBackground activeModel={activeModel} />
       <ScatteredPictures />
 
-      {/* Touch-Scroll Safe Zones for Mobile */}
-      <div className={styles.safeZoneLeft} />
-      <div className={styles.safeZoneRight} />
-      <div className={styles.safeZoneBottom} />
-      <div className={styles.safeZoneTop} />
-
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className={styles.content}
       >
-        <h1 className={styles.title}>
+        <h1 className={styles.title} data-text="PERCY PHAM">
           PERCY PHAM
         </h1>
 
-        {/* Environment Toggle Switch */}
         <button
           onClick={() => setActiveModel(prev => prev === 'station' ? 'building' : 'station')}
           className={`${styles.switchBtn} ${activeModel === 'station' ? styles.switchBtnStation : styles.switchBtnBuilding}`}
