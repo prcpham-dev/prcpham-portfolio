@@ -13,16 +13,16 @@ export default function App({ Component, pageProps }: AppProps) {
   prcpham-portfolio
   ├── portfolio/
   │   ├── pages/      <- you are here
-  │   │   └── robots  <- wait... what's this?
+  │   │   └── robots  <- checkout this...
   │   ├── public/
   │   ├── styles/
   │   └── ...
   └── README.md
-`,
+      `,
       "color: #00f0ff; font-family: monospace; font-size: 0.85rem;"
     );
     console.log(
-      "%cGoto: prcpham.com/robots  — if you know, you know.",
+      "%cGoto: prcpham.com/...  — if you know, you know.",
       "color: #ff003c; font-size: 1rem; font-style: italic;"
     );
   }, []);

@@ -2,35 +2,48 @@
 
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { useFBX, OrbitControls, Stage } from '@react-three/drei';
+import { useFBX, useGLTF, OrbitControls, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 
-const MODEL_PATH = '/3D/delorian/FINAL_MODEL_BTTF.fbx'; // update filename
+const AMONG_US_PATH = '/3D/among_us.glb';
+const DELOREAN_PATH = '/3D/delorian/FINAL_MODEL_BTTF.fbx';
 
-const Model = () => {
-    const fbx = useFBX(MODEL_PATH);
-    return <primitive object={fbx} scale={0.008} />;
+const AmongUsModel = () => {
+    const { scene } = useGLTF(AMONG_US_PATH);
+    return <primitive object={scene.clone()} scale={1} position={[-2, 0, 0]} />;
 };
 
-useFBX.preload(MODEL_PATH);
+const DeloreanModel = () => {
+    const fbx = useFBX(DELOREAN_PATH);
+    return <primitive object={fbx} scale={1.2} position={[0.5, 0, 1.2]} />;
+};
+
+useGLTF.preload(AMONG_US_PATH);
+useFBX.preload(DELOREAN_PATH);
 
 export default function ExplorePage() {
     return (
-        <main style={{ width: '100vw', height: '100vh', background: '#000' }}>
+        <main style={{ width: '100vw', height: '100vh', background: '#111' }}>
             <Canvas
-                camera={{ position: [0, 2, 100], fov: 40 }}
+                camera={{ position: [0, 2, 10], fov: 50 }}
                 gl={{
                     toneMapping: THREE.ACESFilmicToneMapping,
-                    toneMappingExposure: 1.0,
+                    toneMappingExposure: 1.2,
                     outputColorSpace: THREE.SRGBColorSpace,
                 }}
             >
                 <Suspense fallback={null}>
-                    <Stage environment="night" intensity={0.01} adjustCamera={0.8} shadows={true}>
-                        <Model />
-                    </Stage>
+                    {/* Lighting */}
+                    <ambientLight intensity={1.5} />
+                    <directionalLight position={[5, 10, 5]} intensity={1} castShadow />
+                    <directionalLight position={[-5, 5, -5]} intensity={1} />
+                    <Environment preset="night" />
+
+                    <AmongUsModel />
+                    <DeloreanModel />
                 </Suspense>
-                <OrbitControls enableZoom={false} enablePan={false} />
+
+                <OrbitControls makeDefault />
             </Canvas>
         </main>
     );
