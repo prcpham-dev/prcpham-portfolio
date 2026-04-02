@@ -1,10 +1,11 @@
 'use client';
 
-import React, { Suspense, useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { useFBX, OrbitControls, Stage } from '@react-three/drei';
 import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import * as THREE from 'three';
+import heroStyles from './hero.module.css';
 
 const FBXModel = ({ path, scale = 1 }: { path: string, scale?: number }) => {
   const fbx = useFBX(path);
@@ -51,15 +52,6 @@ interface Hero3DProps {
 const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
   const config = MODEL_CONFIG[activeModel];
   const orbitRef = useRef<OrbitControlsImpl>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-
   useEffect(() => {
     if (orbitRef.current && activeModel === 'building') {
       orbitRef.current.setAzimuthalAngle(Math.PI / 2);
@@ -68,10 +60,10 @@ const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
   }, [activeModel]);
 
   return (
-    <div className="absolute inset-0 z-0 pointer-events-auto opacity-70">
+    <div className={heroStyles.canvas3dContainer}>
       <Canvas
         key={activeModel}
-        style={{ touchAction: 'pan-y' }}
+        style={{ touchAction: 'pan-y', width: '100%', height: '100%' }}
         camera={{ position: config.cameraPosition, fov: 40, near: 0.1, far: 2000 }}
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
@@ -100,7 +92,7 @@ const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
           ref={orbitRef}
           enableZoom={false}
           enablePan={false}
-          enableRotate={!isMobile}
+          enableRotate={true}
           autoRotate={false}
           minPolarAngle={Math.PI / 2.4}
           maxPolarAngle={Math.PI / 2.4}
