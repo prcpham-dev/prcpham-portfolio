@@ -1,7 +1,7 @@
 import type { ProjectItem } from "@/types/projects";
 
 export const projects: ProjectItem[] = [
-    {   
+    {
         slug: "chatdocument",
         name: "ChatDocument",
         tech: "FastAPI, LangChain, Redis, Celery, React.js, Bootstrap, Docker, Nginx",
@@ -25,6 +25,19 @@ export const projects: ProjectItem[] = [
                 posts and stories for quick media downloads. Used DOM manipulation and MutationObserver to 
                 dynamically detect and modify Instagram’s interface. Delivered lightweight functionality to 
                 open or save images and videos directly from the browser.`,
+    },
+    {
+        slug: "sorty",
+        name: "Sorty",
+        tech: "Python, Raspberry Pi, Computer Vision, Embedded Systems",
+        image: "Projects/Sorty.jpeg",
+        link: "https://devpost.com/software/sorty-25gdrx?ref_content=my-projects-tab&ref_feature=my_projects",
+        details: `Developed a smart trash-sorting assistant using Python, Raspberry Pi Zero 2 W, a Pi camera, and a 2.6" OLED display. 
+            Implemented AI-powered image recognition to identify waste items and suggest the correct bin in real time. 
+            Designed an interactive hardware-software experience with button-triggered scanning and instant on-screen feedback. 
+            Enhanced system reliability by troubleshooting wiring, soldering, driver issues, and Python environment compatibility 
+            during SSH-based development. Added a friendly and practical design focused on helping newcomers sort waste 
+            confidently while encouraging more sustainable daily habits.`,
     },
     {
         slug: "shufa_downloader",
