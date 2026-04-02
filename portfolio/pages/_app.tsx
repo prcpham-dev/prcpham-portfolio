@@ -6,7 +6,7 @@ import LoadingScreen from "@/components/loading/LoadingScreen";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const isRobots = router.pathname === "/robots";
+  const isRobots = router.pathname === "/robots" || router.pathname === "/sitemap";
 
   useEffect(() => {
     console.log(
@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
   ├── portfolio/
   │   ├── pages/      <- you are here
   │   │   └── robots  <- checkout this...
+  │   │   └── sitemap <- and this...
   │   ├── public/
   │   ├── styles/
   │   └── ...
