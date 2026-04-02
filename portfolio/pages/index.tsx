@@ -13,7 +13,6 @@ const Home: NextPage = () => {
       <Header />
       <main className="flex flex-col items-center w-full min-h-screen bg-[var(--color-bg)]">
         <Hero />
-        <br/><br/><br/>
         <Intro />
         <Experience />
         <Projects />
