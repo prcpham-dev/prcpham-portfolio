@@ -11,7 +11,7 @@ prcpham-portfolio
 │       └── nextjs.yml   # GitHub Actions workflow for CI/CD
 │   
 ├── portfolio/
-│   ├── pages/           # Page components
+│   ├── pages/           # Page components, robots page
 │   ├── public/          # Images, GIFs, GhostRun
 │   ├── styles/          # Global and module CSS
 │   ├── package.json     # Project dependencies and scripts
@@ -22,4 +22,4 @@ prcpham-portfolio
 ## Credits
 - Built by **[Percy Pham](https://github.com/prcpham-dev)** 
 - Drawings and artwork by **Tai**.
-- 3D Models by **[abhayexe](https://sketchfab.com/abhayexe)** and **[Alexis](https://sketchfab.com/alexis.eginard)**
+- 3D Models by **[abhayexe](https://sketchfab.com/abhayexe)**, **[Alexis](https://sketchfab.com/alexis.eginard)** and **[ddiaz-design](https://sketchfab.com/ddiaz-design)**
