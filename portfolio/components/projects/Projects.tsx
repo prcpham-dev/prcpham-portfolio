@@ -30,10 +30,18 @@ const Projects: React.FC = () => {
   }, [router.isReady, router.query.project]);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // when project changes due to a user action, scroll the "name:" line to top
   useEffect(() => {
     if (!hasInteracted) return;
-    nameLineRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    const viewport = viewportRef.current;
+    const nameLine = nameLineRef.current;
+
+    if (viewport && nameLine) {
+      // Scroll only the inner terminal viewport, not the page
+      const offsetTop = nameLine.offsetTop - viewport.offsetTop;
+      viewport.scrollTo({ top: offsetTop, behavior: "smooth" });
+    }
+
     setHasInteracted(false);
   }, [current, hasInteracted]);
 
