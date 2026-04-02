@@ -1,27 +1,42 @@
 @import "tailwindcss";
 
 @keyframes ledPulse {
-    0%   { opacity: 1; text-shadow: 0 0 6px rgba(126,248,195,.7), 0 0 12px rgba(94,234,212,.5); }
-    50%  { opacity: .85; text-shadow: 0 0 4px rgba(126,248,195,.6), 0 0 8px rgba(94,234,212,.4); }
-    100% { opacity: 1; text-shadow: 0 0 8px rgba(126,248,195,.8), 0 0 16px rgba(94,234,212,.6); }
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 6px rgba(126, 248, 195, .7), 0 0 12px rgba(94, 234, 212, .5);
+  }
+
+  50% {
+    opacity: .85;
+    text-shadow: 0 0 4px rgba(126, 248, 195, .6), 0 0 8px rgba(94, 234, 212, .4);
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(126, 248, 195, .8), 0 0 16px rgba(94, 234, 212, .6);
+  }
 }
 
-html, body, #__next {
+html,
+body,
+#__next {
   height: 100%;
   scroll-padding-top: 2vh;
   scroll-behavior: smooth;
   background-color: var(--color-bg);
   color: var(--color-primary);
-  font-family: 'Funnel Sans', 'Inter', system-ui, sans-serif; 
+  font-family: 'Funnel Sans', 'Inter', system-ui, sans-serif;
 }
 
 @theme {
   --color-brand-bg: #050505;
   --color-brand-surface: #0a0f12;
   --color-brand-border: #1a2228;
-  --color-brand-accent: #00f0ff;
+  --color-brand-accent: #00C49A;
+  --color-brand-accent_two: #ff0000;
   --color-brand-secondary-accent: #ff003c;
   --color-brand-accent-hover: #00e0ef;
+  --color-brand-accent-three: #00f0ff;
 }
 
 :root {

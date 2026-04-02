@@ -1,0 +1,182 @@
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding-top: 8rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 10rem;
+  }
+}
+
+/* Glow orbs */
+.glowCyan {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: color-mix(in srgb, var(--color-brand-accent-three) 30%, transparent);
+  filter: blur(150px);
+  border-radius: 9999px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.glowRed {
+  position: absolute;
+  top: 20%;
+  left: 33%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: color-mix(in srgb, var(--color-brand-secondary-accent) 20%, transparent);
+  filter: blur(120px);
+  border-radius: 9999px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Touch scroll safe zones (mobile only) */
+.safeZoneLeft,
+.safeZoneRight,
+.safeZoneBottom,
+.safeZoneTop {
+  display: none;
+  position: absolute;
+  z-index: 30;
+  pointer-events: auto;
+  touch-action: pan-y;
+}
+
+@media (max-width: 767px) {
+  .safeZoneLeft {
+    display: block;
+    inset-block: 0;
+    left: 0;
+    width: 6rem;
+  }
+
+  .safeZoneRight {
+    display: block;
+    inset-block: 0;
+    right: 0;
+    width: 6rem;
+  }
+
+  .safeZoneBottom {
+    display: block;
+    bottom: 0;
+    width: 100%;
+    height: 12rem;
+  }
+
+  .safeZoneTop {
+    display: block;
+    top: 0;
+    width: 100%;
+    height: 8rem;
+  }
+}
+
+/* Hero text content */
+.content {
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 1rem;
+  mix-blend-mode: difference;
+}
+
+.title {
+  font-size: clamp(3.5rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right,
+      var(--color-brand-accent-three),
+      #fff,
+      var(--color-brand-secondary-accent));
+}
+
+/* Switch Reality button */
+.switchBtn {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .switchBtn {
+    display: block;
+    position: relative;
+    padding: 0.75rem 2rem;
+    background: color-mix(in srgb, var(--color-bg) 80%, transparent);
+    backdrop-filter: blur(4px);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+  }
+}
+
+.switchBtnStation {
+  border: 1px solid var(--color-brand-secondary-accent);
+  color: var(--color-brand-secondary-accent);
+}
+
+.switchBtnStation:hover {
+  background: var(--color-brand-secondary-accent);
+  color: #000;
+  box-shadow: 0 0 20px var(--color-brand-secondary-accent);
+}
+
+.switchBtnBuilding {
+  border: 1px solid var(--color-brand-accent-three);
+  color: var(--color-brand-accent-three);
+}
+
+.switchBtnBuilding:hover {
+  background: var(--color-brand-accent-three);
+  color: #000;
+  box-shadow: 0 0 20px var(--color-brand-accent-three);
+}
+
+.switchBtnLabel {
+  position: relative;
+  z-index: 10;
+}
+
+.switchBtnGlitch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+  opacity: 0;
+  top: 50%;
+  z-index: 0;
+  transition: opacity 0.2s ease;
+}
+
+.switchBtn:hover .switchBtnGlitch {
+  opacity: 0.5;
+  animation: pulse 1s infinite;
+}

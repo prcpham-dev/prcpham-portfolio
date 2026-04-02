@@ -1,18 +1,14 @@
 'use client';
 
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { useFBX, useGLTF, OrbitControls, Stage } from '@react-three/drei';
+import { useFBX, OrbitControls, Stage } from '@react-three/drei';
+import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import * as THREE from 'three';
 
 const FBXModel = ({ path, scale = 1 }: { path: string, scale?: number }) => {
   const fbx = useFBX(path);
   return <primitive object={fbx} scale={scale} />;
-};
-
-const GLTFModel = ({ path, scale = 1 }: { path: string; scale?: number }) => {
-  const gltf = useGLTF(path);
-  return <primitive object={gltf.scene} scale={scale} />;
 };
 
 const ResponsiveCamera = () => {
@@ -42,9 +38,9 @@ const MODEL_CONFIG = {
     adjustCamera: 0.5,
   },
   building: {
-    scale: 0.001,
-    cameraPosition: [0, 1.5, 20] as [number, number, number],
-    adjustCamera: 2,
+    scale: 0.008,
+    cameraPosition: [130, 80, 150] as [number, number, number],
+    adjustCamera: 0.8,
   },
 };
 
@@ -54,6 +50,22 @@ interface Hero3DProps {
 
 const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
   const config = MODEL_CONFIG[activeModel];
+  const orbitRef = useRef<OrbitControlsImpl>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  useEffect(() => {
+    if (orbitRef.current && activeModel === 'building') {
+      orbitRef.current.setAzimuthalAngle(Math.PI / 2);
+      orbitRef.current.update();
+    }
+  }, [activeModel]);
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-auto opacity-70">
@@ -64,7 +76,7 @@ const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
         gl={{
-          toneMapping: activeModel === 'building' ? THREE.ACESFilmicToneMapping : THREE.NoToneMapping,
+          toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 0.6,
           outputColorSpace: THREE.SRGBColorSpace,
         }}
@@ -72,31 +84,33 @@ const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
         <Suspense fallback={null}>
           <Stage
             environment="city"
-            intensity={activeModel === 'building' ? 0.1 : 0.4}
+            intensity={0.4}
             adjustCamera={config.adjustCamera}
             shadows={false}
           >
             {activeModel === 'station' ? (
               <FBXModel path="/3D/nazo-no-eki-mystery-station/source/WTS_Mock.fbx" scale={config.scale} />
             ) : (
-              <GLTFModel path="/3D/cyberpunk-2077-inspired-building-modular-pbr/source/cyber.glb" scale={config.scale} />
+              <FBXModel path="/3D/procedurally-made-cyberpunk-building/source/Prueba.fbx" scale={config.scale} />
             )}
           </Stage>
         </Suspense>
         <ResponsiveCamera />
         <OrbitControls
+          ref={orbitRef}
           enableZoom={false}
           enablePan={false}
+          enableRotate={!isMobile}
           autoRotate={false}
           minPolarAngle={Math.PI / 2.4}
           maxPolarAngle={Math.PI / 2.4}
         />
       </Canvas>
-    </div >
+    </div>
   );
 };
 
 export default Hero3DBackground;
 
 useFBX.preload("/3D/nazo-no-eki-mystery-station/source/WTS_Mock.fbx");
-useGLTF.preload("/3D/cyberpunk-2077-inspired-building-modular-pbr/source/cyber.glb");
+useFBX.preload("/3D/procedurally-made-cyberpunk-building/source/Prueba.fbx");

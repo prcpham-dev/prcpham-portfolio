@@ -22,7 +22,7 @@ const Header: React.FC = () => {
         
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className={`${styles.brand} text-xl font-black tracking-tighter text-[#00D0B3]`}
+          className={styles.brand}
         >
           <span>PRCPHAM</span>
           <span className={styles.textOverlay} aria-hidden="true">PRCPHAM</span>
@@ -31,17 +31,17 @@ const Header: React.FC = () => {
         
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#experience" className={`${styles.navLink} text-sm font-semibold tracking-widest uppercase text-[#00D0B3]`}>
+          <a href="#experience" className={styles.navLink}>
             <span>Experience</span>
             <span className={styles.textOverlay} aria-hidden="true">Experience</span>
             <span className={styles.navUnderline}></span>
           </a>
-          <a href="#projects" className={`${styles.navLink} text-sm font-semibold tracking-widest uppercase text-[#00D0B3]`}>
+          <a href="#projects" className={styles.navLink}>
             <span>Projects</span>
             <span className={styles.textOverlay} aria-hidden="true">Projects</span>
             <span className={styles.navUnderline}></span>
           </a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={`${styles.navLink} text-sm font-semibold tracking-widest uppercase text-[#00D0B3]`}>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.navLink}>
             <span>Resume</span>
             <span className={styles.textOverlay} aria-hidden="true">Resume</span>
             <span className={styles.navUnderline}></span>
@@ -75,17 +75,17 @@ const Header: React.FC = () => {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="md:hidden absolute top-full left-0 w-full bg-[var(--color-bg)]/95 backdrop-blur-md border-b border-[var(--color-border)] shadow-xl flex flex-col items-center py-8 gap-8"
           >
-            <a href="#experience" onClick={() => setMobileMenuOpen(false)} className={`${styles.navLink} text-base font-bold tracking-widest uppercase text-[#00D0B3]`}>
+            <a href="#experience" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
               <span>Experience</span>
               <span className={styles.textOverlay} aria-hidden="true">Experience</span>
               <span className={styles.navUnderline}></span>
             </a>
-            <a href="#projects" onClick={() => setMobileMenuOpen(false)} className={`${styles.navLink} text-base font-bold tracking-widest uppercase text-[#00D0B3]`}>
+            <a href="#projects" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
               <span>Projects</span>
               <span className={styles.textOverlay} aria-hidden="true">Projects</span>
               <span className={styles.navUnderline}></span>
             </a>
-            <a href="/resume.pdf" onClick={() => setMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer" className={`${styles.navLink} text-base font-bold tracking-widest uppercase text-[#00D0B3]`}>
+            <a href="/resume.pdf" onClick={() => setMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer" className={styles.navLink}>
               <span>Resume</span>
               <span className={styles.textOverlay} aria-hidden="true">Resume</span>
               <span className={styles.navUnderline}></span>

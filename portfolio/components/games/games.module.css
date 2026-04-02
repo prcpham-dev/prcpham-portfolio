@@ -1,5 +1,45 @@
 /* portfolio/components/games/games.module.css */
 
+.section {
+  position: relative;
+  width: 100%;
+  padding-block: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.tabRow {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .tabRow {
+    gap: 2rem;
+  }
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: auto;
+  background-color: #000;
+}
+
 .sectionTitle {
   font-size: 2.25rem;
   font-weight: 900;

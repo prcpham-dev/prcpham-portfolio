@@ -11,7 +11,7 @@ const GamesShowcase: React.FC = () => {
       id: "ghostrun",
       title: "Ghost Run",
       src: "/GhostRun/index.html",
-      color: "var(--color-brand-accent)"
+      color: "#00f0ff"
     },
     {
       id: "frankenstein",
@@ -30,8 +30,8 @@ const GamesShowcase: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full py-24 flex flex-col items-center justify-center bg-[var(--color-bg)] text-center">
-      <div className="container mx-auto px-6 max-w-5xl">
+    <section className={styles.section}>
+      <div className={styles.container}>
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ const GamesShowcase: React.FC = () => {
           TEST GAMEPLAY
         </motion.h2>
 
-        <div className="flex gap-4 md:gap-8 justify-center mb-8">
+        <div className={styles.tabRow}>
           {games.map(game => (
             <button
               key={game.id}
@@ -91,7 +91,7 @@ const GamesShowcase: React.FC = () => {
           {playing && (
             <iframe 
               src={activeGame.src} 
-              className="w-full h-full border-none pointer-events-auto bg-[#000]"
+              className={styles.iframe}
               title={activeGame.title}
             />
           )}
