@@ -37,9 +37,11 @@ const Projects: React.FC = () => {
     const nameLine = nameLineRef.current;
 
     if (viewport && nameLine) {
-      // Scroll only the inner terminal viewport, not the page
-      const offsetTop = nameLine.offsetTop - viewport.offsetTop;
-      viewport.scrollTo({ top: offsetTop, behavior: "smooth" });
+      const viewportRect = viewport.getBoundingClientRect();
+      const nameLineRect = nameLine.getBoundingClientRect();
+      // Position of nameLine relative to the viewport's scrollable area
+      const scrollTarget = nameLineRect.top - viewportRect.top + viewport.scrollTop;
+      viewport.scrollTo({ top: scrollTarget, behavior: "smooth" });
     }
 
     setHasInteracted(false);
