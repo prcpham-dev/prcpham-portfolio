@@ -33,10 +33,10 @@ body,
   --color-brand-surface: #0a0f12;
   --color-brand-border: #1a2228;
   --color-brand-accent: #00C49A;
-  --color-brand-accent_two: #ff0000;
-  --color-brand-secondary-accent: #ff003c;
+  --color-brand-accent_two: #ff003c;
+  --color-brand-secondary-accent: #7734eb;
   --color-brand-accent-hover: #00e0ef;
-  --color-brand-accent-three: #00f0ff;
+  --color-brand-accent-three: #ff003c;
 }
 
 :root {

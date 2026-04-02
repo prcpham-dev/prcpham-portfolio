@@ -17,7 +17,7 @@ const GamesShowcase: React.FC = () => {
       id: "frankenstein",
       title: "Frankenstein Story",
       src: "/StoryBuilder-GameEngine/index.html",
-      color: "var(--color-brand-secondary-accent)"
+      color: "#ff003c"
     }
   ];
 
@@ -32,7 +32,7 @@ const GamesShowcase: React.FC = () => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -59,13 +59,13 @@ const GamesShowcase: React.FC = () => {
           ))}
         </div>
 
-        <div 
+        <div
           className={styles.showcaseContainer}
           style={{ '--game-color-alpha': `${activeGame.color}33` } as React.CSSProperties}
         >
           <AnimatePresence mode="wait">
             {!playing ? (
-              <motion.div 
+              <motion.div
                 key={`overlay-${activeGame.id}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -89,8 +89,8 @@ const GamesShowcase: React.FC = () => {
 
           {/* Iframe renders the exported game */}
           {playing && (
-            <iframe 
-              src={activeGame.src} 
+            <iframe
+              src={activeGame.src}
               className={styles.iframe}
               title={activeGame.title}
             />

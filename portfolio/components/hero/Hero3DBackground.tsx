@@ -86,7 +86,7 @@ const Hero3DBackground: React.FC<Hero3DProps> = ({ activeModel }) => {
             environment="city"
             intensity={0.4}
             adjustCamera={config.adjustCamera}
-            shadows={false}
+            shadows={true}
           >
             {activeModel === 'station' ? (
               <FBXModel path="/3D/nazo-no-eki-mystery-station/source/WTS_Mock.fbx" scale={config.scale} />

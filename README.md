@@ -20,6 +20,6 @@ prcpham-portfolio
 ```
 
 ## Credits
-- Built by **([Percy Pham](https://github.com/prcpham-dev))** 
+- Built by **[Percy Pham](https://github.com/prcpham-dev)** 
 - Drawings and artwork by **Tai**.
-- 3D Models by **([abhayexe](https://sketchfab.com/abhayexe))** and **([Thomas Nguyen](https://sketchfab.com/thomasnguyen))**
+- 3D Models by **[abhayexe](https://sketchfab.com/abhayexe)** and **[Alexis](https://sketchfab.com/alexis.eginard)**
