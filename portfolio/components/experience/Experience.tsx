@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import styles from "./experience.module.css";
 import { experiences } from "@/data/experiences";
 import { useRouter } from "next/router";
@@ -9,7 +8,7 @@ const renderHighlighted = (text: string, highlightClass: string) => {
   const parts = text.split("**");
   return parts.map((part, i) =>
     i % 2 === 1 ? <span key={i} className={highlightClass}>{part}</span>
-              : <React.Fragment key={i}>{part}</React.Fragment>
+      : <React.Fragment key={i}>{part}</React.Fragment>
   );
 };
 
@@ -32,15 +31,10 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experience" className={styles.section}>
-      <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={styles.title}
-      >
+      <h2 className={styles.title}>
         <span className={styles.titleText}>Experience</span>
         <Image src="/Items/Quacky.gif" className={styles.quackyImg} alt="Quacky" priority width={224} height={224} />
-      </motion.h2>
+      </h2>
       <div className={`grid grid-cols-12 ${styles.experienceWrapper}`}>
         <div className="col-span-12 lg:col-span-3">
           <div className={styles.imageSetUp}>

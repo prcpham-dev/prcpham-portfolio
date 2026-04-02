@@ -39,7 +39,6 @@ const Projects: React.FC = () => {
     if (viewport && nameLine) {
       const viewportRect = viewport.getBoundingClientRect();
       const nameLineRect = nameLine.getBoundingClientRect();
-      // Position of nameLine relative to the viewport's scrollable area
       const scrollTarget = nameLineRect.top - viewportRect.top + viewport.scrollTop;
       viewport.scrollTo({ top: scrollTarget, behavior: "smooth" });
     }
@@ -75,10 +74,10 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className={styles.section}>
-      <div className={styles.title}>
+      <h2 className={styles.title}>
         <Image src="/Items/LittleGhost.gif" className={styles.littleGhostImg} alt="Little Ghost" priority width={224} height={224} />
         <span className={styles.titleText}>Projects</span>
-      </div>
+      </h2>
 
       <div className={`grid grid-cols-12`}>
         <div className="col-span-12 lg:col-span-9">
