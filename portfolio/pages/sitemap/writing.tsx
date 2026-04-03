@@ -13,7 +13,7 @@ export default function WritingViewer() {
 
             <aside className={styles.panel}>
                 <h1 className={styles.title}>
-                    <span className={styles.accent}>//</span> WRITING
+                    <span className={styles.accent}>{'//'}</span> WRITING
                 </h1>
 
                 <p className={styles.subtitle}>&gt; SELECT A SCRIPT_</p>
