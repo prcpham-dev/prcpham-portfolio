@@ -1,16 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import styles from './writing.module.css';
 import { pdfs } from '@/data/pdfs';
 
 export default function WritingViewer() {
     const [selectedPdf, setSelectedPdf] = useState(pdfs[0]?.path ?? '');
-
-    const showBirthdayHat = useMemo(() => {
-        const today = new Date();
-        return today.getMonth() === 8 && today.getDate() === 27;
-    }, []);
 
     return (
         <main className={styles.page}>
@@ -34,7 +29,12 @@ export default function WritingViewer() {
                                 className={`${styles.scriptButton} ${isActive ? styles.scriptButtonActive : ''}`}
                                 onClick={() => setSelectedPdf(pdf.path)}
                             >
-                                {pdf.name}
+                                <span className={styles.scriptButtonInner}>
+                                    <span>{pdf.name}</span>
+                                    {pdf.favorite && (
+                                        <span className={styles.star}>★</span>
+                                    )}
+                                </span>
                             </button>
                         );
                     })}
@@ -55,14 +55,6 @@ export default function WritingViewer() {
                         <div className={styles.empty}>
                             <span>&gt; NO PDF AVAILABLE_</span>
                         </div>
-                    )}
-
-                    {showBirthdayHat && (
-                        <img
-                            src="/sitemap/hat/birthday_hat.png"
-                            alt="Birthday hat"
-                            className={styles.hat}
-                        />
                     )}
                 </div>
             </section>
