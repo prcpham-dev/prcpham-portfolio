@@ -43,6 +43,15 @@ const Intro: React.FC = () => (
             >
               (Pinterest ↗)
             </a>
+            or{" "}
+            <a
+              href="https://music.apple.com/profile/prc_mp3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#6ee7b7] hover:text-white hover:underline transition-colors font-bold whitespace-nowrap"
+            >
+              (Music ↗)
+            </a>
             to get a feel for interests and aesthetic.
             Oh! Food is also one of my biggest passions 🍜!
 

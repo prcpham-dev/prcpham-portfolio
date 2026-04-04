@@ -45,7 +45,7 @@ const HUD = {
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
     },
-    
+
     drawBounds(ceilY, floorY) {
         const { ctx, canvas } = this;
         ctx.strokeStyle = "#a64dff";
@@ -61,14 +61,14 @@ const HUD = {
         ctx.shadowBlur = 0;
         ctx.shadowColor = "transparent";
     },
-    
+
     drawScore(score, high) {
         const { ctx } = this;
-        ctx.fillStyle = "#8bf763";
+        ctx.fillStyle = "#00f0ff";
         ctx.font = "16px ui-monospace, Consolas, monospace";
         ctx.textAlign = "left";
         ctx.textBaseline = "alphabetic";
-        ctx.shadowColor = "#b0ff95";
+        ctx.shadowColor = "#00f0ff";
         ctx.shadowBlur = 8;
         ctx.fillText(`Score: ${Math.floor(score)}`, 12, 22);
         ctx.fillText(`High:  ${high}`, 12, 42);
@@ -78,10 +78,10 @@ const HUD = {
 
     drawCenterText(text) {
         const { ctx, canvas } = this;
-        ctx.fillStyle = "#8bf763";
+        ctx.fillStyle = "#00f0ff";
         ctx.font = "bold 20px system-ui, Segoe UI, Roboto, Arial";
         ctx.textAlign = "center";
-        ctx.shadowColor = "#b0ff95";
+        ctx.shadowColor = "#00f0ff";
         ctx.shadowBlur = 12;
         ctx.fillText(text, canvas.width / 2, canvas.height / 2);
         ctx.shadowBlur = 0;

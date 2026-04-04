@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
   ├── portfolio/
   │   ├── pages/      <- you are here
   │   │   └── robots  <- checkout this...
-  │   │   └── sitemap <- only laptop and computer
+  │   │   └── sitemap <- only laptop, computer
   │   ├── public/
   │   ├── styles/
   │   └── ...
@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <LoadingScreen
         label={isRobots ? "Loading Easter Egg..." : "Initializing System"}
-        duration={isRobots ? 3200 : 2200}
+        duration={isRobots ? 3200 : 1000}
       />
       <Component {...pageProps} />
     </>
