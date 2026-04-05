@@ -26,6 +26,8 @@ const Footer: React.FC = () => {
         <a href="https://sketchfab.com/abhayexe" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>abhayexe</a>
         {' '}and{' '}
         <a href="https://sketchfab.com/alexis.eginard" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>Alexis</a>
+        {' '}· Editor {' '}
+        <a target="_blank" rel="noopener noreferrer" className={styles.creditLink}>Bubson</a>
       </div>
     </footer>
   );
