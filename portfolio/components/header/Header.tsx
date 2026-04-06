@@ -41,14 +41,9 @@ const Header: React.FC = () => {
             <span className={styles.textOverlay} aria-hidden="true">Projects</span>
             <span className={styles.navUnderline}></span>
           </a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.navLink}>
+          <a href="/sitemap/resume" className={styles.navLink}>
             <span>Resume</span>
             <span className={styles.textOverlay} aria-hidden="true">Resume</span>
-            <span className={styles.navUnderline}></span>
-          </a>
-          <a href="/sitemap" className={styles.navLink}>
-            <span>Sitemap</span>
-            <span className={styles.textOverlay} aria-hidden="true">Sitemap</span>
             <span className={styles.navUnderline}></span>
           </a>
         </nav>
@@ -90,14 +85,9 @@ const Header: React.FC = () => {
               <span className={styles.textOverlay} aria-hidden="true">Projects</span>
               <span className={styles.navUnderline}></span>
             </a>
-            <a href="/resume.pdf" onClick={() => setMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer" className={styles.navLink}>
+            <a href="/sitemap/resume" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
               <span>Resume</span>
               <span className={styles.textOverlay} aria-hidden="true">Resume</span>
-              <span className={styles.navUnderline}></span>
-            </a>
-            <a href="/sitemap" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
-              <span>Sitemap</span>
-              <span className={styles.textOverlay} aria-hidden="true">Sitemap</span>
               <span className={styles.navUnderline}></span>
             </a>
           </motion.div>

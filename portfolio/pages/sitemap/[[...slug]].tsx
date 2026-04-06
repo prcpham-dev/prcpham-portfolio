@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Home } from 'lucide-react';
+import { Home, Menu, X } from 'lucide-react';
 import styles from './sitemap.module.css';
 import { pdfs } from '@/data/pdfs';
 import dynamic from 'next/dynamic';
@@ -19,15 +19,14 @@ export default function SitemapViewer() {
     const getDefaultPdf = () => pdfs[0]?.path ?? '';
 
     const [selectedPdf, setSelectedPdf] = useState(getDefaultPdf());
+    const [panelOpen, setPanelOpen] = useState(false);
 
     useEffect(() => {
         if (router.isReady) {
             const currentSlug = Array.isArray(slug) ? slug[0] : slug;
             if (currentSlug) {
                 const pdf = pdfs.find(p => p.slug === currentSlug);
-                if (pdf) {
-                    setSelectedPdf(pdf.path);
-                }
+                if (pdf) setSelectedPdf(pdf.path);
             } else {
                 setSelectedPdf(getDefaultPdf());
             }
@@ -37,13 +36,36 @@ export default function SitemapViewer() {
     const handlePdfSelect = (pdf: typeof pdfs[0]) => {
         setSelectedPdf(pdf.path);
         router.push(`/sitemap/${pdf.slug}`, undefined, { shallow: true });
+        setPanelOpen(false); // close on mobile after selecting
     };
 
     return (
         <main className={styles.page}>
             <div className={styles.scanlines} />
 
-            <aside className={styles.panel}>
+            {/* Mobile hamburger bar */}
+            <div className={styles.mobileBar}>
+                <span className={styles.mobileTitle}>
+                    <span className={styles.accent}>{'//'}</span> SITEMAP
+                </span>
+                <button
+                    className={styles.hamburger}
+                    onClick={() => setPanelOpen(o => !o)}
+                    aria-label="Toggle menu"
+                >
+                    {panelOpen ? <X size={18} /> : <Menu size={18} />}
+                </button>
+            </div>
+
+            {/* Overlay for mobile */}
+            {panelOpen && (
+                <div
+                    className={styles.overlay}
+                    onClick={() => setPanelOpen(false)}
+                />
+            )}
+
+            <aside className={`${styles.panel} ${panelOpen ? styles.panelOpen : ''}`}>
                 <Link href="/" className={styles.homeLink}>
                     <Home size={14} />
                     <span>RETURN_HOME</span>
@@ -58,7 +80,6 @@ export default function SitemapViewer() {
                 <div className={styles.scriptList}>
                     {pdfs.map((pdf) => {
                         const isActive = selectedPdf === pdf.path;
-
                         return (
                             <button
                                 key={pdf.slug}
@@ -80,7 +101,6 @@ export default function SitemapViewer() {
 
             <section className={styles.viewer}>
                 <div className={styles.viewerGrid} />
-
                 <div className={styles.pdfShell}>
                     {selectedPdf ? (
                         <CustomPdfViewer file={selectedPdf} />
