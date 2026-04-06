@@ -6,8 +6,7 @@ import LoadingScreen from "@/components/loading/LoadingScreen";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const isSitemap = router.pathname.startsWith("/sitemap");
-  const isRobots = router.pathname.startsWith("/robots") || isSitemap;
+  const isEasterEgg = router.pathname.startsWith("/robots") || router.pathname.startsWith("/sitemap");
 
   useEffect(() => {
     console.log(
@@ -38,8 +37,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <LoadingScreen
         key={router.pathname}
-        label={isRobots ? "Loading Easter Egg..." : "Initializing System"}
-        duration={isRobots ? 3200 : 1000}
+        label={isEasterEgg ? "Loading Easter Egg..." : "Initializing System"}
+        duration={isEasterEgg ? 3200 : 1000}
       />
       <Component {...pageProps} />
     </>

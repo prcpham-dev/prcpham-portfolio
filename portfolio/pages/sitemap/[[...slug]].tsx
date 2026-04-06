@@ -36,7 +36,7 @@ export default function SitemapViewer() {
     const handlePdfSelect = (pdf: typeof pdfs[0]) => {
         setSelectedPdf(pdf.path);
         router.push(`/sitemap/${pdf.slug}`, undefined, { shallow: true });
-        setPanelOpen(false); // close on mobile after selecting
+        setPanelOpen(false);
     };
 
     return (
