@@ -19,8 +19,8 @@ const Header: React.FC = () => {
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || mobileMenuOpen ? 'py-4 bg-[var(--color-bg)]/95 backdrop-blur-md border-b border-[var(--color-border)]' : 'py-6 bg-transparent'}`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        
-        <button 
+
+        <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className={styles.brand}
         >
@@ -28,7 +28,7 @@ const Header: React.FC = () => {
           <span className={styles.textOverlay} aria-hidden="true">PRCPHAM</span>
           <span className={styles.brandUnderline}></span>
         </button>
-        
+
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           <a href="#experience" className={styles.navLink}>
@@ -46,10 +46,15 @@ const Header: React.FC = () => {
             <span className={styles.textOverlay} aria-hidden="true">Resume</span>
             <span className={styles.navUnderline}></span>
           </a>
+          <a href="/sitemap" className={styles.navLink}>
+            <span>Sitemap</span>
+            <span className={styles.textOverlay} aria-hidden="true">Sitemap</span>
+            <span className={styles.navUnderline}></span>
+          </a>
         </nav>
 
         {/* Mobile Hamburger Button */}
-        <button 
+        <button
           className="md:hidden text-[var(--color-primary)] p-2 focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -68,7 +73,7 @@ const Header: React.FC = () => {
       {/* Mobile Dropdown Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20, filter: 'blur(5px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             exit={{ opacity: 0, y: -20, filter: 'blur(5px)' }}
@@ -88,6 +93,11 @@ const Header: React.FC = () => {
             <a href="/resume.pdf" onClick={() => setMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer" className={styles.navLink}>
               <span>Resume</span>
               <span className={styles.textOverlay} aria-hidden="true">Resume</span>
+              <span className={styles.navUnderline}></span>
+            </a>
+            <a href="/sitemap" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
+              <span>Sitemap</span>
+              <span className={styles.textOverlay} aria-hidden="true">Sitemap</span>
               <span className={styles.navUnderline}></span>
             </a>
           </motion.div>
