@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from './header.module.css';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -41,11 +42,11 @@ const Header: React.FC = () => {
             <span className={styles.textOverlay} aria-hidden="true">Projects</span>
             <span className={styles.navUnderline}></span>
           </a>
-          <a href="/sitemap/resume" className={styles.navLink}>
+          <Link href="/sitemap/resume" className={styles.navLink}>
             <span>Resume</span>
             <span className={styles.textOverlay} aria-hidden="true">Resume</span>
             <span className={styles.navUnderline}></span>
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Hamburger Button */}
@@ -85,11 +86,11 @@ const Header: React.FC = () => {
               <span className={styles.textOverlay} aria-hidden="true">Projects</span>
               <span className={styles.navUnderline}></span>
             </a>
-            <a href="/sitemap/resume" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
+            <Link href="/sitemap/resume" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
               <span>Resume</span>
               <span className={styles.textOverlay} aria-hidden="true">Resume</span>
               <span className={styles.navUnderline}></span>
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
