@@ -6,7 +6,8 @@ import LoadingScreen from "@/components/loading/LoadingScreen";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const isRobots = router.pathname === "/robots" || router.pathname === "/sitemap";
+  const isSitemap = router.pathname.startsWith("/sitemap");
+  const isRobots = router.pathname.startsWith("/robots") || isSitemap;
 
   useEffect(() => {
     console.log(
@@ -23,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
   │   ├── public/
   │   ├── styles/
   │   └── ...
-  └── README.md
+  │── README.md
       `,
       "color: #00f0ff; font-family: monospace; font-size: 0.85rem;"
     );
@@ -36,6 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <LoadingScreen
+        key={router.pathname}
         label={isRobots ? "Loading Easter Egg..." : "Initializing System"}
         duration={isRobots ? 3200 : 1000}
       />
