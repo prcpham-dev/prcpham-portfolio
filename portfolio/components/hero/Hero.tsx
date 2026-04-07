@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ScatteredPictures from './ScatteredPictures';
 import dynamic from 'next/dynamic';
@@ -10,6 +10,16 @@ const Hero3DBackground = dynamic(() => import('./Hero3DBackground'), {
 
 const Hero: React.FC = () => {
   const [activeModel, setActiveModel] = useState<'station' | 'building'>('station');
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section className={styles.section}>
@@ -17,7 +27,7 @@ const Hero: React.FC = () => {
       <div className={styles.glowCyan} />
       <div className={styles.glowRed} />
 
-      <Hero3DBackground activeModel={activeModel} />
+      {isDesktop && <Hero3DBackground activeModel={activeModel} />}
       <ScatteredPictures />
 
       <motion.div

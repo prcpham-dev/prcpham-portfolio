@@ -42,7 +42,7 @@ const Header: React.FC = () => {
             <span className={styles.textOverlay} aria-hidden="true">Projects</span>
             <span className={styles.navUnderline}></span>
           </a>
-          <Link href="/sitemap/resume" className={styles.navLink}>
+          <Link href="/sitemap?pdf=resume" className={styles.navLink}>
             <span>Resume</span>
             <span className={styles.textOverlay} aria-hidden="true">Resume</span>
             <span className={styles.navUnderline}></span>
@@ -86,7 +86,7 @@ const Header: React.FC = () => {
               <span className={styles.textOverlay} aria-hidden="true">Projects</span>
               <span className={styles.navUnderline}></span>
             </a>
-            <Link href="/sitemap/resume" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
+            <Link href="/sitemap?pdf=resume" onClick={() => setMobileMenuOpen(false)} className={styles.navLink}>
               <span>Resume</span>
               <span className={styles.textOverlay} aria-hidden="true">Resume</span>
               <span className={styles.navUnderline}></span>

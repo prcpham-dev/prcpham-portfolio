@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -14,28 +12,27 @@ const CustomPdfViewer = dynamic(() => import('@/components/CustomPdfViewer/Custo
 
 export default function SitemapViewer() {
     const router = useRouter();
-    const { slug } = router.query;
+    const { pdf } = router.query;
 
     const getDefaultPdf = () => pdfs[0]?.path ?? '';
-
     const [selectedPdf, setSelectedPdf] = useState(getDefaultPdf());
     const [panelOpen, setPanelOpen] = useState(false);
 
     useEffect(() => {
         if (router.isReady) {
-            const currentSlug = Array.isArray(slug) ? slug[0] : slug;
-            if (currentSlug) {
-                const pdf = pdfs.find(p => p.slug === currentSlug);
-                if (pdf) setSelectedPdf(pdf.path);
+            const currentPdf = Array.isArray(pdf) ? pdf[0] : pdf;
+            if (currentPdf) {
+                const found = pdfs.find(p => p.slug === currentPdf);
+                if (found) setSelectedPdf(found.path);
             } else {
                 setSelectedPdf(getDefaultPdf());
             }
         }
-    }, [slug, router.isReady]);
+    }, [pdf, router.isReady]);
 
-    const handlePdfSelect = (pdf: typeof pdfs[0]) => {
-        setSelectedPdf(pdf.path);
-        router.push(`/sitemap/${pdf.slug}`, undefined, { shallow: true });
+    const handlePdfSelect = (p: typeof pdfs[0]) => {
+        setSelectedPdf(p.path);
+        router.push(`/sitemap?pdf=${p.slug}`, undefined, { shallow: true });
         setPanelOpen(false);
     };
 
@@ -43,7 +40,6 @@ export default function SitemapViewer() {
         <main className={styles.page}>
             <div className={styles.scanlines} />
 
-            {/* Mobile hamburger bar */}
             <div className={styles.mobileBar}>
                 <span className={styles.mobileTitle}>
                     <span className={styles.accent}>{'//'}</span> SITEMAP
@@ -57,7 +53,6 @@ export default function SitemapViewer() {
                 </button>
             </div>
 
-            {/* Overlay for mobile */}
             {panelOpen && (
                 <div
                     className={styles.overlay}
@@ -78,18 +73,18 @@ export default function SitemapViewer() {
                 <p className={styles.subtitle}>&gt; SELECT A DOCUMENT_</p>
 
                 <div className={styles.scriptList}>
-                    {pdfs.map((pdf) => {
-                        const isActive = selectedPdf === pdf.path;
+                    {pdfs.map((p) => {
+                        const isActive = selectedPdf === p.path;
                         return (
                             <button
-                                key={pdf.slug}
+                                key={p.slug}
                                 type="button"
                                 className={`${styles.scriptButton} ${isActive ? styles.scriptButtonActive : ''}`}
-                                onClick={() => handlePdfSelect(pdf)}
+                                onClick={() => handlePdfSelect(p)}
                             >
                                 <span className={styles.scriptButtonInner}>
-                                    <span>{pdf.name}</span>
-                                    {pdf.favorite && (
+                                    <span>{p.name}</span>
+                                    {p.favorite && (
                                         <span className={styles.star}>★</span>
                                     )}
                                 </span>
@@ -113,4 +108,8 @@ export default function SitemapViewer() {
             </section>
         </main>
     );
+}
+
+export async function getStaticProps() {
+    return { props: {} };
 }
