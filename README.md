@@ -22,4 +22,5 @@ prcpham-portfolio
 ## Credits
 - Built by **[Percy Pham](https://github.com/prcpham-dev)** 
 - Drawings and artwork by **Tai**.
+- Story editor **Bubson**
 - 3D Models by **[abhayexe](https://sketchfab.com/abhayexe)**, **[Alexis](https://sketchfab.com/alexis.eginard)** and **[ddiaz-design](https://sketchfab.com/ddiaz-design)**
