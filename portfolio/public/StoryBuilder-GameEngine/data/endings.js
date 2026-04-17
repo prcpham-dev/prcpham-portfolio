@@ -249,7 +249,7 @@ var endings = {
     },
 
     "restartArea": {
-        "text": `It seems this path has come to an end. You have found 1 out 5 endings.<br>
+        "text": `It seems this path has come to an end. You have found 1 out of 5 endings.<br>
                 Will you try again? {Yes...} <br><br>
                 `,
         "choices": [
