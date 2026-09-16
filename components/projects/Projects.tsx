@@ -114,18 +114,38 @@ const Projects: React.FC = () => {
             <div className={styles.viewport} ref={viewportRef}>
               <div className={styles.block}>
                 <div className={styles.lineIn}>projects$ ls</div>
-                {projects.map((p) => (
-                  <button
-                    key={p.slug}
-                    className={styles.lineBtn}
-                    onClick={e => {
-                      e.stopPropagation();
-                      runCommand(`cd ${p.slug}`);
-                    }}
-                  >
-                    {p.slug}
-                  </button>
-                ))}
+
+                <div className={styles.categoryHeader}>Games</div>
+                <div className={styles.projectGrid}>
+                  {projects.filter(p => ["ghostrun", "speedcube", "mimic", "upvotedle"].includes(p.slug)).map((p) => (
+                    <button
+                      key={p.slug}
+                      className={styles.lineBtn}
+                      onClick={e => {
+                        e.stopPropagation();
+                        runCommand(`cd ${p.slug}`);
+                      }}
+                    >
+                      {p.slug}
+                    </button>
+                  ))}
+                </div>
+
+                <div className={styles.categoryHeader}>Tools</div>
+                <div className={styles.projectGrid}>
+                  {projects.filter(p => !["ghostrun", "speedcube", "mimic", "upvotedle"].includes(p.slug)).map((p) => (
+                    <button
+                      key={p.slug}
+                      className={styles.lineBtn}
+                      onClick={e => {
+                        e.stopPropagation();
+                        runCommand(`cd ${p.slug}`);
+                      }}
+                    >
+                      {p.slug}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* current project details */}

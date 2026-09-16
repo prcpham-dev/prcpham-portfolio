@@ -187,10 +187,11 @@
     all: unset;
     display: block;
     width: 100%;
+    box-sizing: border-box;
     color: var(--ink);
     opacity: .9;
     cursor: pointer;
-    padding: 0.05rem 0;
+    padding: 0.25rem 0.5rem;
     border-radius: 6px;
 }
 
@@ -198,6 +199,31 @@
 .lineBtn:focus-visible {
     background: rgba(96, 165, 250, .08);
     outline: none;
+}
+
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.25rem 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+    .projectGrid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    }
+}
+
+.categoryHeader {
+    color: var(--accent);
+    font-weight: 800;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
+    pointer-events: none;
 }
 
 .label {

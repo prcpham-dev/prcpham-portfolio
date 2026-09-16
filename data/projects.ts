@@ -53,7 +53,7 @@ export const projects: ProjectItem[] = [
         slug: "sorty",
         name: "Sorty",
         tech: "Python, Raspberry Pi, Computer Vision, Embedded Systems",
-        image: "Projects/Sorty.jpeg",
+        image: "https://www.youtube.com/watch?v=6I_pTN3uTkg",
         link: "https://devpost.com/software/sorty-25gdrx?ref_content=my-projects-tab&ref_feature=my_projects",
         details: `Developed a smart trash-sorting assistant using Python, Raspberry Pi Zero 2 W, a Pi camera, and a 2.6" OLED display. 
             Implemented AI-powered image recognition to identify waste items and suggest the correct bin in real time. 
