@@ -45,7 +45,7 @@ const Intro: React.FC = () => (
             </a>
             or{" "}
             <a
-              href="https://music.apple.com/profile/prc_mp3"
+              href="https://music.youtube.com/@xyelet"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#6ee7b7] hover:text-white hover:underline transition-colors font-bold whitespace-nowrap"
