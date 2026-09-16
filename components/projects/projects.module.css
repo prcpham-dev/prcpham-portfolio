@@ -185,14 +185,21 @@
 
 .lineBtn {
     all: unset;
-    display: block;
-    width: 100%;
+    display: inline-block;
     box-sizing: border-box;
     color: var(--ink);
     opacity: .9;
     cursor: pointer;
     padding: 0.25rem 0.5rem;
     border-radius: 6px;
+    white-space: nowrap;
+}
+
+.activeProject {
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .lineBtn:hover,
@@ -202,15 +209,15 @@
 }
 
 .projectGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.25rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
     margin-bottom: 1rem;
 }
 
 @media (max-width: 600px) {
     .projectGrid {
-        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 0.5rem;
     }
 }
 

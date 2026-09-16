@@ -115,12 +115,12 @@ const Projects: React.FC = () => {
               <div className={styles.block}>
                 <div className={styles.lineIn}>projects$ ls</div>
 
-                <div className={styles.categoryHeader}>Games</div>
+                <div className={styles.categoryHeader}>Tools</div>
                 <div className={styles.projectGrid}>
-                  {projects.filter(p => ["ghostrun", "speedcube", "mimic", "upvotedle"].includes(p.slug)).map((p) => (
+                  {projects.filter(p => !["ghostrun", "speedcube", "mimic", "upvotedle"].includes(p.slug)).map((p) => (
                     <button
                       key={p.slug}
-                      className={styles.lineBtn}
+                      className={`${styles.lineBtn} ${current.slug === p.slug ? styles.activeProject : ''}`}
                       onClick={e => {
                         e.stopPropagation();
                         runCommand(`cd ${p.slug}`);
@@ -131,12 +131,12 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
 
-                <div className={styles.categoryHeader}>Tools</div>
+                <div className={styles.categoryHeader}>Games</div>
                 <div className={styles.projectGrid}>
-                  {projects.filter(p => !["ghostrun", "speedcube", "mimic", "upvotedle"].includes(p.slug)).map((p) => (
+                  {projects.filter(p => ["ghostrun", "speedcube", "mimic", "upvotedle"].includes(p.slug)).map((p) => (
                     <button
                       key={p.slug}
-                      className={styles.lineBtn}
+                      className={`${styles.lineBtn} ${current.slug === p.slug ? styles.activeProject : ''}`}
                       onClick={e => {
                         e.stopPropagation();
                         runCommand(`cd ${p.slug}`);

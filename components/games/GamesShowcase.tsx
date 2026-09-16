@@ -11,13 +11,13 @@ const GamesShowcase: React.FC = () => {
     {
       id: "ghostrun",
       title: "Ghost Run",
-      src: "/GhostRun/index.html",
+      src: "/GhostRun/play.html",
       color: "#00f0ff"
     },
     {
       id: "frankenstein",
       title: "Frankenstein Story",
-      src: "/StoryBuilder-GameEngine/index.html",
+      src: "/StoryBuilder-GameEngine/play.html",
       color: "#ff003c"
     },
     {
