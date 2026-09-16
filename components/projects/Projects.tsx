@@ -8,6 +8,26 @@ import { useRouter } from "next/router";
 
 const normalize = (text: string) => text.split("\n").map(s => s.trim()).filter(Boolean).join(" ");
 
+const getYoutubeEmbedUrl = (url: string) => {
+  if (!url) return null;
+  let videoId = "";
+  if (url.includes("youtu.be/")) {
+    videoId = url.split("youtu.be/")[1]?.split("?")[0];
+  } else if (url.includes("youtube.com/watch")) {
+    try {
+      const urlParams = new URL(url).searchParams;
+      videoId = urlParams.get("v") || "";
+    } catch (e) {
+      // ignore
+    }
+  } else if (url.includes("youtube.com/embed/")) {
+    videoId = url.split("youtube.com/embed/")[1]?.split("?")[0];
+  } else if (url.includes("youtube.com/shorts/")) {
+    videoId = url.split("youtube.com/shorts/")[1]?.split("?")[0];
+  }
+  return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+};
+
 const Projects: React.FC = () => {
   const [current, setCurrent] = useState<Project>(projects[0]);
   const [input, setInput] = useState("");
@@ -127,15 +147,26 @@ const Projects: React.FC = () => {
 
                 {current.image && (
                   <div className={styles.lineOut}>
-                    <Image
-                      src={`/${current.image}`}
-                      alt={current.name}
-                      className={styles.termImage}
-                      loading="lazy"
-                      decoding="async"
-                      width={224}
-                      height={224}
-                    />
+                    {getYoutubeEmbedUrl(current.image) ? (
+                      <iframe
+                        className={styles.termImage}
+                        style={{ aspectRatio: "16/9", width: "100%", maxWidth: "480px", border: "none" }}
+                        src={getYoutubeEmbedUrl(current.image)!}
+                        title={current.name}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <Image
+                        src={current.image.startsWith('http') ? current.image : `/${current.image}`}
+                        alt={current.name}
+                        className={styles.termImage}
+                        loading="lazy"
+                        decoding="async"
+                        width={224}
+                        height={224}
+                      />
+                    )}
                   </div>
                 )}
 

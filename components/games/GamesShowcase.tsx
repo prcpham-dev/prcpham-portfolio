@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './games.module.css';
+import { GamesType } from '@/types/games';
 
 const GamesShowcase: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("ghostrun");
   const [playing, setPlaying] = useState<boolean>(false);
 
-  const games = [
+  const games: GamesType[] = [
     {
       id: "ghostrun",
       title: "Ghost Run",
@@ -18,6 +19,13 @@ const GamesShowcase: React.FC = () => {
       title: "Frankenstein Story",
       src: "/StoryBuilder-GameEngine/index.html",
       color: "#ff003c"
+    },
+    {
+      id: "upvotedle",
+      title: "Upvotedle",
+      src: "https://www.reddit.com/r/upvotedle/",
+      color: "#ff4500",
+      isExternal: true
     }
   ];
 
@@ -73,7 +81,13 @@ const GamesShowcase: React.FC = () => {
                 transition={{ duration: 0.4 }}
                 className={styles.playOverlay}
                 style={{ '--game-color': activeGame.color } as React.CSSProperties}
-                onClick={() => setPlaying(true)}
+                onClick={() => {
+                  if (activeGame.isExternal) {
+                    window.open(activeGame.src, '_blank');
+                  } else {
+                    setPlaying(true);
+                  }
+                }}
               >
                 <div className={styles.playIconWrapper}>
                   <svg className="w-12 h-12 text-[#000] ml-2" fill="currentColor" viewBox="0 0 24 24">
@@ -81,7 +95,7 @@ const GamesShowcase: React.FC = () => {
                   </svg>
                 </div>
                 <span className={styles.playText}>
-                  Load {activeGame.title}
+                  {activeGame.isExternal ? `Play ${activeGame.title}` : `Load ${activeGame.title}`}
                 </span>
               </motion.div>
             ) : null}

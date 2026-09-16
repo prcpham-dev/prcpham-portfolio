@@ -2,6 +2,29 @@ import type { ProjectItem } from "@/types/projects";
 
 export const projects: ProjectItem[] = [
     {
+        slug: "vivian",
+        name: "Vivian",
+        tech: "TypeScript, Python, FastAPI, WebSockets, D3.js, LangGraph, Google Gemini API",
+        image: "https://www.youtube.com/watch?v=JRHTtBRxPOg&t=1s",
+        link: "https://marketplace.visualstudio.com/items?itemName=prcpham.vivian-vision",
+        details: `Vivian is an intelligent code analysis tool designed to visualize the codebase as an interactive graph, 
+                making it easier for both developers and AI agents to read, follow, and understand code structure. 
+                Built with a modern, multi-layered tech stack including a VS Code Extension, Python backend with FastAPI and WebSockets, 
+                D3.js for graph rendering, and LangGraph with the Google Gemini API for orchestrating AI agents.`,
+    },
+    {
+        slug: "upvotedle",
+        name: "Upvotedle",
+        tech: "React, Vite, TailwindCSS, Hono, Redis, Reddit Devvit",
+        image: "https://www.youtube.com/watch?v=QJ12zrlqYn0",
+        link: "https://www.reddit.com/r/upvotedle/",
+        details: `Built a Higher-or-Lower style trivia game on the Reddit Developer Platform (Devvit) where users guess which 
+                post has more upvotes. Developed the client with React, Vite, and TailwindCSS, backed by a lightweight 
+                Hono router. Implemented an automated background crawler via Devvit's Scheduler API to fetch, pair, 
+                and cache daily puzzles using Redis. Designed a tiered fallback system to support niche subreddits and 
+                ensure playable custom game modes.`,
+    },
+    {
         slug: "chatdocument",
         name: "ChatDocument",
         tech: "FastAPI, LangChain, Redis, Celery, React.js, Bootstrap, Docker, Nginx",
