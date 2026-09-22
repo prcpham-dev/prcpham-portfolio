@@ -38,7 +38,7 @@ const GamesShowcase: React.FC = () => {
   };
 
   return (
-    <section className={styles.section}>
+    <section id="games" className={styles.section}>
       <div className={styles.container}>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ const GamesShowcase: React.FC = () => {
                 }}
               >
                 <div className={styles.playIconWrapper}>
-                  <svg className="w-12 h-12 text-[#000] ml-2" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-9 h-9 md:w-12 md:h-12 text-[#000] ml-1 md:ml-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>

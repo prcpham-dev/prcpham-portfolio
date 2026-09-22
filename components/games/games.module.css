@@ -14,13 +14,21 @@
   width: 100%;
   max-width: 64rem;
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-inline: 1.5rem;
+  }
 }
 
 .tabRow {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.625rem 1rem;
   justify-content: center;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
@@ -39,26 +47,33 @@
 }
 
 .sectionTitle {
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 
 @media (min-width: 768px) {
   .sectionTitle {
     font-size: 3.75rem;
+    margin-bottom: 3rem;
   }
 }
 
 .tabButton {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 0.875rem;
   cursor: pointer;
   background: none;
   border: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 640px) {
+  .tabButton {
+    padding: 0.75rem 1.5rem;
+  }
 }
 
 .tabWrapper {
@@ -113,7 +128,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  min-height: 450px;
+  min-height: 250px;
   border: 1px solid var(--color-border);
   border-radius: 0.125rem;
   overflow: hidden;
@@ -122,9 +137,16 @@
   box-shadow: 0 0 30px var(--game-color-alpha);
 }
 
+@media (min-width: 640px) {
+  .showcaseContainer {
+    min-height: 400px;
+  }
+}
+
 @media (min-width: 768px) {
   .showcaseContainer {
     height: 600px;
+    min-height: 600px;
   }
 }
 
@@ -145,6 +167,7 @@
   cursor: pointer;
   border: 1px solid var(--game-color);
   transition: background-color 0.4s ease, border-color 0.4s ease;
+  padding: 1rem;
 }
 
 .playOverlay:hover {
@@ -152,15 +175,23 @@
 }
 
 .playIconWrapper {
-  width: 6rem;
-  height: 6rem;
+  width: 4.5rem;
+  height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   background-color: var(--game-color);
   box-shadow: 0 0 30px var(--game-color);
   transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .playIconWrapper {
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .playOverlay:hover .playIconWrapper {
@@ -168,9 +199,16 @@
 }
 
 .playText {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--game-color);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .playText {
+    font-size: 1.25rem;
+  }
 }
