@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 
 const images = [
   "/ProfilePics/01-v2.jpeg",
@@ -24,8 +24,14 @@ const positions = [
   { top: "46%", right: "6%", width: "clamp(210px, 18vw, 320px)", height: "clamp(130px, 11vw, 190px)", speed: -0.08, displayClass: "hidden lg:block" },
 ];
 
-const ParallaxImage = ({ src, pos }: { src: string; pos: { top: string, left?: string, right?: string, width: string, height: string, speed: number, displayClass: string } }) => {
-  const { scrollY } = useScroll();
+// Accepts shared scrollY so we only need ONE scroll listener for all images
+const ParallaxImage = ({
+  src, pos, scrollY
+}: {
+  src: string;
+  pos: typeof positions[number];
+  scrollY: MotionValue<number>;
+}) => {
   const y = useTransform(scrollY, [0, 3000], [0, pos.speed * 3000]);
 
   return (
@@ -45,7 +51,8 @@ const ParallaxImage = ({ src, pos }: { src: string; pos: { top: string, left?: s
       transition={{ duration: 1 }}
       className={`rounded-sm overflow-hidden shadow-[0_0_20px_rgba(0,240,255,0.15)] border border-[var(--color-brand-accent)]/30 mix-blend-luminosity hover:mix-blend-normal pointer-events-auto cursor-crosshair z-0 ${pos.displayClass}`}
     >
-      <Image src={src} alt="Cyberpunk Aesthetic Scatter" fill className="object-cover" priority sizes="(max-width: 768px) 50vw, 25vw" />
+      {/* No priority — these are decorative, not LCP */}
+      <Image src={src} alt="Cyberpunk Aesthetic Scatter" fill className="object-cover" loading="lazy" sizes="25vw" />
 
       {/* Glitch Overlay Effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff003c]/10 to-transparent mix-blend-overlay pointer-events-none" />
@@ -54,6 +61,7 @@ const ParallaxImage = ({ src, pos }: { src: string; pos: { top: string, left?: s
 };
 
 const ScatteredPictures: React.FC = () => {
+  // One shared scroll listener instead of 7 separate ones
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 400, 800], [1, 1, 0]);
 
@@ -63,7 +71,7 @@ const ScatteredPictures: React.FC = () => {
       className="fixed inset-0 w-full h-[150vh] pointer-events-none z-0 overflow-visible"
     >
       {images.map((src, idx) => (
-        <ParallaxImage key={src} src={src} pos={positions[idx]} />
+        <ParallaxImage key={src} src={src} pos={positions[idx]} scrollY={scrollY} />
       ))}
     </motion.div>
   );
