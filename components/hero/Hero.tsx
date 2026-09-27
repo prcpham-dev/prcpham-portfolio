@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
       {isDesktop && <div className={styles.glowRed} />}
 
       {isDesktop && <Hero3DBackground activeModel={activeModel} />}
-      {isDesktop && <ScatteredPictures />}
+      <ScatteredPictures isMobile={!isDesktop} />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
