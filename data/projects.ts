@@ -8,9 +8,22 @@ export const projects: ProjectItem[] = [
         image: "https://www.youtube.com/watch?v=JRHTtBRxPOg&t=1s",
         link: "https://marketplace.visualstudio.com/items?itemName=prcpham.vivian-vision",
         details: `Vivian is an intelligent code analysis tool designed to visualize the codebase as an interactive graph, 
-                making it easier for both developers and AI agents to read, follow, and understand code structure. 
-                Built with a modern, multi-layered tech stack including a VS Code Extension, Python backend with FastAPI and WebSockets, 
-                D3.js for graph rendering, and LangGraph with the Google Gemini API for orchestrating AI agents.`,
+        making it easier for both developers and AI agents to read, follow, and understand code structure. 
+        Built with a modern, multi-layered tech stack including a VS Code Extension, Python backend with FastAPI and WebSockets, 
+        D3.js for graph rendering, and LangGraph with the Google Gemini API for orchestrating AI agents.`,
+    },
+    {
+        slug: "enlight",
+        name: "Enlight",
+        tech: "Python, OpenCV, ElevenLab, Gemini API, Next.js, React, MongoDB",
+        image: "https://www.youtube.com/watch?v=ftk8_uDHdX8",
+        link: "https://devpost.com/software/remy-6i97br",
+        details: `Built an AI-powered visual companion and private memory timeline designed 
+                to help individuals living with memory issues navigate daily social interactions. 
+                Developed real-time multi-face recognition, lip-sync tracking, and audio transcription 
+                using Python, OpenCV, and ElevenLabs. Integrated Google Gemini for extracting facts and context 
+                from conversations, storing them in a custom GraphDB and MongoDB. Created a Next.js frontend with 
+                live GPS tracking via Google Maps API for proactive wandering alerts and timeline visualization.`,
     },
     {
         slug: "upvotedle",
