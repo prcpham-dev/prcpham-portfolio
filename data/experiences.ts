@@ -29,7 +29,7 @@ export const experiences: ExperienceItem[] = [
         ],
     },
     {
-        slug: "tvs-consulting-2025",
+        slug: "tvs-consulting-2026",
         title: "Software Engineer",
         company: "Tinh Van Consulting",
         date: "Apr 2026 – Sep 2026",

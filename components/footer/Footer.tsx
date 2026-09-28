@@ -28,6 +28,10 @@ const Footer: React.FC = () => {
         <a href="https://sketchfab.com/alexis.eginard" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>Alexis</a>
         {' '}· Editor {' '}
         <a target="_blank" rel="noopener noreferrer" className={styles.creditLink}>Bubson</a>
+        <br />
+        <span style={{ opacity: 0.6, fontSize: '0.85em', display: 'inline-block', marginTop: '0.8rem' }}>
+          P.S. Try checking the console log to reveal an Easter egg 👀
+        </span>
       </div>
     </footer>
   );
