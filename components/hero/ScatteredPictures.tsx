@@ -17,7 +17,7 @@ const images = [
 const positions = [
   { top: "45%", left: "15%", width: "clamp(160px, 14vw, 240px)", height: "clamp(200px, 19vw, 320px)", speed: 0.1, displayClass: "hidden sm:block" },
   { top: "15%", right: "7%", width: "clamp(160px, 15vw, 260px)", height: "clamp(210px, 22vw, 380px)", speed: -0.15, displayClass: "block" },
-  { top: "35%", left: "4%", width: "clamp(140px, 12vw, 220px)", height: "clamp(180px, 16vw, 290px)", speed: -0.05, displayClass: "block" },
+  { top: "35%", mobileTop: "50%", left: "4%", width: "clamp(140px, 12vw, 220px)", height: "clamp(180px, 16vw, 290px)", speed: -0.05, displayClass: "block" },
   { top: "12%", left: "6%", width: "clamp(130px, 12vw, 220px)", height: "clamp(130px, 12vw, 220px)", speed: 0.12, displayClass: "block" },
   { top: "4%", left: "22%", width: "clamp(190px, 16vw, 280px)", height: "clamp(130px, 11vw, 190px)", speed: -0.1, displayClass: "hidden lg:block" },
   { top: "42%", right: "26%", width: "clamp(210px, 18vw, 320px)", height: "clamp(130px, 11vw, 190px)", speed: -0.08, displayClass: "hidden lg:block" },
@@ -62,7 +62,7 @@ const StaticImage = ({ src, pos }: { src: string; pos: typeof positions[number] 
   <motion.div
     style={{
       position: 'absolute',
-      top: pos.top,
+      top: pos.mobileTop || pos.top,
       left: pos.left,
       right: pos.right,
       width: pos.width,
