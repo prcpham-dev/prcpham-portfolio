@@ -86,8 +86,9 @@ const ScatteredPictures: React.FC<{ isMobile?: boolean }> = ({ isMobile = false 
 
   if (isMobile) {
     return (
-      // absolute (not fixed) so it doesn't interfere with mobile scroll
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+      // absolute so they sit inside the hero section and scroll away normally
+      // pointer-events:none means this never blocks touch/scroll
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
         {images.map((src, idx) => (
           <StaticImage key={src} src={src} pos={positions[idx]} />
         ))}

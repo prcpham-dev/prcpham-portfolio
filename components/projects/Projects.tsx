@@ -33,6 +33,15 @@ const Projects: React.FC = () => {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [isBirthday, setIsBirthday] = useState(false);
+
+  useEffect(() => {
+    const today = new Date();
+    // month is 0-indexed, so 8 = September
+    if (today.getMonth() === 8 && today.getDate() === 27) {
+      setIsBirthday(true);
+    }
+  }, []);
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const nameLineRef = useRef<HTMLDivElement>(null);
@@ -95,7 +104,12 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className={styles.section}>
       <h2 className={styles.title}>
-        <Image src="/Items/LittleGhost.gif" className={styles.littleGhostImg} alt="Little Ghost" priority width={224} height={224} />
+        <div className={styles.ghostContainer}>
+          <Image src="/Items/LittleGhost.gif" className={styles.littleGhostImg} alt="Little Ghost" priority width={224} height={224} />
+          {isBirthday && (
+            <Image src="/hats/birthday_hat.png" className={styles.ghostHat} alt="Birthday Hat" width={100} height={100} />
+          )}
+        </div>
         <span className={styles.titleText}>Projects</span>
       </h2>
 

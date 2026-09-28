@@ -20,56 +20,72 @@
 .section {
   position: relative;
   width: 100%;
-  min-height: 65vh;
+  min-height: 75vh;
+  /* Increased height since we now have the Prometheus background to show off */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  padding-top: 5rem;
-  /* Subtle green/cyan ambient on mobile (no glow orbs rendered) */
-  background: radial-gradient(
-    ellipse 80% 50% at 50% 0%,
-    color-mix(in srgb, var(--color-brand-accent) 8%, transparent) 0%,
-    transparent 70%
-  );
+  padding-top: 6rem;
+
+  /* Prometheus background for mobile */
+  background-color: #292929;
+  background-image:
+    linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)),
+    url('/Items/Prometheus.png');
+  background-size: cover, cover;
+  background-position: center center, center center;
 }
 
 @media (min-width: 768px) {
   .section {
     min-height: 95vh;
     padding-top: 10rem;
-    background: none;
+    /* Shifts the image focal point on desktop */
+    background-position: center center, center 20%;
   }
 }
 
-/* Glow orbs */
+/* Glow orbs - Hidden on mobile so they don't wash out Prometheus */
 .glowCyan {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  background: color-mix(in srgb, var(--color-brand-accent) 30%, transparent);
-  filter: blur(150px);
-  border-radius: 9999px;
-  pointer-events: none;
-  mix-blend-mode: screen;
+  display: none;
 }
 
 .glowRed {
-  position: absolute;
-  top: 20%;
-  left: 33%;
-  transform: translateX(-50%);
-  width: 400px;
-  height: 400px;
-  background: color-mix(in srgb, var(--color-brand-secondary-accent) 20%, transparent);
-  filter: blur(120px);
-  border-radius: 9999px;
-  pointer-events: none;
-  mix-blend-mode: screen;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .glowCyan {
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: color-mix(in srgb, var(--color-brand-accent) 30%, transparent);
+    filter: blur(150px);
+    border-radius: 9999px;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  .glowRed {
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 33%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background: color-mix(in srgb, var(--color-brand-secondary-accent) 20%, transparent);
+    filter: blur(120px);
+    border-radius: 9999px;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
 }
 
 /* Touch scroll safe zones (mobile only) */
@@ -175,17 +191,53 @@
 }
 
 @keyframes heroGlitchTop {
-  0%, 85%, 100% { transform: translate(0); opacity: 0; }
-  86%            { transform: translate(-4px, -2px); opacity: 0.8; }
-  88%            { transform: translate(4px, 2px); opacity: 0.8; }
-  90%            { transform: translate(0); opacity: 0; }
+
+  0%,
+  85%,
+  100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+
+  86% {
+    transform: translate(-4px, -2px);
+    opacity: 0.8;
+  }
+
+  88% {
+    transform: translate(4px, 2px);
+    opacity: 0.8;
+  }
+
+  90% {
+    transform: translate(0);
+    opacity: 0;
+  }
 }
 
 @keyframes heroGlitchBottom {
-  0%, 82%, 100% { transform: translate(0); opacity: 0; }
-  83%           { transform: translate(4px, 2px); opacity: 0.8; }
-  86%           { transform: translate(-4px, -2px); opacity: 0.8; }
-  88%           { transform: translate(0); opacity: 0; }
+
+  0%,
+  82%,
+  100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+
+  83% {
+    transform: translate(4px, 2px);
+    opacity: 0.8;
+  }
+
+  86% {
+    transform: translate(-4px, -2px);
+    opacity: 0.8;
+  }
+
+  88% {
+    transform: translate(0);
+    opacity: 0;
+  }
 }
 
 /* Switch Reality button */

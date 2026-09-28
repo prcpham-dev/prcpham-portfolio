@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
   │   ├── public/
   │   ├── styles/
   │   └── ...
-  │── README.md
+  └── README.md
       `,
       "color: #00f0ff; font-family: monospace; font-size: 0.85rem;"
     );

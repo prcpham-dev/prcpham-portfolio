@@ -24,8 +24,8 @@ const Hero: React.FC = () => {
   return (
     <section className={styles.section}>
 
-      {isDesktop && <div className={styles.glowCyan} />}
-      {isDesktop && <div className={styles.glowRed} />}
+      <div className={styles.glowCyan} />
+      <div className={styles.glowRed} />
 
       {isDesktop && <Hero3DBackground activeModel={activeModel} />}
       <ScatteredPictures isMobile={!isDesktop} />
