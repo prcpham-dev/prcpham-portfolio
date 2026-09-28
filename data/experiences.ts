@@ -28,4 +28,15 @@ export const experiences: ExperienceItem[] = [
             "Performed data preprocessing using exploratory **data analysis (EDA)** and **KNN-based filtering**.",
         ],
     },
+    {
+        slug: "tvs-consulting-2025",
+        title: "Software Engineer",
+        company: "Tinh Van Consulting",
+        date: "Apr 2026 – Sep 2026",
+        details: [
+            "Developed a Microsoft Teams-native HR AI Assistant MVP utilizing **Node.js**, **NestJS**, and **TypeScript** within a Modular Monolith Clean Architecture.",
+            "Architected an intelligent HRM Connector bridging Microsoft Teams with core HRM systems for seamless data synchronization and administrative automation.",
+            "Engineered end-to-end leave management workflows, utilizing **Prisma ORM** and **PostgreSQL** for multi-tenant database structuring and AI execution tracking.",
+        ],
+    },
 ];

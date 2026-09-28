@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  padding-top: 6rem;
+  padding-top: 16rem;
 
   /* Prometheus background for mobile */
   background-color: #292929;
@@ -58,7 +58,7 @@
 
 @media (min-width: 768px) {
   .glowCyan {
-    display: block;
+    display: none;
     position: absolute;
     top: 25%;
     left: 50%;
@@ -73,7 +73,7 @@
   }
 
   .glowRed {
-    display: block;
+    display: none;
     position: absolute;
     top: 20%;
     left: 33%;
@@ -143,10 +143,11 @@
 }
 
 .title {
-  font-size: clamp(3.5rem, 10vw, 10rem);
+  font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 900;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  white-space: pre-line;
   margin-bottom: 2rem;
   position: relative;
   color: transparent;
@@ -156,6 +157,12 @@
       var(--color-brand-accent),
       #fff,
       var(--color-brand-secondary-accent));
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: clamp(4rem, 10vw, 10rem);
+  }
 }
 
 .title::before,

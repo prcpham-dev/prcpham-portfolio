@@ -16,7 +16,7 @@ const images = [
 
 const positions = [
   { top: "45%", left: "15%", width: "clamp(160px, 14vw, 240px)", height: "clamp(200px, 19vw, 320px)", speed: 0.1, displayClass: "hidden sm:block" },
-  { top: "15%", right: "7%", width: "clamp(160px, 15vw, 260px)", height: "clamp(210px, 22vw, 380px)", speed: -0.15, displayClass: "block" },
+  { top: "15%", right: "7%", width: "clamp(160px, 15vw, 260px)", height: "clamp(210px, 22vw, 380px)", speed: -0.15, displayClass: "hidden sm:block" },
   { top: "35%", mobileTop: "50%", left: "4%", width: "clamp(140px, 12vw, 220px)", height: "clamp(180px, 16vw, 290px)", speed: -0.05, displayClass: "block" },
   { top: "12%", left: "6%", width: "clamp(130px, 12vw, 220px)", height: "clamp(130px, 12vw, 220px)", speed: 0.12, displayClass: "block" },
   { top: "4%", left: "22%", width: "clamp(190px, 16vw, 280px)", height: "clamp(130px, 11vw, 190px)", speed: -0.1, displayClass: "hidden lg:block" },
@@ -46,10 +46,10 @@ const ParallaxImage = ({
         y
       }}
       initial={{ opacity: 0, filter: 'blur(10px)' }}
-      animate={{ opacity: 0.4, filter: 'blur(0px)' }}
-      whileHover={{ opacity: 1, filter: 'contrast(1.2)' }}
+      animate={{ opacity: 1, filter: 'blur(0px)' }}
+      whileHover={{ filter: 'contrast(1.2)' }}
       transition={{ duration: 1 }}
-      className={`rounded-sm overflow-hidden shadow-[0_0_20px_rgba(0,240,255,0.15)] border border-[var(--color-brand-accent)]/30 mix-blend-luminosity hover:mix-blend-normal pointer-events-auto cursor-crosshair z-0 ${pos.displayClass}`}
+      className={`rounded-sm overflow-hidden border border-[var(--color-brand-accent)]/30 pointer-events-auto cursor-crosshair z-0 ${pos.displayClass}`}
     >
       <Image src={src} alt="Cyberpunk Aesthetic Scatter" fill className="object-cover" loading="lazy" sizes="25vw" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff003c]/10 to-transparent mix-blend-overlay pointer-events-none" />
@@ -69,9 +69,9 @@ const StaticImage = ({ src, pos }: { src: string; pos: typeof positions[number] 
       height: pos.height,
     }}
     initial={{ opacity: 0 }}
-    animate={{ opacity: 0.35 }}
+    animate={{ opacity: 1 }}
     transition={{ duration: 1.2 }}
-    className={`rounded-sm overflow-hidden border border-[var(--color-brand-accent)]/20 mix-blend-luminosity z-0 ${pos.displayClass}`}
+    className={`rounded-sm overflow-hidden border border-[var(--color-brand-accent)]/20 z-0 ${pos.displayClass}`}
   >
     <Image src={src} alt="Cyberpunk Aesthetic Scatter" fill className="object-cover" loading="lazy" sizes="50vw" />
     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ff003c]/10 to-transparent mix-blend-overlay pointer-events-none" />
