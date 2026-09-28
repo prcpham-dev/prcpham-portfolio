@@ -6,8 +6,7 @@ const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <span className={styles.brandName}>Prcpham</span>
-          <span className={styles.brandSub}>© Phong (Percy) Pham</span>
+          <span className={styles.brandName}>@Phong (Percy) Pham</span>
         </div>
 
         <div className={styles.links}>

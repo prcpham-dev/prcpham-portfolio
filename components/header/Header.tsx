@@ -25,8 +25,8 @@ const Header: React.FC = () => {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className={styles.brand}
         >
-          <span>PRCPHAM</span>
-          <span className={styles.textOverlay} aria-hidden="true">PRCPHAM</span>
+          <span>PERCY PHAM</span>
+          <span className={styles.textOverlay} aria-hidden="true">PERCY PHAM</span>
           <span className={styles.brandUnderline}></span>
         </button>
 

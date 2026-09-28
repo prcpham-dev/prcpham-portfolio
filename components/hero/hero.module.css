@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  padding-top: 16rem;
+  padding-top: 8rem;
 
   /* Prometheus background for mobile */
   background-color: #292929;
@@ -150,6 +150,7 @@
 }
 
 .title {
+  display: none;
   font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 900;
   letter-spacing: 0.15em;
@@ -162,6 +163,7 @@
 
 @media (min-width: 768px) {
   .title {
+    display: block;
     font-size: clamp(4rem, 10vw, 10rem);
     color: transparent;
     background-clip: text;
