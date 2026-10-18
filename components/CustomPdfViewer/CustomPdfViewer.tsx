@@ -9,10 +9,11 @@ export default function CustomPdfViewer({ file }: Props) {
     const [loaded, setLoaded] = useState(false);
     const filePath = file.startsWith('http') ? file : `/${file.replace(/^\//, '')}`;
 
-    const isLocalhost = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+    const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://prcpham.com';
     const src = isLocalhost
         ? filePath
-        : `https://docs.google.com/viewer?url=${encodeURIComponent(`https://prcpham.com${filePath}`)}&embedded=true`;
+        : `https://docs.google.com/viewer?url=${encodeURIComponent(`${baseUrl}${filePath}`)}&embedded=true`;
 
     return (
         <div className={styles.container}>
