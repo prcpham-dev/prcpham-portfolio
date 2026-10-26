@@ -9,6 +9,8 @@ export default function Document() {
           type="image/x-icon"
           href="/favicon.ico"
         />
+        <title>PERCY PHAM</title>
+        <meta name="description" content="A simple showcase of my work and projects." />
       </Head>
       <body>
         <Main />
